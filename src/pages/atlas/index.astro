@@ -46,6 +46,10 @@ const data = { nodes: NODES, edges: EDGES, types: NODE_TYPES, eras: ERAS };
       }
     </ol>
 
+    <p class="atlas-mobile-note">
+      窄屏下关系图的可读性有限，已切换为按阶段整理的列表；桌面端可以拖拽、缩放并点开节点。
+    </p>
+
     <div class="atlas-shell">
       <div class="atlas-toolbar" role="toolbar" aria-label="图谱筛选">
         <button class="chip" data-era="all" aria-pressed="true">全部</button>
@@ -518,6 +522,10 @@ const data = { nodes: NODES, edges: EDGES, types: NODE_TYPES, eras: ERAS };
 
   applyTransform();
   render();
+
+  if (matchMedia('(max-width: 760px)').matches) {
+    document.querySelector('.atlas-list')?.setAttribute('open', '');
+  }
 </script>
 
 <style>
@@ -592,9 +600,34 @@ const data = { nodes: NODES, edges: EDGES, types: NODE_TYPES, eras: ERAS };
   :global(.atlas-node text.label--quiet) {
     opacity: 0;
   }
+  .atlas-mobile-note {
+    display: none;
+  }
   @media (max-width: 760px) {
     .atlas-timeline {
-      grid-template-columns: repeat(5, 11rem);
+      grid-template-columns: 1fr 1fr;
+    }
+    .atlas-timeline__item {
+      padding: 0.75rem 0.7rem 0.85rem;
+    }
+    .atlas-timeline__note {
+      font-size: 0.7rem;
+    }
+    .atlas-shell,
+    .atlas-legend {
+      display: none;
+    }
+    .atlas-mobile-note {
+      display: block;
+      font-size: 0.84rem;
+      color: var(--muted);
+      border-left: 2px solid var(--rule-2);
+      padding: 0.2rem 0 0.2rem 0.8rem;
+      margin: 0 0 1.4rem;
+      line-height: 1.7;
+    }
+    .atlas-list {
+      margin-top: 1.4rem;
     }
   }
 </style>
