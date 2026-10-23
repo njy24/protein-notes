@@ -66,13 +66,14 @@ export const CATEGORIES: Record<CategoryId, { label: string; en: string; color: 
   commentary: { label: '观点与讨论', en: 'Commentary', color: 'var(--c-plum)' },
 };
 
-export type EvidenceId = 'peer-reviewed' | 'preprint' | 'report' | 'news';
+export type EvidenceId = 'peer-reviewed' | 'preprint' | 'report' | 'news' | 'review';
 
 export const EVIDENCE: Record<EvidenceId, { label: string; short: string; color: string }> = {
   'peer-reviewed': { label: '同行评议', short: 'PEER', color: 'var(--c-green)' },
   preprint: { label: '预印本', short: 'PREPRINT', color: 'var(--c-ochre)' },
   report: { label: '技术报告', short: 'REPORT', color: 'var(--c-blue)' },
   news: { label: '新闻/博客', short: 'NEWS', color: 'var(--c-slate)' },
+  review: { label: '综述/评论', short: 'REVIEW', color: 'var(--c-plum)' },
 };
 
 /** 公开的编辑流程（/method 页面据此渲染） */

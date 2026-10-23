@@ -1065,7 +1065,7 @@ hr {
   border-top: 1px solid var(--rule);
   position: relative;
 }
-.prose h2::before {
+.prose--numbered h2::before {
   content: counter(sec, decimal-leading-zero);
   counter-increment: sec;
   position: absolute;
@@ -1077,7 +1077,7 @@ hr {
   color: var(--accent);
   font-weight: 400;
 }
-.prose {
+.prose--numbered {
   counter-reset: sec;
 }
 .prose h3 {
@@ -1850,7 +1850,7 @@ hr {
   .item__no {
     font-size: 1.1rem;
   }
-  .prose h2::before {
+  .prose--numbered h2::before {
     position: static;
     display: block;
     margin-bottom: 0.2rem;

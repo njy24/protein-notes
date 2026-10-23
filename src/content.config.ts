@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 
 const CATEGORY = z.enum(['methods', 'design', 'experiments', 'tools', 'industry', 'commentary']);
 const PROJECT = z.enum(['P1', 'P2']);
-const EVIDENCE = z.enum(['peer-reviewed', 'preprint', 'report', 'news']);
+const EVIDENCE = z.enum(['peer-reviewed', 'preprint', 'report', 'news', 'review']);
 
 const item = z.object({
   title: z.string(),

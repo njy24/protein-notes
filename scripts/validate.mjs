@@ -11,7 +11,7 @@ const errors = [];
 const warnings = [];
 const CATS = ['methods', 'design', 'experiments', 'tools', 'industry', 'commentary'];
 const PROJECTS = ['P1', 'P2'];
-const EVIDENCE = ['peer-reviewed', 'preprint', 'report', 'news'];
+const EVIDENCE = ['peer-reviewed', 'preprint', 'report', 'news', 'review'];
 
 function frontmatter(src) {
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---/);
