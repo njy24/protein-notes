@@ -137,6 +137,9 @@ SITE_URL=https://yourname.github.io BASE_PATH=/your-repo/ npm run build
 它需要仓库 Secret `OPENAI_API_KEY`（可选 `OPENAI_BASE_URL`、`OPENAI_MODEL`）；没有 key 时只生成骨架。
 
 > GitHub 的定时任务在仓库 60 天无活动后会被暂停；重新手动触发即可恢复。
+>
+> 自动工作流要能开 PR，还需要在 **Settings → Actions → General → Workflow permissions** 勾选
+> **Allow GitHub Actions to create and approve pull requests**。没有这一步，采集任务能跑完，但 PR 创建会失败。
 
 ## 隐私
 
