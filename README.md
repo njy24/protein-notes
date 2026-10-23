@@ -2,7 +2,8 @@
 
 一个服务于两个蛋白质课题的公开信息工作流：**追踪进展 → 拆解方法 → 核验证据 → 写成文章 → 发布到站点**。
 
-- 站点：Astro 5 静态构建，部署在 GitHub Pages
+- 线上站点：<https://njy24.github.io/protein-notes/>（仓库：<https://github.com/njy24/protein-notes>）
+- 技术：Astro 5 静态构建，部署在 GitHub Pages
 - 内容：速递（每周两期）+ 深度笔记（每月 2–3 篇）+ 领域图谱
 - 管线：arXiv / PubMed / Crossref / RSS 采集 → 关键词预筛 → 可选 LLM 草稿 → 人工审阅
 - 原则：机器负责发现，人负责判断；自动生成内容一律 `draft: true`，不会进入生产构建

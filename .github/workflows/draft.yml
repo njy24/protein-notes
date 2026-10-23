@@ -25,7 +25,17 @@ jobs:
       - run: npm run fetch
       - run: npm run triage
 
+      - name: Check API key
+        id: key
+        run: |
+          if [ -n "${{ secrets.OPENAI_API_KEY }}" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate draft
+        if: steps.key.outputs.present == 'true'
         run: npm run draft -- --count=8
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -33,6 +43,7 @@ jobs:
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
 
       - name: Open draft PR
+        if: steps.key.outputs.present == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
