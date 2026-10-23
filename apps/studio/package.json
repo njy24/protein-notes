@@ -1,0 +1,12 @@
+{
+  "name": "@protein/studio",
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "marked": "^15.0.0",
+    "yaml": "^2.9.1"
+  }
+}

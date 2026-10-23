@@ -1,0 +1,62 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const CATEGORY = z.enum(['methods', 'design', 'experiments', 'tools', 'industry', 'commentary']);
+
+const item = z.object({
+  title: z.string(),
+  titleEn: z.string().optional(),
+  url: z.string().url(),
+  source: z.string(),
+  date: z.coerce.date().optional(),
+  category: CATEGORY,
+  tldr: z.string(),
+  body: z.string().optional(),
+  why: z.string().optional(),
+  caveat: z.string().optional(),
+  doi: z.string().optional(),
+  tags: z.array(z.string()).default([]),
+});
+
+const weekly = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: '../../content/weekly' }),
+  schema: z.object({
+    title: z.string(),
+    issue: z.number().int().positive(),
+    week: z.string(),
+    date: z.coerce.date(),
+    period: z.object({ from: z.coerce.date(), to: z.coerce.date() }).optional(),
+    summary: z.string(),
+    judgement: z.array(z.string()).max(5).default([]),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+    items: z.array(item).min(1),
+  }),
+});
+
+const citation = z.object({
+  title: z.string(),
+  authors: z.string().optional(),
+  year: z.number().optional(),
+  venue: z.string().optional(),
+  doi: z.string().optional(),
+  url: z.string().url().optional(),
+  note: z.string().optional(),
+});
+
+const deep = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: '../../content/deep' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string().optional(),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    summary: z.string(),
+    tags: z.array(z.string()).default([]),
+    citations: z.array(citation).default([]),
+    series: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { weekly, deep };

@@ -1,8 +1,0 @@
----
-import { EVIDENCE } from '../config/site';
-interface Props {
-  evidence: keyof typeof EVIDENCE;
-}
-const e = EVIDENCE[Astro.props.evidence];
----
-<span class="badge" style={`--c:${e.color}`}>{e.label}</span>

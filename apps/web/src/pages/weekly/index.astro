@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+import { fmtDate } from '../../lib/format';
+
+const weekly = (await getCollection('weekly', ({ data }) => (import.meta.env.PROD ? !data.draft : true))).sort(
+  (a, b) => b.data.issue - a.data.issue
+);
+---
+<Base title="周报" description="每周五一份：五到六条值得读的进展，每条给出结论、关键数字与边界。">
+  <div class="wrap">
+    <header class="index-head">
+      <p class="kicker">周报 / Weekly</p>
+      <h1>每周五，五到六条</h1>
+      <p class="lede" style="margin-top:1rem">
+        只保留值得花时间读的进展。每条给出结论、关键数字、为什么值得读，以及它的边界。
+      </p>
+      <p class="meta" style="margin-top:1.4rem"><span>{weekly.length} 期</span><span class="meta__dot"></span><span>每周五更新</span></p>
+    </header>
+
+    <ul class="index-list" style="margin-top:1rem">
+      {weekly.map((w) => (
+        <li>
+          <a class="index-row" href={url(`/weekly/${w.id}/`)}>
+            <span class="index-row__date">{w.data.week}</span>
+            <span>
+              <span class="index-row__title">{w.data.title}</span>
+              <span class="index-row__desc">{w.data.summary}</span>
+            </span>
+            <span class="index-row__meta">{fmtDate(w.data.date, 'short')}<br />{w.data.items.length} 条</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

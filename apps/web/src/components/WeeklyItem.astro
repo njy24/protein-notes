@@ -1,0 +1,57 @@
+---
+import { CATEGORIES, type CategoryId } from '@protein/core';
+import { inline, fmtDate } from '../lib/format';
+
+interface Item {
+  title: string;
+  titleEn?: string;
+  url: string;
+  source: string;
+  date?: Date;
+  category: CategoryId;
+  tldr: string;
+  body?: string;
+  why?: string;
+  caveat?: string;
+  doi?: string;
+  tags: string[];
+}
+interface Props {
+  item: Item;
+  index: number;
+  id: string;
+}
+const { item, index, id } = Astro.props;
+const cat = CATEGORIES[item.category];
+---
+<article class="item" id={id}>
+  <div class="item__no num">{String(index + 1).padStart(2, '0')}</div>
+  <div>
+    <div class="item__meta">
+      <span class="item__cat" style={`--c:${cat.color}`}>
+        <span class="dot" style={`--c:${cat.color}`}></span>{cat.label}
+      </span>
+      <span class="faint mono" style="font-size:.66rem">{item.source}</span>
+      {item.date && <span class="faint mono" style="font-size:.66rem">{fmtDate(item.date, 'iso')}</span>}
+    </div>
+
+    <h2>
+      <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+      {item.titleEn && <span class="item__title-en">{item.titleEn}</span>}
+    </h2>
+
+    <p class="item__tldr" set:html={inline(item.tldr)} />
+    {item.body && <div class="item__body" set:html={`<p>${inline(item.body)}</p>`} />}
+
+    <div class="item__foot">
+      {item.why && <div class="item__why"><b>为什么值得读</b>{item.why}</div>}
+      {item.caveat && <div class="item__why" style="--c:var(--c-ochre)"><b style="color:var(--c-ochre)">边界</b>{item.caveat}</div>}
+    </div>
+
+    <div class="item__foot" style="margin-top:.9rem">
+      <a href={item.url} target="_blank" rel="noopener noreferrer">原文 / 来源 ↗</a>
+      {item.doi && <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer">DOI: {item.doi}</a>}
+      {item.tags.map((t) => <span class="faint" style="font-size:.72rem">#{t}</span>)}
+    </div>
+  </div>
+</article>

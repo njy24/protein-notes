@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+import { fmtDate, readingTime } from '../../lib/format';
+
+const deep = (await getCollection('deep', ({ data }) => (import.meta.env.PROD ? !data.draft : true))).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+<Base title="深度" description="不定期长文：把一条路线拆到可以动手，写清方法与失效条件。">
+  <div class="wrap">
+    <header class="index-head">
+      <p class="kicker">深度 / Deep</p>
+      <h1>把一条路线拆到可以动手</h1>
+      <p class="lede" style="margin-top:1rem">
+        一篇只讲一个问题：它怎么做到、在什么条件下不成立、哪些部分可以迁移。
+        有公式、有参考文献，也有明确的失败条件。
+      </p>
+      <p class="meta" style="margin-top:1.4rem"><span>{deep.length} 篇</span><span class="meta__dot"></span><span>不定期更新</span></p>
+    </header>
+
+    <ul class="index-list" style="margin-top:1rem">
+      {deep.map((n, i) => (
+        <li>
+          <a class="index-row" href={url(`/deep/${n.id}/`)}>
+            <span class="index-row__date">{fmtDate(n.data.date, 'short')}</span>
+            <span>
+              <span class="index-row__title">{n.data.title}</span>
+              <span class="index-row__desc">{n.data.summary}</span>
+            </span>
+            <span class="index-row__meta">{String(deep.length - i).padStart(2, '0')} · {readingTime(n.body ?? '')} MIN</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

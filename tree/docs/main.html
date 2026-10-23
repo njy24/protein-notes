@@ -1,0 +1,17 @@
+<h1>从结构预测到从头设计</h1>
+<p>这条链路可以压缩成一句话：先用 <a class="t" data-t="alphafold2">AlphaFold 2</a> 把结构变成可计算的中间表示，再用 <a class="t" data-t="rfdiffusion">RFdiffusion</a> 之类的生成模型采样新的骨架，用 <a class="t" data-t="proteinmpnn">ProteinMPNN</a> 把骨架反解成序列，最后交给实验去验证它是否真的结合。每一层都在进步，但层与层之间的误差会继承。</p>
+
+<h2>结构不再是终点</h2>
+<p><a class="t" data-t="alphafold2">AlphaFold 2</a> 的意义不只是精度：它把“序列到坐标”变成一个稳定、可批量调用的函数。<a class="t" data-t="rosettafold">RoseTTAFold</a> 与 <a class="t" data-t="colabfold">ColabFold</a> 让这件事可及，<a class="t" data-t="esmfold">ESMFold</a> 用语言模型换速度，<a class="t" data-t="alphafold3">AlphaFold 3</a> 与 Boltz 系列把问题扩展到复合物与配体。到这里，结构从一个研究对象变成了下游模型的输入。</p>
+
+<h2>生成骨架</h2>
+<p><a class="t" data-t="rfjoint">RFjoint</a> 先用“补全”的思路把功能位点装进新骨架，<a class="t" data-t="rfdiffusion">RFdiffusion</a> 把同一个结构模块变成按条件采样的生成器，<a class="t" data-t="chroma">Chroma</a> 则强调可控性与对称性。生成的仍然是骨架——它决定界面几何，但还没有回答“什么序列能折叠成它”。</p>
+
+<h2>序列与可设计性</h2>
+<p><a class="t" data-t="proteinmpnn">ProteinMPNN</a> 是这条链路的默认序列层：给定骨架，输出每个位置的氨基酸分布。<a class="t" data-t="esm3">ESM3</a> 试图把序列、结构、功能放在同一个生成模型里。它们的共同问题是：可设计性不等于可表达性，模型没有见过细胞里的折叠压力。</p>
+
+<h2>设计输入的变化</h2>
+<p>过去的设计输入是靶点加 hotspot；现在开始出现自然语言。<a class="t" data-t="pinal">Pinal</a> 用功能描述生成候选，在四个任务上拿到了实验验证；<a class="t" data-t="ofantibody">OFAntibody</a> 把输入扩展到多组件复合物，试图同时满足两个界面。输入越自由，评估就越难：生成结果是否真的满足那句话，仍然没有标准答案。</p>
+
+<h2>下一步</h2>
+<p>设计出来只是开始。表达、纯化、结合测定与结构验证决定了前三层有没有意义；这也是另一份专题报告的主题。</p>

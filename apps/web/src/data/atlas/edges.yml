@@ -1,0 +1,44 @@
+# 图谱边（人工维护）
+# type: extends | uses | enables | related | measures | part-of
+
+- { source: pdb, target: alphafold2, type: enables }
+- { source: pdb, target: rosettafold, type: enables }
+- { source: uniprot, target: esmfold, type: enables }
+- { source: uniprot, target: esm3, type: enables }
+- { source: alphafold2, target: rosettafold, type: related }
+- { source: alphafold2, target: colabfold, type: enables }
+- { source: alphafold2, target: esmfold, type: related }
+- { source: alphafold2, target: openfold, type: enables }
+- { source: alphafold2, target: alphafold3, type: extends }
+- { source: alphafold3, target: boltz1, type: related }
+- { source: boltz1, target: boltz2, type: extends }
+- { source: esmfold, target: esm3, type: extends }
+- { source: alphafold2, target: rfjoint, type: enables }
+- { source: rfjoint, target: rfdiffusion, type: extends }
+- { source: rfdiffusion, target: chroma, type: related }
+- { source: rfdiffusion, target: proteinmpnn, type: uses }
+- { source: alphafold2, target: proteinmpnn, type: related }
+- { source: alphafold2, target: cao2022, type: uses }
+- { source: rfdiffusion, target: cao2022, type: related }
+- { source: cao2022, target: binder, type: related }
+- { source: bindcraft, target: alphafold2, type: uses }
+- { source: bindcraft, target: binder, type: related }
+- { source: alphaproteo, target: binder, type: related }
+- { source: boltz2, target: affinity, type: measures }
+- { source: bindcraft, target: success_rate, type: measures }
+- { source: scorpion_binders, target: binder, type: related }
+- { source: scorpion_binders, target: success_rate, type: measures }
+- { source: scorpion_binders, target: anthropic_lab, type: part-of }
+- { source: anthropic_lab, target: enzyme_system, type: part-of }
+- { source: claude_science, target: scorpion_binders, type: enables }
+- { source: claude_science, target: model_optimization, type: enables }
+- { source: prompteina, target: rfdiffusion, type: related }
+- { source: ofantibody, target: binder, type: related }
+- { source: aptamer_loop, target: wet_lab_loop, type: related }
+- { source: wet_lab_loop, target: success_rate, type: related }
+- { source: esm3, target: binder, type: related }
+- { source: alphafold2, target: pinal, type: enables }
+- { source: pinal, target: binder, type: related }
+- { source: rfdiffusion, target: hydrogenase_binder, type: enables }
+- { source: hydrogenase_binder, target: binder, type: related }
+- { source: hydrogenase_binder, target: success_rate, type: measures }

@@ -30,3 +30,11 @@ Thumbs.db
 # logs
 *.log
 npm-debug.log*
+
+# concept-tree 构建产物（源在 tree/，发布产物在 apps/web/public/tree-app）
+tree/index.html
+tree/standalone/
+tree/glossary/*.js
+tree/glossary/*.css
+tree/glossary/figures/
+tree/figures/*.svg

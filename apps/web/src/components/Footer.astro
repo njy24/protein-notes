@@ -1,0 +1,13 @@
+---
+import { SITE } from '@protein/core';
+import { url } from '../lib/url';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="wrap footer__bottom" style="margin-top:0;border-top:1px solid var(--rule);padding-top:1.2rem">
+    <span>© {year} {SITE.name}</span>
+    <span>{SITE.license} · 静态构建</span>
+    <a href={url(SITE.rssPath)}>RSS</a>
+    {SITE.repoUrl && <a href={SITE.repoUrl} target="_blank" rel="noopener noreferrer">源码 ↗</a>}
+  </div>
+</footer>

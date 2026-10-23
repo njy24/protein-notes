@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>折叠之后 · 操作台</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">折叠之后 <span>STUDIO</span></div>
+    <div class="top-status" id="status">连接中…</div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="side-head">
+        <span>内容</span>
+        <button class="ghost" id="refresh" title="刷新">↻</button>
+      </div>
+      <section>
+        <div class="side-title"><span>周报</span><button class="ghost" id="new-weekly" title="新建周报">＋</button></div>
+        <ul id="weekly-list" class="file-list"></ul>
+      </section>
+      <section>
+        <div class="side-title"><span>深度</span><button class="ghost" id="new-deep" title="新建深度">＋</button></div>
+        <ul id="deep-list" class="file-list"></ul>
+      </section>
+      <section class="tools">
+        <div class="side-title"><span>管线</span></div>
+        <div class="tool-grid">
+          <button id="run-fetch">采集</button>
+          <button id="run-triage">预筛</button>
+          <button id="draft-weekly" class="wide">从 inbox 生成周报草稿</button>
+        </div>
+        <div class="inbox" id="inbox">—</div>
+      </section>
+    </aside>
+
+    <section class="editor">
+      <div class="editor-head">
+        <div class="file-info">
+          <b id="file-title">选择一篇内容</b>
+          <span id="file-meta"></span>
+        </div>
+        <div class="actions">
+          <button id="save" class="primary" disabled>保存</button>
+          <button id="preview-toggle" disabled>预览</button>
+          <button id="publish" disabled>发布</button>
+        </div>
+      </div>
+      <div class="panes">
+        <textarea id="source" spellcheck="false" placeholder="从左侧选择一篇内容，或新建一篇。"></textarea>
+        <div id="preview" class="preview" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bar"><span id="msg">就绪</span><span class="hint">⌘/Ctrl + S 保存</span></footer>
+  <script src="/app.js"></script>
+</body>
+</html>

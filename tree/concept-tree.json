@@ -1,0 +1,125 @@
+{
+  "title": "AI 蛋白质设计 · 知识树",
+  "glossary_dir": "glossary",
+  "docs": [
+    {
+      "file": "docs/main.html",
+      "style": "tutorial",
+      "title": "从结构预测到从头设计"
+    },
+    {
+      "file": "docs/validation.html",
+      "style": "survey",
+      "title": "实验与验证"
+    }
+  ],
+  "index_file": "index.html",
+  "standalone": false,
+  "roots": [
+    "alphafold2",
+    "rfdiffusion",
+    "scorpion_binders"
+  ],
+  "categories": [
+    {
+      "id": "structure",
+      "name": "结构预测与表征",
+      "priority": 5
+    },
+    {
+      "id": "design",
+      "name": "生成与设计",
+      "priority": 5
+    },
+    {
+      "id": "sequence",
+      "name": "序列与表征",
+      "priority": 4
+    },
+    {
+      "id": "eval",
+      "name": "评估与筛选",
+      "priority": 4
+    },
+    {
+      "id": "validation",
+      "name": "实验与验证",
+      "priority": 5
+    },
+    {
+      "id": "agents",
+      "name": "基础模型与智能体",
+      "priority": 3
+    },
+    {
+      "id": "data",
+      "name": "数据与工具",
+      "priority": 2
+    }
+  ],
+  "levels": {
+    "1": "核心概念",
+    "2": "需要一点前置",
+    "3": "偏进阶"
+  },
+  "routes": [
+    {
+      "id": "structure-to-design",
+      "name": "路线 A · 从结构预测到从头设计",
+      "audience": "知道蛋白质是什么，但没跟过设计流程",
+      "goal": "理解 AlphaFold → RFdiffusion → ProteinMPNN → binder 这条链",
+      "steps": [
+        {
+          "t": "alphafold2",
+          "why": "结构变成可计算的中间表示"
+        },
+        {
+          "t": "rfdiffusion",
+          "why": "把结构模块变成生成器"
+        },
+        {
+          "t": "proteinmpnn",
+          "why": "骨架反解成序列"
+        },
+        {
+          "t": "binder",
+          "why": "设计的目标形态"
+        },
+        {
+          "t": "scorpion_binders",
+          "why": "第一次有完整实验账本"
+        }
+      ]
+    },
+    {
+      "id": "validation",
+      "name": "路线 B · 从设计到实验",
+      "audience": "关心“设计出来到底有没有用”",
+      "goal": "理解命中率、亲和力与实验验证之间的关系",
+      "steps": [
+        {
+          "t": "alphafold2",
+          "why": "计算筛选的基础"
+        },
+        {
+          "t": "bindcraft",
+          "why": "一次性设计的代表"
+        },
+        {
+          "t": "success_rate",
+          "why": "为什么命中率不可比"
+        },
+        {
+          "t": "hydrogenase_binder",
+          "why": "binder 也可以当探针"
+        },
+        {
+          "t": "scorpion_binders",
+          "why": "把设计—实验账本公开"
+        }
+      ]
+    }
+  ],
+  "index_title": "AI 蛋白质设计 · 知识树",
+  "index_lead": "从结构预测到实验账本：每个节点都能点开，概念与概念互相连接。"
+}

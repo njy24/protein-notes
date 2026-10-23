@@ -1,0 +1,628 @@
+---
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+import { NODES, EDGES, NODE_TYPES, ERAS, type Era } from '../../lib/atlas';
+
+const eras = Object.entries(ERAS) as [Era, (typeof ERAS)[Era]][];
+const byEra = eras.map(([id, e]) => ({
+  id,
+  ...e,
+  nodes: NODES.filter((n) => n.era === id).sort((a, b) => a.year - b.year),
+}));
+const data = { nodes: NODES, edges: EDGES, types: NODE_TYPES, eras: ERAS };
+---
+<Base
+  title="知识树"
+  description="AI 蛋白质设计的关系图：模型、方法、数据与实验验证，按五个阶段组织，后续扩展为可递归下钻的概念词条。"
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker">知识树 / Tree</p>
+      <h1>这个领域，是怎样一步步走到「从头设计」的</h1>
+      <p class="lede" style="margin-top:1rem">
+        一张可点击的关系图：谁启发了谁、谁在用什么、哪一步把「预测」变成了「设计」。点开节点看详情；要按概念继续下钻，进入概念树。
+        它不是文献计量的全量地图，而是我们为了理解领域而手工维护的骨架——不足和偏见都写在下面。
+      </p>
+      <div class="meta" style="margin-top:1.4rem">
+        <span>{NODES.length} 个节点</span>
+        <span class="meta__dot"></span>
+        <span>{EDGES.length} 条关系</span>
+        <span class="meta__dot"></span>
+        <span>人工维护 · 定期增补</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap" style="padding-top:1.6rem">
+    <div class="map-teaser" style="margin-bottom:2rem">
+      <div>
+        <p class="kicker">概念树 / Concept Tree</p>
+        <h2 style="font-size:clamp(1.3rem,2.6vw,1.8rem);font-weight:550;margin:.6rem 0 .5rem">32 个词条，两条学习路线</h2>
+        <p style="color:var(--ink-2);line-height:1.8">
+          每个词条都能点开，术语之间递归连接；可以按分类浏览，也可以直接搜索。先从「结构预测 → 生成 → 序列 → 验证」走一遍，再回到下面的领域地图。
+        </p>
+      </div>
+      <div style="align-self:center">
+        <a class="btn" href={url('/tree-app/index.html')}>进入概念树 →</a>
+      </div>
+    </div>
+
+    <ol class="atlas-timeline" aria-label="五个阶段">
+      {
+        byEra.map((e, i) => (
+          <li class="atlas-timeline__item">
+            <span class="atlas-timeline__no num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="atlas-timeline__years num">{e.years}</span>
+            <span class="atlas-timeline__label">{e.label}</span>
+            <span class="atlas-timeline__note">{e.note}</span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="atlas-mobile-note">
+      窄屏下关系图的可读性有限，已切换为按阶段整理的列表；桌面端可以拖拽、缩放并点开节点。
+    </p>
+
+    <div class="atlas-shell">
+      <div class="atlas-toolbar" role="toolbar" aria-label="图谱筛选">
+        <button class="chip" data-era="all" aria-pressed="true">全部</button>
+        {
+          eras.map(([id, e]) => (
+            <button class="chip" data-era={id} aria-pressed="false">
+              {e.label}
+            </button>
+          ))
+        }
+        <span class="atlas-toolbar__sep"></span>
+        <button class="chip" data-reset>重置视图</button>
+        <span class="atlas-hint">拖动平移 · 滚轮缩放</span>
+      </div>
+
+      <svg
+        id="atlas-canvas"
+        viewBox="0 0 1000 560"
+        role="img"
+        aria-label="AI 蛋白质设计领域关系图，可用下方列表替代浏览"
+      >
+        <g id="atlas-viewport">
+          <g id="atlas-edges"></g>
+          <g id="atlas-nodes"></g>
+        </g>
+      </svg>
+
+      <aside class="atlas-panel" id="atlas-panel" aria-live="polite">
+        <button class="icon-btn atlas-panel__close" data-panel-close aria-label="关闭详情">×</button>
+        <div id="atlas-panel-body"></div>
+      </aside>
+    </div>
+
+    <div class="atlas-legend">
+      <span class="faint">图例</span>
+      {
+        Object.entries(NODE_TYPES).map(([id, t]) => (
+          <span><i class="dot" style={`--c:${t.color}`} />{t.label}</span>
+        ))
+      }
+      <span class="faint" style="margin-left:auto">点大小 ≈ 在本叙事中的分量（权重 1–10）</span>
+    </div>
+
+    <section class="prose atlas-prose">
+      <h2>怎么读这张图</h2>
+      <p>
+        节点按「阶段」着色筛选，按「类型」区分形状与颜色：<strong>模型</strong>是能生成或预测坐标的系统，
+        <strong>方法</strong>是流程与算法组件，<strong>论文</strong>是里程碑式的结果，<strong>数据</strong>是公共基础设施，
+        <strong>事件</strong>是改变了讨论语境的发布或实验账本。连线只保留五类：继承、使用、使能、相关、度量、从属。
+      </p>
+      <p>
+        选择任何一个节点，右侧会显示它的一句话定义、原始来源，以及直接相邻的节点。建议的读法是：
+        先点 <em>AlphaFold 2</em>，顺着「使能」走到 <em>RFdiffusion</em>，再走到 <em>ProteinMPNN</em> 和 <em>Binder</em>；
+        最后回到 2026 年的 <em>抗蝎毒结合蛋白</em>，看「设计—实验」这条链在哪里才第一次有了完整账本。
+      </p>
+
+      <h2>为什么只有这些节点</h2>
+      <p>
+        这张图服务于两个课题的理解，而不是领域全景：我们只保留「理解一条设计流水线所必需」的节点，
+        并刻意把同一时期的竞争性方法压缩为一个代表。这会牺牲完整性，换来可读性。
+        随着速递与深度文章的积累，节点会按写作需要增补——每一次增补都对应一次真实的阅读，而不是一次检索。
+      </p>
+
+      <h2>已知的偏差</h2>
+      <ul>
+        <li>以英文期刊与预印本为主，中文社区的工作与湿实验平台的细节覆盖不足。</li>
+        <li>2019–2021 的结构预测竞赛（CASP）脉络被简化，只保留了结果层面的节点。</li>
+        <li>抗体、酶设计与小分子方向只取了与「binder 设计」直接相关的支线。</li>
+      </ul>
+    </section>
+
+    <details class="atlas-list">
+      <summary>以文本方式浏览全部节点（{NODES.length} 个）</summary>
+      {
+        byEra.map((e) => (
+          <div style="margin-top:1.6rem">
+            <h3 class="mono" style="font-size:.7rem;letter-spacing:.12em;color:var(--muted)">
+              {e.label} · {e.years}
+            </h3>
+            <ul style="margin-top:.6rem">
+              {e.nodes.map((n) => (
+                <li style="margin:.5rem 0;font-size:.88rem;line-height:1.7">
+                  <b style="font-family:var(--display-font);font-weight:600">{n.label}</b>
+                  <span class="faint mono" style="font-size:.68rem"> {n.year}</span>
+                  <span class="muted"> — {n.summary}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </details>
+  </div>
+
+  <script type="application/json" id="atlas-data" set:html={JSON.stringify(data)} />
+</Base>
+
+<script>
+  import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, forceX, forceY } from 'd3-force';
+
+  type NodeT = any;
+  const raw = JSON.parse(document.getElementById('atlas-data')!.textContent || '{}');
+  const svg = document.getElementById('atlas-canvas') as unknown as SVGSVGElement;
+  const viewport = document.getElementById('atlas-viewport') as unknown as SVGGElement;
+  const gEdges = document.getElementById('atlas-edges') as unknown as SVGGElement;
+  const gNodes = document.getElementById('atlas-nodes') as unknown as SVGGElement;
+  const panel = document.getElementById('atlas-panel') as HTMLElement;
+  const panelBody = document.getElementById('atlas-panel-body') as HTMLElement;
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 1000;
+  const H = 560;
+  const colors: Record<string, string> = Object.fromEntries(
+    Object.entries(raw.types as Record<string, { color: string }>).map(([k, v]) => [k, v.color])
+  );
+  const typeLabel: Record<string, string> = Object.fromEntries(
+    Object.entries(raw.types as Record<string, { label: string }>).map(([k, v]) => [k, v.label])
+  );
+  const eraLabel: Record<string, string> = Object.fromEntries(
+    Object.entries(raw.eras as Record<string, { label: string }>).map(([k, v]) => [k, v.label])
+  );
+
+  const state = { era: 'all', k: 1, tx: 0, ty: 0, selected: null as string | null };
+  const pos = new Map<string, { x: number; y: number }>();
+  const labelEls = new Map<string, SVGTextElement>();
+  let sim: any = null;
+
+  function nodeRadius(w: number) {
+    return 6 + w * 1.0;
+  }
+
+  function visible() {
+    return (raw.nodes as NodeT[]).filter((n) => state.era === 'all' || n.era === state.era);
+  }
+
+  function applyTransform() {
+    viewport.setAttribute('transform', `translate(${state.tx},${state.ty}) scale(${state.k})`);
+  }
+
+  function linkKey(a: string, b: string) {
+    return [a, b].sort().join('|');
+  }
+
+  function placeLabels(nodesIn: any[]) {
+    const isCjk = (ch: string) => /[\u3400-\u9fff\uff00-\uffef]/.test(ch);
+    const widthOf = (text: string) =>
+      [...text].reduce((sum, ch) => sum + (isCjk(ch) ? 12 : 6.6), 0);
+    const obstacles: { x: number; y: number; w: number; h: number }[] = [];
+    for (const n of nodesIn) {
+      const r = nodeRadius(n.weight);
+      obstacles.push({ x: n.x - r, y: n.y - r, w: r * 2, h: r * 2 });
+    }
+    const placed: { x: number; y: number; w: number; h: number }[] = [];
+    const hits = (rect: any) =>
+      obstacles.concat(placed).some(
+        (o) => rect.x < o.x + o.w && rect.x + rect.w > o.x && rect.y < o.y + o.h && rect.y + rect.h > o.y
+      );
+    const order = [...nodesIn].sort((a, b) => b.weight - a.weight);
+    for (const n of order) {
+      const el = labelEls.get(n.id);
+      if (!el) continue;
+      if (n.weight < 7) continue;
+      const text = el.textContent || '';
+      const w = widthOf(text);
+      const r = nodeRadius(n.weight);
+      const cands = [
+        { anchor: 'middle', x: 0, y: r + 15, rx: n.x - w / 2, ry: n.y + r + 2 },
+        { anchor: 'middle', x: 0, y: -r - 6, rx: n.x - w / 2, ry: n.y - r - 18 },
+        { anchor: 'start', x: r + 6, y: 4, rx: n.x + r + 4, ry: n.y - 6 },
+        { anchor: 'end', x: -r - 6, y: 4, rx: n.x - r - 4 - w, ry: n.y - 6 },
+      ];
+      let chosen = cands[0];
+      for (const c of cands) {
+        const rect = { x: c.rx - 2, y: c.ry - 2, w: w + 4, h: 17 };
+        if (!hits(rect)) {
+          chosen = c;
+          placed.push(rect);
+          break;
+        }
+      }
+      el.setAttribute('x', String(chosen.x));
+      el.setAttribute('y', String(chosen.y));
+      el.setAttribute('text-anchor', chosen.anchor);
+    }
+  }
+
+  function render() {
+    const nodes = visible();
+    const ids = new Set(nodes.map((n: NodeT) => n.id));
+    const links = (raw.edges as NodeT[]).filter((e: NodeT) => ids.has(e.source) && ids.has(e.target));
+    gEdges.innerHTML = '';
+    gNodes.innerHTML = '';
+
+    const linkEls = new Map<string, SVGLineElement>();
+    for (const l of links) {
+      const line = document.createElementNS(NS, 'line');
+      line.setAttribute('stroke', 'var(--rule-2)');
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('data-source', l.source);
+      line.setAttribute('data-target', l.target);
+      gEdges.appendChild(line);
+      linkEls.set(`${l.source}|${l.target}`, line);
+    }
+
+    const nodeEls = new Map<string, SVGGElement>();
+    labelEls.clear();
+    for (const n of nodes) {
+      const g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'atlas-node');
+      g.setAttribute('data-id', n.id);
+      g.setAttribute('tabindex', '0');
+      g.setAttribute('role', 'button');
+      g.setAttribute('aria-label', `${n.label}，${n.year} 年，${typeLabel[n.type]}`);
+      const color = colors[n.type] || 'var(--muted)';
+      const r = nodeRadius(n.weight);
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('r', String(r));
+      c.setAttribute('fill', color);
+      c.setAttribute('fill-opacity', '0.16');
+      c.setAttribute('stroke', color);
+      c.setAttribute('stroke-width', n.weight >= 8 ? '2' : '1.4');
+      const t = document.createElementNS(NS, 'text');
+      t.setAttribute('text-anchor', 'middle');
+      t.setAttribute('y', String(r + 15));
+      t.setAttribute('font-size', '12');
+      t.setAttribute('fill', 'var(--ink-2)');
+      t.setAttribute('stroke', 'var(--paper)');
+      t.setAttribute('stroke-width', '3.5');
+      t.setAttribute('paint-order', 'stroke');
+      t.setAttribute('pointer-events', 'none');
+      if (n.weight < 7) t.classList.add('label--quiet');
+      t.textContent = n.label;
+      g.append(c, t);
+      g.addEventListener('click', () => select(n.id));
+      g.addEventListener('keydown', (ev: KeyboardEvent) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          select(n.id);
+        }
+      });
+      gNodes.appendChild(g);
+      nodeEls.set(n.id, g);
+      labelEls.set(n.id, t);
+    }
+
+    if (sim) sim.stop();
+    const simNodes = nodes.map((n: NodeT) => {
+      const p = pos.get(n.id);
+      return { ...n, x: p?.x ?? W / 2 + (Math.random() - 0.5) * 300, y: p?.y ?? H / 2 + (Math.random() - 0.5) * 200 };
+    });
+    const simLinks = links.map((l: NodeT) => ({ source: l.source, target: l.target }));
+    // d3 的手动 tick() 不派发 tick 事件，因此显式 paint
+    function paint() {
+      for (const l of simLinks as any[]) {
+        const line = linkEls.get(`${l.source.id}|${l.target.id}`);
+        if (line) {
+          line.setAttribute('x1', String(l.source.x));
+          line.setAttribute('y1', String(l.source.y));
+          line.setAttribute('x2', String(l.target.x));
+          line.setAttribute('y2', String(l.target.y));
+        }
+      }
+      for (const n of simNodes as any[]) {
+        const g = nodeEls.get(n.id);
+        if (g) g.setAttribute('transform', `translate(${n.x},${n.y})`);
+      }
+    }
+
+    sim = forceSimulation(simNodes)
+      .force('link', forceLink(simLinks).id((d: any) => d.id).distance(88).strength(0.4))
+      .force('charge', forceManyBody().strength(-140))
+      .force('x', forceX(W / 2).strength(0.09))
+      .force('y', forceY(H / 2).strength(0.09))
+      .force('center', forceCenter(W / 2, H / 2))
+      .force('collide', forceCollide((d: any) => nodeRadius(d.weight) + 16).iterations(2))
+      .on('tick', paint);
+
+    // 同步跑完布局，再自适应缩放到画布内（避免初始视图裁掉节点）
+    for (let i = 0; i < 320; i++) sim.tick();
+    sim.stop();
+    paint();
+    for (const n of simNodes as any[]) pos.set(n.id, { x: n.x, y: n.y });
+
+    const xs = (simNodes as any[]).map((n) => n.x);
+    const ys = (simNodes as any[]).map((n) => n.y);
+    const minX = Math.min(...xs) - 50;
+    const maxX = Math.max(...xs) + 50;
+    const minY = Math.min(...ys) - 50;
+    const maxY = Math.max(...ys) + 50;
+    const k = Math.min(W / (maxX - minX), H / (maxY - minY), 1.6);
+    state.k = k;
+    state.tx = W / 2 - ((minX + maxX) / 2) * k;
+    state.ty = H / 2 - ((minY + maxY) / 2) * k;
+    applyTransform();
+    placeLabels(simNodes as any[]);
+    if (state.selected && !ids.has(state.selected)) closePanel();
+
+    // 邻居高亮
+    const adjacency = new Map<string, Set<string>>();
+    for (const l of links) {
+      if (!adjacency.has(l.source)) adjacency.set(l.source, new Set());
+      if (!adjacency.has(l.target)) adjacency.set(l.target, new Set());
+      adjacency.get(l.source)!.add(l.target);
+      adjacency.get(l.target)!.add(l.source);
+    }
+    gNodes.querySelectorAll('g.atlas-node').forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        const id = el.getAttribute('data-id')!;
+        const own = labelEls.get(id);
+        if (own) own.classList.remove('label--quiet');
+        const near = new Set([id, ...(adjacency.get(id) || [])]);
+        gNodes.querySelectorAll('g.atlas-node').forEach((other) => {
+          const oid = other.getAttribute('data-id')!;
+          (other as SVGGElement).style.opacity = near.has(oid) ? '1' : '0.22';
+        });
+        gEdges.querySelectorAll('line').forEach((line) => {
+          const incident =
+            line.getAttribute('data-source') === id || line.getAttribute('data-target') === id;
+          line.setAttribute('stroke', incident ? 'var(--accent)' : 'var(--rule)');
+          line.setAttribute('stroke-width', incident ? '1.6' : '1');
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        const id = el.getAttribute('data-id')!;
+        const own = labelEls.get(id);
+        const node = (raw.nodes as NodeT[]).find((x) => x.id === id);
+        if (own && node && node.weight < 7) own.classList.add('label--quiet');
+        gNodes.querySelectorAll('g.atlas-node').forEach((other) => {
+          (other as SVGGElement).style.opacity = '1';
+        });
+        gEdges.querySelectorAll('line').forEach((line) => {
+          line.setAttribute('stroke', 'var(--rule-2)');
+          line.setAttribute('stroke-width', '1');
+        });
+      });
+    });
+  }
+
+  function closePanel() {
+    panel.classList.remove('is-open');
+    state.selected = null;
+  }
+
+  function select(id: string) {
+    state.selected = id;
+    const n = (raw.nodes as NodeT[]).find((x) => x.id === id);
+    if (!n) return;
+    const near = (raw.edges as NodeT[])
+      .filter((e: NodeT) => e.source === id || e.target === id)
+      .map((e: NodeT) => {
+        const oid = e.source === id ? e.target : e.source;
+        const other = (raw.nodes as NodeT[]).find((x) => x.id === oid);
+        return { other, type: e.type };
+      })
+      .filter((x: any) => x.other);
+    const link = n.doi
+      ? `<a href="https://doi.org/${n.doi}" target="_blank" rel="noopener noreferrer">DOI ↗</a>`
+      : n.url
+        ? `<a href="${n.url}" target="_blank" rel="noopener noreferrer">来源 ↗</a>`
+        : '';
+    panelBody.innerHTML = `
+      <div class="atlas-panel__meta">${typeLabel[n.type] || n.type} · ${n.year} · ${eraLabel[n.era] || n.era}</div>
+      <h3>${n.label}${n.label_en ? ` <span class="en" style="font-weight:400">${n.label_en}</span>` : ''}</h3>
+      <p>${n.summary}</p>
+      <div class="atlas-panel__links">${link}</div>
+      ${
+        near.length
+          ? `<div class="atlas-panel__meta" style="margin-top:1rem">相邻节点</div><ul style="list-style:none;padding:0;display:grid;gap:.3rem">${near
+              .map(
+                (x: any) =>
+                  `<li><a href="#" data-jump="${x.other.id}" style="text-decoration:none;border-bottom:1px solid var(--rule)">${x.other.label}</a> <span class="faint" style="font-size:.7rem">${x.type}</span></li>`
+              )
+              .join('')}</ul>`
+          : ''
+      }
+    `;
+    panel.classList.add('is-open');
+    panelBody.querySelectorAll('[data-jump]').forEach((a) => {
+      a.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        select((a as HTMLElement).dataset.jump!);
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-panel-close]').forEach((b) => b.addEventListener('click', closePanel));
+  document.querySelectorAll('[data-era]').forEach((b) => {
+    b.addEventListener('click', () => {
+      state.era = (b as HTMLElement).dataset.era!;
+      document.querySelectorAll('[data-era]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', 'true');
+      closePanel();
+      render();
+    });
+  });
+  document.querySelector('[data-reset]')?.addEventListener('click', () => {
+    state.era = 'all';
+    state.k = 1;
+    state.tx = 0;
+    state.ty = 0;
+    document.querySelectorAll('[data-era]').forEach((x) =>
+      x.setAttribute('aria-pressed', x.getAttribute('data-era') === 'all' ? 'true' : 'false')
+    );
+    applyTransform();
+    closePanel();
+    render();
+  });
+
+  // 缩放与平移
+  svg.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const rect = svg.getBoundingClientRect();
+    const px = ((e.clientX - rect.left) / rect.width) * W;
+    const py = ((e.clientY - rect.top) / rect.height) * H;
+    const gx = (px - state.tx) / state.k;
+    const gy = (py - state.ty) / state.k;
+    const factor = e.deltaY < 0 ? 1.12 : 0.89;
+    const next = Math.min(3.2, Math.max(0.5, state.k * factor));
+    state.k = next;
+    state.tx = px - gx * next;
+    state.ty = py - gy * next;
+    applyTransform();
+  }, { passive: false });
+
+  let dragging = false;
+  let sx = 0;
+  let sy = 0;
+  svg.addEventListener('pointerdown', (e) => {
+    // 点在节点上时不要启动拖拽，否则 pointer capture 会吞掉节点的 click
+    if ((e.target as Element).closest('g.atlas-node')) return;
+    dragging = true;
+    sx = e.clientX;
+    sy = e.clientY;
+    svg.setPointerCapture(e.pointerId);
+  });
+  svg.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const rect = svg.getBoundingClientRect();
+    state.tx += ((e.clientX - sx) / rect.width) * W;
+    state.ty += ((e.clientY - sy) / rect.height) * H;
+    sx = e.clientX;
+    sy = e.clientY;
+    applyTransform();
+  });
+  svg.addEventListener('pointerup', () => (dragging = false));
+  svg.addEventListener('pointercancel', () => (dragging = false));
+  svg.addEventListener('click', (e) => {
+    if (e.target === svg || (e.target as Element).id === 'atlas-viewport' || (e.target as Element).id === 'atlas-edges') {
+      closePanel();
+    }
+  });
+
+  applyTransform();
+  render();
+
+  if (matchMedia('(max-width: 760px)').matches) {
+    document.querySelector('.atlas-list')?.setAttribute('open', '');
+  }
+</script>
+
+<style>
+  .atlas-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(9rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 0 0 1.6rem;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+  }
+  .atlas-timeline__item {
+    background: var(--paper);
+    padding: 0.9rem 0.9rem 1rem;
+    display: grid;
+    gap: 0.2rem;
+    align-content: start;
+  }
+  .atlas-timeline__no {
+    font-size: 0.62rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .atlas-timeline__years {
+    font-size: 0.66rem;
+    color: var(--faint);
+    letter-spacing: 0.04em;
+  }
+  .atlas-timeline__label {
+    font-family: var(--display-font);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.15rem;
+  }
+  .atlas-timeline__note {
+    font-size: 0.74rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .atlas-prose {
+    max-width: 70ch;
+    margin-top: 3rem;
+  }
+  .atlas-prose h2 {
+    margin-top: 2.2em;
+  }
+  .atlas-list {
+    margin: 2.6rem 0 4rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+  .atlas-list summary {
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  :global(.atlas-node) {
+    cursor: pointer;
+  }
+  :global(.atlas-node:hover circle) {
+    fill-opacity: 0.3;
+  }
+  :global(.atlas-node text) {
+    transition: opacity 0.18s ease;
+  }
+  :global(.atlas-node text.label--quiet) {
+    opacity: 0;
+  }
+  .atlas-mobile-note {
+    display: none;
+  }
+  @media (max-width: 760px) {
+    .atlas-timeline {
+      grid-template-columns: 1fr 1fr;
+    }
+    .atlas-timeline__item {
+      padding: 0.75rem 0.7rem 0.85rem;
+    }
+    .atlas-timeline__note {
+      font-size: 0.7rem;
+    }
+    .atlas-shell,
+    .atlas-legend {
+      display: none;
+    }
+    .atlas-mobile-note {
+      display: block;
+      font-size: 0.84rem;
+      color: var(--muted);
+      border-left: 2px solid var(--rule-2);
+      padding: 0.2rem 0 0.2rem 0.8rem;
+      margin: 0 0 1.4rem;
+      line-height: 1.7;
+    }
+    .atlas-list {
+      margin-top: 1.4rem;
+    }
+  }
+</style>

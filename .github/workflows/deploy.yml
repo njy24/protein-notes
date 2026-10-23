@@ -44,11 +44,11 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
           PUBLIC_GITHUB_REPO: ${{ github.server_url }}/${{ github.repository }}
 
-      - run: touch dist/.nojekyll
+      - run: touch apps/web/dist/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: apps/web/dist
 
   deploy:
     needs: build
