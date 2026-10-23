@@ -1,0 +1,37 @@
+# 选题池：每两周清理一次
+# 字段：id / question / projects / evidence / status(idea|reading|writing|done|dropped) / note
+
+- id: interface-selection
+  question: binder 的界面选择——hotspot 到底从哪来，怎么判断一个表位值得打？
+  projects: [P2]
+  evidence: [Cao 2022, BindCraft, AlphaProteo]
+  status: idea
+  note: 与 P2 的「靶点结构分析—结合位点选择」直接对应
+
+- id: success-criteria
+  question: 如何在一个本科生能承担的通量下定义「成功」：ELISA 阳性、BLI 有信号、还是 SPR 的 Kd？
+  projects: [P2]
+  evidence: [本期速递 001, BindCraft, 氢化酶探针工作]
+  status: idea
+  note: 可作为第一篇方法学深度的续篇
+
+- id: theta-screening
+  question: θ 亚基序列筛选的指标设计——在没有结构、没有标签的情况下，用什么代理指标排序？
+  projects: [P1]
+  evidence: [同源检索, 保守性分析, 语言模型 embedding]
+  status: idea
+  note: 需要先确认课题可公开的边界
+
+- id: negative-results
+  question: 为什么 binder 设计的负结果很少被发表？这对我们的筛选流程意味着什么？
+  projects: [P2]
+  evidence: [预印本与期刊的报告偏差, 工业界报告]
+  status: idea
+  note: 可能写成「方法论 + 访谈式」的文章
+
+- id: boltz-domain
+  question: Boltz-2 的亲和力模块能用到蛋白—蛋白体系吗？适用域的边界在哪里？
+  projects: [P2]
+  evidence: [Boltz-2 预印本, FEP 基准]
+  status: reading
+  note: 注意区分小分子—蛋白与蛋白—蛋白

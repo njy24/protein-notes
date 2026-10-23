@@ -1,0 +1,20 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: string;
+  /** 图形来源说明，例如 “数据：Watson et al. 2023” */
+  credit?: string;
+}
+const { src, alt, caption, width, credit } = Astro.props;
+---
+<figure style={width ? `max-width:${width}` : undefined}>
+  <img src={src} alt={alt} loading="lazy" decoding="async" />
+  {(caption || credit) && (
+    <figcaption>
+      {caption}
+      {credit && <span class="faint"> {credit}</span>}
+    </figcaption>
+  )}
+</figure>

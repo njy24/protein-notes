@@ -1,0 +1,58 @@
+name: Ingest inbox
+
+on:
+  schedule:
+    # 每天 21:00 UTC = 05:00 UTC+8
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run fetch
+      - run: npm run triage
+
+      - name: Read passing count
+        id: count
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = 'data/inbox/latest.json';
+            const n = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')).counts.passed : 0;
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, 'passed=' + n + '\n');
+          "
+
+      - name: Update rolling inbox branch
+        if: steps.count.outputs.passed >= 3
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "protein-workflow-bot"
+          git config user.email "protein-workflow-bot@users.noreply.github.com"
+          git checkout -B inbox
+          git add data/seen.json data/inbox
+          if git diff --cached --quiet; then
+            echo "inbox 无变化，跳过"
+            exit 0
+          fi
+          git commit -m "chore(inbox): $(date -u +%F)"
+          git push --force origin inbox
+          if [ "$(gh pr list --head inbox --state open --json number --jq 'length')" = "0" ]; then
+            gh pr create --base main --head inbox \
+              --title "自动采集池（滚动更新）" \
+              --body "每日采集 + 预筛结果，滚动更新。合并只是把候选池同步进仓库，不会发布任何文章。"
+          fi

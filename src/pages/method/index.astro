@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import { METHOD_STEPS, SITE } from '../../config/site';
+import { url } from '../../lib/url';
+---
+<Base
+  title="编辑方法"
+  description="从信息源到一篇文章：采集、预筛、判断、写作、核验、发布，以及这套流程的自动化边界和已知失败模式。"
+>
+  <div class="wrap wrap--narrow" style="padding:clamp(2.5rem,5vw,4rem) 0 4rem">
+    <p class="kicker">方法 / Method</p>
+    <h1 class="display-1" style="margin:.9rem 0 1.4rem">从一条候选条目，到一篇可以引用的文章</h1>
+    <p class="lede">
+      这套流程的目标不是「多写」，而是让每一篇文章都能回答三个问题：它凭什么值得读、它的证据有多硬、
+      它和我们哪一个课题有关。下面是完整的流水线，包括自动化做了什么、人做了什么、以及哪里容易出错。
+    </p>
+
+    <div class="prose" style="margin-top:2.8rem">
+      <h2>六步流水线</h2>
+      <p>
+        速递（每两周三到四期中的一期）与深度笔记共用前两步，之后分叉：速递走「判断—短写—核验」，
+        深度走「精读—交叉验证—长写」。所有内容以 Markdown/MDX 存在 git 里，每一期都能回溯到原始条目。
+      </p>
+    </div>
+
+    <div class="steps" style="margin-top:1.4rem">
+      {
+        METHOD_STEPS.map((s) => (
+          <div class="step">
+            <div class="step__no">{s.n} / {s.en}</div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="prose" style="margin-top:3rem">
+      <h2>信息源与查询</h2>
+      <p>
+        只保留能稳定拿到结构化元数据的源。中文社区与行业动态目前靠人工补充，不做自动抓取——
+        这是已知的覆盖缺口，而不是设计目标。
+      </p>
+    </div>
+
+    <div class="prose" style="margin-top:1rem">
+      <table>
+        <thead>
+          <tr><th>来源</th><th>抓取方式</th><th>默认查询</th><th>用途</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>arXiv</td><td>官方 API</td><td>q-bio.BM + 关键词</td><td>方法学预印本，最快</td></tr>
+          <tr><td>bioRxiv</td><td>官方 API</td><td>biochemistry / bioinformatics / synthetic biology</td><td>湿实验与设计流程</td></tr>
+          <tr><td>PubMed</td><td>E-utilities</td><td>主题检索 + 核心期刊</td><td>同行评议的地面真值</td></tr>
+          <tr><td>Crossref</td><td>REST API</td><td>期刊 ISSN + 近 7 天</td><td>DOI 与出版元数据核验</td></tr>
+          <tr><td>RSS</td><td>订阅</td><td>机构与期刊博客</td><td>模型发布、平台与政策</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top:2.4rem">
+      <h2>预筛：机器只做排序，不做判断</h2>
+      <p>
+        抓取后的条目先做去重（DOI、arXiv id、规范化标题），再用关键词权重与来源权重算一个分数。
+        分数只决定「哪些条目进入人的视野」，不决定「写什么」。当前规则：
+      </p>
+      <ul>
+        <li><strong>核心词（权重 5）：</strong>binder、de novo design、miniprotein、protein design、epitope、hotspot 等。</li>
+        <li><strong>方法词（权重 3）：</strong>diffusion、language model、inverse folding、hallucination、affinity prediction 等；只在条目同时含蛋白语境时计分。</li>
+        <li><strong>背景词（权重 1）：</strong>structure prediction、benchmark、dataset、open source 等。</li>
+        <li><strong>来源与期刊加成：</strong>同行评议期刊 +4；bioRxiv/arXiv +1；机构博客 +1。</li>
+        <li><strong>降权：</strong>非蛋白主题（小分子、临床病例、纯文本 NLP）直接剔除；纯 benchmark 而无实验验证的条目降权。</li>
+      </ul>
+      <p>
+        每天进入 inbox 的候选约 30–60 条，人工只需要处理其中的前 15–20 条。
+        如果某天没有任何条目越过阈值，那一期就不发——这是允许的。
+      </p>
+
+      <h2>两种文体，两套标准</h2>
+      <h3>速递：一句话 + 三句正文 + 一条边界</h3>
+      <p>
+        每条必须有：可点击的原始来源、一句「这条到底是什么」、三句以内的关键事实（含数字）、
+        以及作者声明的或我们读出的局限。不写「具有重要意义」这类无法被反驳的句子。
+      </p>
+      <h3>深度笔记：方法分层 + 失效条件 + 可复现路径</h3>
+      <p>
+        统一骨架：问题是什么 → 已有路线 → 这篇/这条路线怎么做 → 关键实验与数字 → 在什么条件下会失效 →
+        对我们课题意味着什么 → 参考文献。每篇至少有一节讨论「负面结果或未被验证的部分」。
+      </p>
+
+      <h2>质量门</h2>
+      <p>发布前逐项检查，任何一项不过就不发：</p>
+      <ul>
+        <li><strong>事实门：</strong>每个数字都能点回原文；没有「据说」「业内普遍认为」。</li>
+        <li><strong>引用门：</strong>DOI 可解析、标题与作者匹配、预印本与正式发表分开标注。</li>
+        <li><strong>边界门：</strong>写清样本量、靶点数量、是否有人工干预、评测集是否泄漏。</li>
+        <li><strong>隐私门：</strong>未发表实验数据、组内材料、可识别个人的信息不进入公开区。</li>
+        <li><strong>更正门：</strong>发现错误时更新「更新于」并说明改了什么，而不是静默修改。</li>
+      </ul>
+
+      <h2>自动化边界</h2>
+      <p>
+        机器负责<strong>发现</strong>：抓取、去重、打分、分类、生成候选清单、检查链接、构建与部署。
+        人负责<strong>判断</strong>：选题、读原文、决定写什么、写、核验、发布、更正。
+        语言模型可以起草摘要和检查格式，但不替人下结论，也不直接发布。
+      </p>
+      <p class="muted">
+        这条边界是有意保守的：一旦让模型直接决定「什么重要」，站点就会退化成一份措辞流畅、但没有判断的聚合器。
+      </p>
+
+      <h2>已知的失败模式</h2>
+      <ul>
+        <li><strong>摘要偏差：</strong>只读摘要会把「在特定条件下成立」写成「已经解决」。</li>
+        <li><strong>预印本放大：</strong>新预印本更容易被写，但它们的数字往往还没经过审稿与复现。</li>
+        <li><strong>英文偏差：</strong>中文社区的工作、国内实验室的进展覆盖不足。</li>
+        <li><strong>benchmark 崇拜：</strong>in silico 指标提升，未必转化为实验命中率提升。</li>
+        <li><strong>文体同质化：</strong>模板化写作会让所有文章读起来一样；每篇必须有一个只属于该主题的判断。</li>
+        <li><strong>时间低估：</strong>一期速递约 2–4 小时，一篇深度约 6–12 小时（含读原文与核验）。</li>
+      </ul>
+
+      <h2>节奏</h2>
+      <p>
+        速递每周两期（周二、周五）；深度每月 2–3 篇，取决于是否真的出现了值得长写的结果。
+        宁缺毋滥：如果一周没有值得写的东西，就只发一条「本周无重要进展」的说明。
+      </p>
+
+      <div class="callout" style="--c:var(--c-blue)">
+        <span class="callout__label">如果你只想知道一件事</span>
+        <p>这个站点的价值不在信息量，而在于每一条信息都被追问过：它改变了哪个判断？</p>
+      </div>
+    </div>
+
+    <div class="article__foot">
+      <div class="article__foot-row">
+        <span class="small muted">最后更新：2026-10 · 本页描述的是当前实际运行的流程，不是理想流程。</span>
+        <a class="link-arrow" href={url('/about/')}>关于本站</a>
+      </div>
+    </div>
+  </div>
+</Base>

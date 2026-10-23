@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
+import { fmtDate } from '../../lib/format';
+
+const briefs = (await getCollection('briefs', ({ data }) => (import.meta.env.PROD ? !data.draft : true))).sort(
+  (a, b) => b.data.issue - a.data.issue
+);
+---
+<Base title="速递" description="每周两更的领域速递：只保留值得读的条目，每条给出一句话结论与边界。">
+  <div class="wrap">
+    <header class="index-head">
+      <p class="kicker">速递 / Briefs</p>
+      <h1>这一周，领域往前挪了哪一格</h1>
+      <p class="lede" style="margin-top:1rem">
+        不做链接搬运。每条要能回答三个问题：新在哪、证据够不够、对我们哪个课题有用。
+        大多数条目只有一句话和三句正文，因为大多数进展确实只值这么多。
+      </p>
+      <p class="meta" style="margin-top:1.4rem">
+        <span>{briefs.length} 期</span>
+        <span class="meta__dot"></span>
+        <span>每周二 / 周五</span>
+        <span class="meta__dot"></span>
+        <a href={url('/method/')}>怎么筛的</a>
+      </p>
+    </header>
+
+    <ul class="index-list" style="margin-top:1rem">
+      {
+        briefs.map((b) => (
+          <li>
+            <a class="index-row" href={url(`/briefs/${b.id}/`)}>
+              <span class="index-row__date">NO.{String(b.data.issue).padStart(2, '0')}</span>
+              <span>
+                <span class="index-row__title">{b.data.title}</span>
+                <span class="index-row__desc">{b.data.summary}</span>
+              </span>
+              <span class="index-row__meta">
+                {fmtDate(b.data.date, 'short')}
+                <br />
+                {b.data.items.length} 条
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

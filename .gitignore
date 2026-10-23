@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build
+dist/
+.astro/
+
+# local environment
+.env
+.env.*
+!.env.example
+
+# 本地私有资料（SRT 记录、未发表数据），永不进入仓库
+lab/
+private/
+
+# 采集缓存（体积大、可重建）；保留 data/inbox 与 data/seen.json
+data/raw/
+!data/raw/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# logs
+*.log
+npm-debug.log*

@@ -1,0 +1,22 @@
+---
+interface Props {
+  zh: string;
+  en?: string;
+  hint?: string;
+}
+const { zh, en, hint } = Astro.props;
+---
+<span class="keyterm" title={hint ?? en}>{zh}{en && <span class="keyterm__en">（{en}）</span>}</span>
+
+<style>
+  .keyterm {
+    border-bottom: 1px dotted color-mix(in srgb, var(--accent) 55%, transparent);
+    cursor: help;
+  }
+  .keyterm__en {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.88em;
+    color: var(--muted);
+  }
+</style>

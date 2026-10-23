@@ -1,0 +1,54 @@
+name: Draft brief
+
+on:
+  schedule:
+    # 周二、周五 22:30 UTC（= 次日 06:30 UTC+8）
+    - cron: '30 22 * * 2,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run fetch
+      - run: npm run triage
+
+      - name: Generate draft
+        run: npm run draft -- --count=8
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+
+      - name: Open draft PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "protein-workflow-bot"
+          git config user.email "protein-workflow-bot@users.noreply.github.com"
+          git checkout -B draft
+          git add src/content/briefs data/inbox data/seen.json
+          if git diff --cached --quiet; then
+            echo "没有新草稿"
+            exit 0
+          fi
+          git commit -m "draft(brief): $(date -u +%F)"
+          git push --force origin draft
+          if [ "$(gh pr list --head draft --state open --json number --jq 'length')" = "0" ]; then
+            gh pr create --base main --head draft \
+              --title "速递草稿（自动生成，draft: true）" \
+              --body "自动生成的速递骨架/初稿，文件里带 draft: true，合并也不会发布。请改写导语与判断、核对数字，再把 draft 改为 false 后合并。"
+          fi

@@ -1,0 +1,79 @@
+# 预筛词典：只用于排序，不用于判断
+# core: 主题直接命中；method: 方法学；context: 背景；exclude: 一票否决（除非同时命中 core）
+
+core:
+  - binder
+  - binders
+  - minibinder
+  - miniprotein
+  - miniproteins
+  - protein design
+  - de novo design
+  - de novo protein
+  - protein binder
+  - antibody design
+  - nanobody
+  - epitope
+  - hotspot
+  - protein–protein interaction
+  - protein-protein interaction
+
+method:
+  - diffusion
+  - generative model
+  - language model
+  - inverse folding
+  - hallucination
+  - structure prediction
+  - affinity prediction
+  - sequence design
+  - reinforcement learning
+  - retrieval
+  - agent
+  - all-atom
+
+context:
+  - benchmark
+  - dataset
+  - open source
+  - open-source
+  - high-throughput
+  - cryo-em
+  - experimental validation
+  - deep learning
+
+exclude:
+  - case report
+  - clinical trial
+  - patient cohort
+  - epidemiology
+  - small-molecule
+  - small molecule
+  - materials science
+
+protein_context:
+  - protein
+  - peptide
+  - antibody
+  - enzyme
+  - amino acid
+  - residue
+  - structure
+  - fold
+
+venue_bonus:
+  nature: 5
+  science: 5
+  "nature biotechnology": 5
+  "nature methods": 4
+  "nature communications": 3
+  structure: 2
+  "trends in biochemical sciences": 2
+  biorxiv: 1
+  arxiv: 1
+
+source_bonus:
+  crossref: 2
+  pubmed: 2
+  arxiv: 1
+  rss: 1

@@ -1,0 +1,18 @@
+---
+interface Props {
+  type?: 'info' | 'warn' | 'check' | 'note';
+  title?: string;
+}
+const { type = 'info', title } = Astro.props;
+const labels = { info: '说明', warn: '注意', check: '核验', note: '记号' } as const;
+const colors = {
+  info: 'var(--c-blue)',
+  warn: 'var(--c-accent)',
+  check: 'var(--c-green)',
+  note: 'var(--c-ochre)',
+} as const;
+---
+<div class="callout" style={`--c:${colors[type]}`}>
+  <span class="callout__label">{title ?? labels[type]}</span>
+  <slot />
+</div>

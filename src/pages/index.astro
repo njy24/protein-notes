@@ -1,0 +1,231 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { SITE, PROJECTS, METHOD_STEPS, CATEGORIES, type ProjectId } from '../config/site';
+import { NODES, EDGES, ERAS, type Era } from '../lib/atlas';
+import { url } from '../lib/url';
+import { fmtDate, readingTime } from '../lib/format';
+
+const live = ({ data }: any) => (import.meta.env.PROD ? !data.draft : true);
+const briefs = (await getCollection('briefs', live)).sort((a, b) => b.data.issue - a.data.issue);
+const notes = (await getCollection('notes', live)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const latest = briefs[0];
+const featured = notes.slice(0, 2);
+const eras = Object.entries(ERAS) as [Era, (typeof ERAS)[Era]][];
+const latestDate = [latest?.data.date, notes[0]?.data.date].filter(Boolean).sort((a: any, b: any) => b - a)[0];
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="fade-up">
+        <p class="kicker kicker--accent">研究手记 / Vol. 01 · {SITE.since}</p>
+        <h1 class="display" style="margin-top:1.1rem">
+          结构预测之后，<br />我们开始<em>设计</em>蛋白质。
+        </h1>
+        <p class="lede" style="margin-top:1.6rem">
+          这是一个服务于两个蛋白质课题的公开信息工作流。它追踪 AI 设计的最新进展，把论文拆成可复用的方法，
+          并记录每一次从「读到」到「做到」的尝试。
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href={latest ? url(`/briefs/${latest.id}/`) : url('/briefs/')}>
+            读最新一期速递
+          </a>
+          <a class="btn btn--ghost" href={url('/atlas/')}>浏览知识图谱</a>
+        </div>
+      </div>
+      <aside class="hero__note fade-up">
+        <div>
+          <strong>在追踪什么</strong>
+          <div style="margin-top:.4rem;line-height:1.9">
+            从头设计的模型与流程 · binder 的界面选择 · 序列/结构生成 · 计算筛选的失效条件 · 表达与结合实验的命中率
+          </div>
+        </div>
+        <div class="rule" style="margin:.3rem 0"></div>
+        <div>
+          <strong>两个课题</strong>
+          <div style="margin-top:.4rem;line-height:1.9">
+            {Object.values(PROJECTS).map((p: { id: ProjectId; short: string; title: string }) => (
+              <div><span class="mono" style="font-size:.68rem;color:var(--faint)">{p.id}</span>　{p.title}</div>
+            ))}
+          </div>
+        </div>
+        <div class="mono" style="font-size:.64rem;letter-spacing:.1em;color:var(--faint);margin-top:.4rem">
+          更新至 {latestDate ? fmtDate(latestDate, 'short') : '—'}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {
+    latest && (
+      <section class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">
+              <b>01</b> 最新速递
+            </h2>
+            <a class="link-arrow" href={url('/briefs/')}>全部速递</a>
+          </div>
+
+          <div class="feature">
+            <article class="issue-card fade-up">
+              <div class="issue-card__no">
+                ISSUE {String(latest.data.issue).padStart(2, '0')} · {fmtDate(latest.data.date, 'short')}
+              </div>
+              <h2><a href={url(`/briefs/${latest.id}/`)}>{latest.data.title}</a></h2>
+              <p class="issue-card__summary">{latest.data.summary}</p>
+              <div class="issue-card__foot">
+                <span class="meta">
+                  <span>{latest.data.items.length} 条</span>
+                  <span class="meta__dot"></span>
+                  <span>{latest.data.judgement.length} 条判断</span>
+                </span>
+                <a class="link-arrow" href={url(`/briefs/${latest.id}/`)}>进入本期</a>
+              </div>
+            </article>
+
+            <aside class="card fade-up" style="align-self:start">
+              <p class="kicker kicker--plain" style="margin-bottom:.9rem">本期条目</p>
+              <ol style="list-style:none;padding:0;display:grid;gap:.75rem">
+                {latest.data.items.slice(0, 5).map((it, i) => (
+                  <li style="display:grid;grid-template-columns:1.6rem 1fr;gap:.5rem;align-items:baseline">
+                    <span class="mono faint" style="font-size:.66rem">{String(i + 1).padStart(2, '0')}</span>
+                    <span>
+                      <a
+                        href={url(`/briefs/${latest.id}/#item-${i + 1}`)}
+                        style="font-size:.88rem;line-height:1.6;text-decoration:none;color:var(--ink-2)"
+                      >
+                        {it.title}
+                      </a>
+                      <span
+                        class="mono"
+                        style={`display:block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:${CATEGORIES[it.category].color};margin-top:.15rem`}
+                      >
+                        {CATEGORIES[it.category].label}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title"><b>02</b> 深度笔记</h2>
+        <a class="link-arrow" href={url('/notes/')}>全部深度</a>
+      </div>
+      <div>
+        {
+          featured.map((n, i) => (
+            <a class="list-note" href={url(`/notes/${n.id}/`)}>
+              <span class="list-note__no">{String(featured.length - i).padStart(2, '0')}</span>
+              <span>
+                <span class="list-note__title">{n.data.title}</span>
+                <span class="list-note__desc">{n.data.summary}</span>
+              </span>
+              <span class="list-note__date">
+                {fmtDate(n.data.date, 'short')} · {readingTime(n.body ?? '')} min
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="map-teaser">
+        <div>
+          <p class="kicker">图谱 / Atlas</p>
+          <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:550;margin:.7rem 0 .8rem">
+            {NODES.length} 个节点，{EDGES.length} 条关系
+          </h2>
+          <p style="color:var(--ink-2);max-width:38em;line-height:1.8">
+            从 PDB 到 AlphaFold，从 RFdiffusion 到一份 211 个设计的实验账本。
+            按五个阶段组织的可点击关系图，用来回答「这个领域到底做了什么」。
+          </p>
+          <p style="margin-top:1.2rem"><a class="link-arrow" href={url('/atlas/')}>进入图谱</a></p>
+        </div>
+        <div class="eras">
+          {
+            eras.map(([id, e], i) => (
+              <div class="eras__row">
+                <span class="mono faint" style="font-size:.62rem">{String(i + 1).padStart(2, '0')}</span>
+                <span class="eras__label">{e.label}</span>
+                <span class="mono faint" style="font-size:.62rem">{e.years}</span>
+                <span class="mono" style="font-size:.62rem;color:var(--accent)">
+                  {NODES.filter((n) => n.era === id).length}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title"><b>03</b> 这套工作流</h2>
+        <a class="link-arrow" href={url('/method/')}>编辑方法与质量门</a>
+      </div>
+      <div class="steps">
+        {
+          METHOD_STEPS.map((s) => (
+            <div class="step">
+              <div class="step__no">{s.n} / {s.en}</div>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="small muted" style="margin-top:1.6rem;max-width:60em">
+        自动化只负责「发现」与「预筛」，判断与写作由人完成。每一期都能在仓库里回溯到原始条目、筛选理由与引用核验记录。
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="border-bottom:0">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between">
+      <div>
+        <p class="kicker">订阅</p>
+        <h2 style="font-size:1.6rem;font-weight:550;margin:.6rem 0 .5rem">每周两期，不追热点，只追证据</h2>
+        <p class="muted small">RSS 是全量输出；如果只想看长文，可以等深度笔记。</p>
+      </div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <a class="btn" href={url(SITE.rssPath)}>RSS</a>
+        <a class="btn btn--ghost" href={url('/about/')}>关于本站</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eras {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .eras__row {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr auto auto;
+    gap: 0.7rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eras__label {
+    font-family: var(--display-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+</style>

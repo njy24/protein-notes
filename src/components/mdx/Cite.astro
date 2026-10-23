@@ -1,0 +1,10 @@
+---
+interface Props {
+  n: number | string;
+  /** 可选：自定义显示文本 */
+  label?: string;
+}
+const { n, label } = Astro.props;
+const target = `#ref-${n}`;
+---
+<a class="cite" href={target} aria-label={`参考文献 ${n}`}>{label ?? `[${n}]`}</a>

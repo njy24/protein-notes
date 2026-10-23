@@ -1,0 +1,166 @@
+---
+import Base from './Base.astro';
+import Badge from '../components/Badge.astro';
+import ProjectMap from '../components/ProjectMap.astro';
+import Toc from '../components/Toc.astro';
+import TocMobile from '../components/TocMobile.astro';
+import Aside from '../components/mdx/Aside.astro';
+import Callout from '../components/mdx/Callout.astro';
+import Cite from '../components/mdx/Cite.astro';
+import Figure from '../components/mdx/Figure.astro';
+import KeyTerm from '../components/mdx/KeyTerm.astro';
+import Takeaways from '../components/mdx/Takeaways.astro';
+import { SITE, PROJECTS, CATEGORIES } from '../config/site';
+import { url } from '../lib/url';
+import { fmtDate, readingTime } from '../lib/format';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'notes'>;
+  Content: any;
+  headings: { depth: number; slug: string; text: string }[];
+  prev?: CollectionEntry<'notes'>;
+  next?: CollectionEntry<'notes'>;
+  no: number;
+}
+const { entry, Content, headings, prev, next, no } = Astro.props;
+const { data } = entry;
+const desc = data.summary;
+const minutes = readingTime(entry.body ?? '');
+const year = fmtDate(data.date, 'iso').slice(0, 4);
+
+const mdxComponents = { Aside, Callout, Cite, Figure, KeyTerm, Takeaways };
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  headline: data.title,
+  description: data.summary,
+  datePublished: fmtDate(data.date, 'iso'),
+  dateModified: data.updated ? fmtDate(data.updated, 'iso') : undefined,
+  author: { '@type': 'Person', name: SITE.maintainer },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  inLanguage: 'zh-CN',
+  citation: data.citations.map((c) =>
+    c.doi ? `https://doi.org/${c.doi}` : c.url ?? c.title
+  ),
+};
+---
+<Base title={data.title} description={desc} type="article">
+  <article class="article">
+    <div class="wrap">
+      <div class="article__grid">
+        <div class="gutter">
+          <Toc headings={headings} />
+        </div>
+
+        <div>
+          <header class="article__head">
+            <p class="kicker kicker--accent">深度笔记 · No.{String(no).padStart(2, '0')}</p>
+            <h1>{data.title}</h1>
+            {data.subtitle && <p class="article__standfirst">{data.subtitle}</p>}
+            <p class="article__standfirst" style="font-size:1rem;color:var(--muted);margin-top:.6rem">
+              {data.summary}
+            </p>
+            <div class="article__meta">
+              <time datetime={fmtDate(data.date, 'iso')}>{fmtDate(data.date, 'long')}</time>
+              <span class="faint" style="letter-spacing:.12em">证据</span>
+              <Badge evidence={data.evidence} />
+              <span>{minutes} 分钟阅读</span>
+              {data.series && <span class="faint">{data.series}</span>}
+              {data.projects.map((p) => (
+                <a href={url(`/about/#${PROJECTS[p].anchor}`)} class="badge" style={`--c:${PROJECTS[p].color}`}>
+                  {p} · {PROJECTS[p].short}
+                </a>
+              ))}
+              {data.updated && <span class="faint">更新于 {fmtDate(data.updated, 'short')}</span>}
+            </div>
+            <TocMobile headings={headings} />
+          </header>
+
+          <div class="prose" style="margin-top:2.4rem">
+            <Content components={mdxComponents} />
+          </div>
+
+          {data.projectNotes && (data.projectNotes.p1 || data.projectNotes.p2) && (
+            <ProjectMap p1={data.projectNotes.p1} p2={data.projectNotes.p2} />
+          )}
+
+          {
+            data.citations.length > 0 && (
+              <section class="refs" id="refs" aria-label="参考文献">
+                <h2>参考文献 / References</h2>
+                <ol>
+                  {data.citations.map((c, i) => (
+                    <li id={`ref-${i + 1}`}>
+                      <div>
+                        {c.authors && <span>{c.authors}. </span>}
+                        {c.url ? (
+                          <a href={c.url} target="_blank" rel="noopener noreferrer">
+                            {c.title}
+                          </a>
+                        ) : (
+                          <span>{c.title}</span>
+                        )}
+                        <span class="en">
+                          {' '}
+                          {c.venue}
+                          {c.venue && c.year ? ', ' : ''}
+                          {c.year}
+                        </span>
+                        {c.doi && (
+                          <div class="doi">
+                            DOI:{' '}
+                            <a href={`https://doi.org/${c.doi}`} target="_blank" rel="noopener noreferrer">
+                              {c.doi}
+                            </a>
+                          </div>
+                        )}
+                        {c.note && <div class="faint small" style="margin-top:.2rem">{c.note}</div>}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )
+          }
+
+          <footer class="article__foot">
+            <div class="article__foot-row">
+              <span class="small muted">
+                本文以 {SITE.license} 授权；引用请注明出处。文中观点为作者理解，不构成领域共识。
+              </span>
+              <span class="mono small faint">最后核验：{fmtDate(data.date, 'short')}</span>
+            </div>
+            {data.tags.length > 0 && (
+              <div class="article__foot-row" style="gap:.5rem">
+                <span class="mono faint" style="font-size:.64rem;letter-spacing:.12em">TAGS</span>
+                {data.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
+            )}
+            <nav class="pager" aria-label="上下篇">
+              {prev ? (
+                <a href={url(`/notes/${prev.id}/`)}>
+                  <span>← 上一篇</span>
+                  <b>{prev.data.title}</b>
+                </a>
+              ) : (
+                <span></span>
+              )}
+              {next ? (
+                <a href={url(`/notes/${next.id}/`)} style="text-align:right">
+                  <span>下一篇 →</span>
+                  <b>{next.data.title}</b>
+                </a>
+              ) : (
+                <span></span>
+              )}
+            </nav>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</Base>

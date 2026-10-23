@@ -1,0 +1,188 @@
+---
+title: 211 个设计，17 个结合体：AI binder 设计开始有实验账本
+issue: 1
+date: 2026-10-23
+period:
+  from: 2026-10-07
+  to: 2026-10-23
+summary: >-
+  Anthropic 公开了 211 个抗蝎毒 binder 的全部实验数据；Nature 上的 Pinal 用自然语言设计出四个经过实验验证的功能蛋白；
+  同期的 Angew 论文把 binder 变成探针，用来堵住氢化酶的氧气通道。三条线指向同一件事：设计能力在扩张，衡量它的方式还没统一。
+judgement:
+  - >-
+    **命中率正在成为这个领域最稀缺的公共品。** 17/211 的价值不在于 8% 这个数字，而在于它同时给出了分子、实验方法与判定标准，
+    别人可以重算、可以反驳。
+  - >-
+    **自然语言正在成为设计输入，但评估没有跟上。** Pinal 用「功能描述」替代了几何约束，四个任务都拿到了实验验证；
+    可是「生成结果是否真的满足那句话」仍然没有标准答案，多数工作仍用同一套结构置信度自评。
+  - >-
+    **binder 的身份在变化。** 氢化酶的工作里，binder 不是药物，而是封闭一条气体通道的探针——用途变了，成功标准也必须跟着变。
+    这对 P2 的直接含义是：先定义 binder 要「做什么」，再定义它要「多强」。
+tags: [binder, 自然语言设计, agent, 实验验证]
+projects: [P2]
+items:
+  - title: Claude 设计抗蝎毒神经毒素结合蛋白，211 个设计全部公开
+    titleEn: How Claude designed protein binders against scorpion neurotoxins
+    url: https://www.anthropic.com/research/claude-scorpion-toxin-binder-design
+    source: Anthropic Research
+    date: 2026-10-20
+    category: design
+    tldr: >-
+      内部研究模型在 Claude Science 中工作 64 小时、经 4 次人工追加指令，产出针对四种蝎毒神经毒素的 minibinder；
+      Adaptyv Bio 与 Twist Bioscience 实测 211 个设计，17 个达到预设标准，全部序列与实验数据公开。
+    body: >-
+      这是目前少见的「设计—表达—结合」全链路公开：不是只报最优解，而是把 211 个候选连同判定结果一起放出。
+      背景是人类每年约 120 万人被蝎子蜇伤、超过 3250 人死亡，而抗蝎毒血清成本高、商业回报低，长期被归入被忽视的热带病。
+    why: >-
+      对 P2 来说，这是一份可以直接照抄结构的实验设计参照：如何定义「命中」、如何设置筛选层级、如何与外部平台合作做表达与结合测定，
+      以及最终把负结果一起发布需要什么格式。
+    caveat: >-
+      17/211 ≈ 8.1%，但这是「达到作者自定标准」的比例，不等于达到治疗级亲和力；单价 binder 也无法替代能中和多种毒素的抗血清。
+      体内有效性与稳定性均未验证。
+    tags: [binder, minibinder, 实验验证]
+    projects: [P2]
+  - title: 用自然语言设计功能蛋白：Pinal 在四个任务上拿到实验验证
+    titleEn: Programmable design of functional proteins from natural language
+    url: https://doi.org/10.1038/s41586-026-11205-z
+    source: Nature
+    date: 2026-10-21
+    category: design
+    tldr: >-
+      16B 参数、17 亿蛋白—文本对训练的 Pinal，把「想要什么功能」直接映射到序列与结构；
+      在荧光蛋白、PET 水解酶、醇脱氢酶与代谢 H 蛋白四个任务上都观察到了预期功能。
+    body: >-
+      两个设计的酶都测到了催化活性；H 蛋白在未做迭代实验优化的情况下，把多酶二氧化碳固定路径的产物滴度提高了 1.7 倍。
+      同一周 arXiv 上还有一项文本条件生成工作 [Prompteina](https://arxiv.org/abs/2610.13917)，但 Pinal 的差别在于四个任务都有湿实验。
+    why: >-
+      这是设计输入的一次迁移：从几何约束（hotspot、motif）迁移到功能语言。对 P2 的意义是，除了靶点与界面参数，
+      「想要什么功能」本身开始成为可编程的输入。
+    caveat: >-
+      每个任务进入实验的候选数与成功率，摘要中没有给出；「功能描述对齐」目前主要靠计算指标衡量。
+      真正值得读的是正文里的失败案例——哪些描述没有生成出可用结构。
+    doi: 10.1038/s41586-026-11205-z
+    tags: [text-to-protein, foundation model, 实验验证]
+    projects: [P2]
+  - title: 用 de novo binder 当探针：堵住氢化酶的氧气通道
+    titleEn: De Novo Design of a Protein Binder to Probe Gas Channel and Enhance the Oxygen Tolerance of [NiFe]-Hydrogenase
+    url: https://doi.org/10.1002/anie.6395554
+    source: Angew. Chem. Int. Ed.
+    date: 2026-10-19
+    category: experiments
+    tldr: >-
+      RFdiffusion + ProteinMPNN + AlphaFold 从约 10 万个计算候选中得到两个高亲和力 binder；
+      L1 选择性堵住主要的氧气入口，把氢化酶的耐氧性提高三倍以上，靶向另一条通道的 L2 却几乎无效。
+    body: >-
+      L1 与氢化酶的复合物做了 cryo-EM，界面的关键残基与构象得到直接验证。L2 原本是另一个候选，
+      结果成了一个天然的阴性对照：它结合了酶，却没有产生功能效应，说明 L1 的作用不是泛化的界面效应。
+    why: >-
+      这是 binder 的另一种用法——不是药物，而是测量工具：用一个结合蛋白封住通道，来证明它在功能上重要。
+      对 P2 的启发是，binder 也可以作为验证靶点机制的手段，而不只是终点分子。
+    caveat: >-
+      10 万是计算筛选量，不是实验测试量；耐氧性提升是在体外酶学体系中测得的，
+      「三倍以上」的绝对值需要看原文的测定条件与误差范围。
+    doi: 10.1002/anie.6395554
+    tags: [binder, 探针, 冷冻电镜, 阴性对照]
+    projects: [P2]
+  - title: 甜味受体的从头结合蛋白：一套纯计算的设计与排序流程
+    titleEn: De novo design of protein binders targeting the human sweet taste receptor as potential sweet proteins
+    url: https://doi.org/10.1038/s41538-026-01202-x
+    source: npj Science of Food
+    date: 2026-10-17
+    category: design
+    tldr: >-
+      针对人甜味受体 TAS1R2 的胞外结构域，串联 RFdiffusion 生成骨架、ProteinMPNN 设计序列、Boltz-1 结构评估、
+      GBSA 能量估算与 200 ns 分子动力学，筛出三个结构差异明显的候选。
+    body: >-
+      作者把 Boltz-1 置信度、静态结合自由能与 MD 轨迹上的界面接触模式放在一起排序：Binder2 的结构置信度最高，
+      Binder1 的 GBSA 估计最优且界面最大，Binder3 的构象重排最明显。全文的重点是「如何在没有实验的情况下排序」。
+    why: >-
+      这是 P2 计算筛选环节的镜像案例：当实验通量有限时，多个 in silico 指标如何组合、谁优先、冲突时听谁的。
+    caveat: >-
+      没有表达与结合实验，所有结论停留在计算层；作者自己也写明这些结果用于「支持后续实验验证」。
+      MD 只跑了 200 ns，三个候选的排序不能当作亲和力排序。
+    doi: 10.1038/s41538-026-01202-x
+    tags: [binder, 计算筛选, MD]
+    projects: [P2]
+  - title: OFAntibody：单抗与双特异性抗体的一次性生成框架
+    titleEn: De novo design of monoclonal and bispecific antibodies with OFAntibody
+    url: https://arxiv.org/abs/2610.09548
+    source: arXiv
+    date: 2026-10-07
+    category: design
+    tldr: >-
+      全原子生成框架同时处理单抗与双特异性抗体，用 CDR—表位相互作用学习与多组件结构监督，
+      让两个识别界面在同一个抗体结构中同时成立。
+    body: >-
+      双特异性的难点不是「再设计一个 binder」，而是两个界面共享框架、互不破坏，还要保持可表达与稳定性。
+      论文把问题形式化为多组件复合物的生成。
+    why: >-
+      与 P2 的单靶点 binder 相比，这是难度阶梯的下一级；值得关注的是它如何定义「两个界面都成立」的评估标准。
+    caveat: >-
+      预印本，作者为机构团队；缺少独立的湿实验数据，成功率的说法需要等实验验证。
+    tags: [preprint, 抗体, 双特异性]
+    projects: [P2]
+  - title: 把适配体当作沙盒：智能体在 1–2 周内完成设计—测试—改进
+    titleEn: Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery
+    url: https://arxiv.org/abs/2610.24806
+    source: arXiv
+    date: 2026-10-17
+    category: experiments
+    tldr: >-
+      以适配体为低成本模型系统（每候选 1–3 美元、周期 1–2 周），让智能体在 α-凝血酶与肌红蛋白两个靶点上做三轮
+      设计—测试—改进，每轮约 1000 个候选、累计约 4400 个构建。
+    body: >-
+      论文的核心不是适配体本身，而是「实验室在环」的经济学：把单轮迭代的成本压到可以承受多次失败的水平，
+      再让模型根据湿实验反馈调整下一轮。
+    why: >-
+      这与 P2 的闭环结构同构。真正可迁移的是预算与轮次的设计：每轮做多大、测多少个、用什么信号决定下一轮。
+    caveat: >-
+      预印本；适配体的序列—结构关系与蛋白 binder 差异很大，不能直接把命中率外推到蛋白体系。
+    tags: [preprint, 闭环, 智能体]
+    projects: [P2]
+  - title: Claude 在四周内优化 30 多个生物分子模型，报告约 4 倍加速
+    titleEn: How Claude is uplifting biomolecular modeling
+    url: https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling
+    source: Anthropic Research
+    date: 2026-09-17
+    category: methods
+    tldr: >-
+      Claude 在 Claude Science 中改写并调优了 30 多个开源结构预测与设计模型，报告约 4 倍加速与更低的显存占用，
+      并与 Adaptyv Bio 联合发起蛋白质设计竞赛。
+    body: >-
+      这类「工程层加速」通常不会被写进论文，但它决定了一个本科生课题组能不能在有限算力上把设计跑完。
+      优化对象包括推理与训练代码，重点在内存与吞吐，而不是改模型结构。
+    why: >-
+      对 P2 的直接意义是成本：同样的 GPU 预算，能多跑几轮 backbone 采样或 AF2 复核；
+      对流程设计的意义是——把「模型优化」当成一条独立的工作流，而不是每次重写脚本。
+    caveat: >-
+      官方只给出汇总性的加速数字，缺少逐模型的基准与失败案例；不同硬件、不同输入分布下的可复现性需要自己验证。
+    tags: [工程, 加速, 开源]
+    projects: [P2]
+  - title: Anthropic 成立生命科学实验室：Claude 找到一个功能未知的酶系统
+    titleEn: Claude discovers a novel enzyme system
+    url: https://www.anthropic.com/news/claude-discovers-novel-enzyme-system
+    source: Anthropic News
+    date: 2026-09-23
+    category: methods
+    tldr: >-
+      新成立的生命科学团队用 Claude 智能体挖掘未表征蛋白家族，找到一个带 CRISPR 样重复序列的酶系统（ART），
+      但其生化功能仍未知。
+    body: >-
+      官方说法是：先在大规模序列数据里生成假设，再进实验室验证。ART 的发现属于「假设生成」环节的成果，
+      功能验证仍在进行。
+    why: >-
+      它展示了智能体在「文献 + 序列数据 → 候选假设」这一步的真实用法，也提醒我们：发现一个基因簇、
+      与证明它做什么，中间隔着完整的实验链条。
+    caveat: >-
+      功能未知意味着这还不是一个可用的生物学结论；「智能体发现」的贡献边界（检索、组合、排序，还是真正的推理）需要看后续论文。
+    tags: [agent, 酶, 发现]
+    projects: []
+---
+
+这两周最值得读的不是又一个模型发布，而是一份**可以下载的账本**：211 个设计、它们的序列、实验判定与原始数据。
+
+它把一个长期被含糊处理的问题摆到了台面上：当我们说一个 AI 设计的蛋白「成功」时，我们在说什么？是结构预测置信度高，是表达出来了，是在 ELISA 里读出了信号，还是 SPR 上测到了个位数纳摩尔的 Kd？不同的团队用不同的答案，于是「命中率 8%」和「命中率 10–100%」可以同时为真。
+
+本期选了 8 条，围绕三条线：**binder 的实验**（蝎毒、氢化酶探针、甜味受体）、**设计输入的迁移**（Pinal 的自然语言、OFAntibody 的多组件、适配体的闭环）、以及**智能体进入实验室**（Anthropic 的模型优化与酶发现）。把它们放在一起，不是为了比较谁更强，而是为了看清生成能力与验证能力之间的错位。
+
+时间窗：2026 年 10 月 7 日至 10 月 23 日。所有条目附原始链接；预印本与同行评议分别标注。

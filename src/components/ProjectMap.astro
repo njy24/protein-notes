@@ -1,0 +1,27 @@
+---
+import { PROJECTS } from '../config/site';
+interface Props {
+  p1?: string;
+  p2?: string;
+}
+const { p1, p2 } = Astro.props;
+---
+{(p1 || p2) && (
+  <div class="project-map">
+    <div class="project-map__label">与我们课题的关系</div>
+    <div class="project-map__grid">
+      {p1 && (
+        <div class="project-map__item" style={`--c:${PROJECTS.P1.color}`}>
+          <b>P1 · {PROJECTS.P1.short}</b>
+          {p1}
+        </div>
+      )}
+      {p2 && (
+        <div class="project-map__item" style={`--c:${PROJECTS.P2.color}`}>
+          <b>P2 · {PROJECTS.P2.short}</b>
+          {p2}
+        </div>
+      )}
+    </div>
+  </div>
+)}

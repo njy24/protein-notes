@@ -1,0 +1,42 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  headings: Heading[];
+}
+const items = Astro.props.headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+{items.length > 1 && (
+  <nav class="toc-box" aria-label="目录">
+    <div class="toc-box__label">目录 / Contents</div>
+    <ol>
+      {items.map((h) => (
+        <li class:list={[{ 'toc--h3': h.depth === 3 }]}>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc-box a'));
+  if (links.length) {
+    const map = new Map(links.map((a) => [a.getAttribute('href')!.slice(1), a]));
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            links.forEach((l) => l.classList.remove('is-active'));
+            map.get(e.target.id)?.classList.add('is-active');
+          }
+        }
+      },
+      { rootMargin: '-15% 0px -75% 0px' }
+    );
+    document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach((h) => obs.observe(h));
+  }
+</script>

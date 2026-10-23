@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE, PROJECTS } from '../../config/site';
+import { url } from '../../lib/url';
+---
+<Base title="关于本站" description="一个本科生研究者维护的 AI 蛋白质设计信息工作流：定位、边界、两个课题，以及如何引用。">
+  <div class="wrap wrap--narrow" style="padding:clamp(2.5rem,5vw,4rem) 0 4rem">
+    <p class="kicker">关于 / About</p>
+    <h1 class="display-1" style="margin:.9rem 0 1.4rem">一个为了把「读到」变成「做到」而建的站点</h1>
+    <p class="lede">
+      这不是一个资讯站，也不是实验室的公开周报。它是一套公开的信息工作流：用固定的节奏筛选领域进展，
+      用可核验的方式写下理解，再把理解挂回两个具体的蛋白质课题。
+    </p>
+
+    <div class="prose" style="margin-top:2.6rem">
+      <h2>为什么做</h2>
+      <p>
+        2026 年下半年开始，AI × 蛋白质的进展密度明显上升：模型优化的工程报告、用智能体做的酶发现、
+        以及第一批带完整实验数据的从头设计结果，几乎挤在同一段时间里出现。对研究者来说，困难不再是「找不到信息」，
+        而是「如何判断哪一条与自己有关」。
+      </p>
+      <p>
+        另一个更私人的原因：我同时参与两个蛋白质相关课题，一个是序列层面的筛选，一个是结构驱动的从头设计与实验验证。
+        两个课题需要的文献、工具与判断标准并不相同，但它们共享同一套底层概念。把这条信息流水线固定下来，
+        既能避免重复劳动，也能让每一次阅读都留下可追溯的产物。
+      </p>
+
+      <h2 id="projects">两个课题</h2>
+      <p class="muted small">
+        以下只描述可以公开的层面；具体实验设计、未发表数据与组内材料不进入本站。
+      </p>
+
+      <div class="card" style="margin:1.6rem 0" id={PROJECTS.P1.anchor}>
+        <p class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--c-ochre)">P1 · 序列筛选</p>
+        <h3 style="margin:.4rem 0 .5rem;font-size:1.25rem">{PROJECTS.P1.title}</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);line-height:1.85">
+          面向 θ 亚基的氨基酸序列，建立可复用的筛选流程：如何组织候选序列、如何定义筛选指标、
+          如何把计算筛选与后续实验验证衔接起来。本站关注与序列表征、同源检索、打分函数和候选排序相关的方法学。
+        </p>
+      </div>
+
+      <div class="card" style="margin:1.6rem 0" id={PROJECTS.P2.anchor}>
+        <p class="mono" style="font-size:.66rem;letter-spacing:.14em;color:var(--c-blue)">P2 · 从头设计</p>
+        <h3 style="margin:.4rem 0 .5rem;font-size:1.25rem">{PROJECTS.P2.title}</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);line-height:1.85">
+          完整链路：靶点结构分析 → 结合位点选择 → AI 序列与结构生成 → 多参数计算筛选 → 蛋白表达 → 结合实验验证。
+          目标是在 1–2 个靶点上拿到有实验数据的 AI 设计蛋白，并把流程标准化。本站的深度笔记与图谱主要围绕这条链展开。
+        </p>
+      </div>
+
+      <h2>谁在维护</h2>
+      <p>
+        {SITE.maintainerNote}。写作、选材与核验由我完成；抓取、去重与预筛由脚本完成；
+        语言模型只参与候选摘要的初稿与格式检查，不参与结论判断，也不直接发布。
+      </p>
+
+      <h2>边界与声明</h2>
+      <ul>
+        <li><strong>不是同行评议。</strong>本站对所有论文的理解都可能出错；预印本会明确标注，关键数字附原始链接。</li>
+        <li><strong>不是新闻。</strong>速递有明确的时间窗和筛选标准，但不会为了时效牺牲判断。</li>
+        <li><strong>不发布未发表数据。</strong>涉及课题的未发表结果只存在于本地私有目录，不进入仓库与部署产物。</li>
+        <li><strong>没有追踪。</strong>站点不加载第三方分析脚本；阅读偏好只存在浏览器的 localStorage 里。</li>
+      </ul>
+
+      <h2>如何引用</h2>
+      <p>
+        本站内容以 {SITE.license} 授权。引用单篇文章时，请使用文章页给出的标题、日期与 URL；
+        如果要引用其中的数据或图，请回溯到原始论文，而不是引用本站。
+      </p>
+
+      <h2>联系与更正</h2>
+      <p>
+        发现事实错误、失效链接或表述不当，欢迎通过仓库 issue 指出（见页脚源码链接）。
+        更正会以「更新于」的形式记录在文章页，而不是悄悄改掉。
+      </p>
+    </div>
+
+    <div class="article__foot">
+      <div class="article__foot-row">
+        <span class="small muted">站点由 Astro 静态构建，部署在 GitHub Pages。</span>
+        <a class="link-arrow" href={url('/method/')}>看编辑方法</a>
+      </div>
+    </div>
+  </div>
+</Base>

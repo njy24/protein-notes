@@ -1,0 +1,61 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run validate
+
+      - name: Compute site base path
+        id: base
+        run: |
+          if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}.github.io" ]; then
+            echo "path=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/${{ github.event.repository.name }}/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: https://${{ github.repository_owner }}.github.io
+          BASE_PATH: ${{ steps.base.outputs.path }}
+          PUBLIC_GITHUB_REPO: ${{ github.server_url }}/${{ github.repository }}
+
+      - run: touch dist/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

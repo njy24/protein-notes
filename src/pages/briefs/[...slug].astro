@@ -1,0 +1,140 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BriefItem from '../../components/BriefItem.astro';
+import { mdx } from '../../components/mdx';
+import { url } from '../../lib/url';
+import { fmtDate, fmtRange, inline } from '../../lib/format';
+import { CATEGORIES, type CategoryId } from '../../config/site';
+
+export async function getStaticPaths() {
+  const all = await getCollection('briefs', ({ data }) => (import.meta.env.PROD ? !data.draft : true));
+  const sorted = all.sort((a, b) => a.data.issue - b.data.issue);
+  return sorted.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      prev: sorted[i - 1] as CollectionEntry<'briefs'> | undefined,
+      next: sorted[i + 1] as CollectionEntry<'briefs'> | undefined,
+    },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'briefs'>;
+  prev?: CollectionEntry<'briefs'>;
+  next?: CollectionEntry<'briefs'>;
+}
+const { entry, prev, next } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const items = data.items.map((item, i) => ({
+  ...item,
+  index: i,
+  anchor: `item-${i + 1}`,
+}));
+const groups = (Object.keys(CATEGORIES) as CategoryId[])
+  .filter((c) => items.some((i) => i.category === c))
+  .map((c) => ({ id: c, ...CATEGORIES[c], list: items.filter((i) => i.category === c) }))
+  // 分组按「该组第一条在正文中的位置」排序，保证概览编号大致递增
+  .sort(
+    (a, b) =>
+      Math.min(...a.list.map((i) => i.index)) - Math.min(...b.list.map((i) => i.index))
+  );
+---
+<Base title={`速递 ${String(data.issue).padStart(2, '0')}：${data.title}`} description={data.summary} type="article">
+  <header class="page-head">
+    <div class="wrap">
+      <p class="kicker kicker--accent">速递 / Issue {String(data.issue).padStart(2, '0')}</p>
+      <h1>{data.title}</h1>
+      <p class="lede" style="margin-top:1rem">{data.summary}</p>
+      <div class="meta" style="margin-top:1.4rem">
+        <time datetime={fmtDate(data.date, 'iso')}>{fmtDate(data.date, 'long')}</time>
+        <span class="meta__dot"></span>
+        <span>{items.length} 条</span>
+        {data.period && (
+          <>
+            <span class="meta__dot"></span>
+            <span>覆盖 {fmtRange(data.period.from, data.period.to)}</span>
+          </>
+        )}
+        <span class="meta__dot"></span>
+        <a href={url('/method/')}>筛选标准</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap wrap--narrow">
+    <div class="brief">
+      <div class="brief__intro prose">
+        <Content components={mdx} />
+      </div>
+
+      <section class="overview" aria-label="本期概览">
+        <div class="overview__grid">
+          {
+            groups.map((g) => (
+              <div>
+                <div class="overview__cat">
+                  <span class="dot" style={`--c:${g.color}`} />
+                  {g.label}
+                  <span class="faint" style="letter-spacing:0">/ {g.en}</span>
+                </div>
+                <ol>
+                  {g.list.map((it) => (
+                    <li>
+                      <span class="idx">{String(it.index + 1).padStart(2, '0')}</span>
+                      <a href={`#${it.anchor}`}>{it.title}</a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      {
+        data.judgement.length > 0 && (
+          <section class="judgement">
+            <h2>本期判断 · Judgement</h2>
+            <ol>
+              {data.judgement.map((j) => (
+                <li set:html={inline(j)} />
+              ))}
+            </ol>
+          </section>
+        )
+      }
+
+      {items.map((it) => <BriefItem item={it} index={it.index} id={it.anchor} />)}
+
+      <footer class="article__foot">
+        <div class="article__foot-row">
+          <span class="small muted">
+            每条都附原始链接；预印本与同行评议分别标注。本页不会替你下结论——判断写在「本期判断」，欢迎反驳。
+          </span>
+        </div>
+        <nav class="pager" aria-label="往期速递">
+          {prev ? (
+            <a href={url(`/briefs/${prev.id}/`)}>
+              <span>← 上一期</span>
+              <b>{prev.data.title}</b>
+            </a>
+          ) : (
+            <span></span>
+          )}
+          {next ? (
+            <a href={url(`/briefs/${next.id}/`)} style="text-align:right">
+              <span>下一期 →</span>
+              <b>{next.data.title}</b>
+            </a>
+          ) : (
+            <span></span>
+          )}
+        </nav>
+      </footer>
+    </div>
+  </div>
+</Base>

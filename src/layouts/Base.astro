@@ -1,0 +1,204 @@
+---
+import { SITE, NAV } from '../config/site';
+import { url } from '../lib/url';
+import Footer from '../components/Footer.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+
+import '@fontsource-variable/inter';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource-variable/jetbrains-mono';
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const { title, description, type = 'website', noindex = false } = Astro.props;
+const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
+const desc = description ?? SITE.description;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname.startsWith(url(href)) && href !== '/';
+---
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href={url(SITE.rssPath)} />
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#faf8f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101110" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary" />
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        try {
+          var m = localStorage.getItem('theme') || 'auto';
+          var dark = m === 'dark' || (m === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+          d.dataset.theme = dark ? 'dark' : 'light';
+          d.dataset.themeMode = m;
+          var t = localStorage.getItem('typeface');
+          if (t === 'serif' || t === 'sans') d.dataset.type = t;
+        } catch (e) {
+          d.dataset.theme = 'light';
+          d.dataset.themeMode = 'auto';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="brand" href={url('/')} aria-label={`${SITE.name} 首页`}>
+          <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M5.5 3.5h9l4 4v13h-9l-4-4v-13Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            ></path>
+            <path d="M14.5 3.5v4h4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            <path d="M8 14.5h5.5M8 17.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+          </svg>
+          <span class="brand__name">{SITE.name}</span>
+          <span class="brand__en">{SITE.nameEn}</span>
+        </a>
+
+        <nav class="nav" aria-label="主导航">
+          {
+            NAV.map((n) => (
+              <a href={url(n.href)} aria-current={isActive(n.href) ? 'page' : undefined}>
+                {n.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="controls">
+          <button class="icon-btn" type="button" data-search-open aria-label="搜索文章" title="搜索（Ctrl/⌘ K）">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="8.75" cy="8.75" r="5.25" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="m12.75 12.75 3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              ></path>
+            </svg>
+          </button>
+          <button
+            class="icon-btn type-btn"
+            type="button"
+            data-type-toggle
+            aria-label="切换正文字体"
+            title="切换正文字体（黑体/宋体）"
+          >
+            Aa
+          </button>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="切换配色" title="配色：跟随系统">
+            <span data-theme-icon aria-hidden="true">
+              <svg class="i-auto" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="6.25" stroke="currentColor" stroke-width="1.5"></circle>
+                <path d="M10 3.75v12.5a6.25 6.25 0 0 0 0-12.5Z" fill="currentColor"></path>
+              </svg>
+              <svg class="i-light" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="3.6" stroke="currentColor" stroke-width="1.5"></circle>
+                <path
+                  d="M10 2.4v1.7M10 15.9v1.7M2.4 10h1.7M15.9 10h1.7M4.6 4.6l1.2 1.2M14.2 14.2l1.2 1.2M15.4 4.6l-1.2 1.2M5.8 14.2l-1.2 1.2"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"></path>
+              </svg>
+              <svg class="i-dark" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M16.2 12.4A6.6 6.6 0 0 1 7.6 3.8a6.6 6.6 0 1 0 8.6 8.6Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+    <SearchDialog />
+
+    <script>
+      // 主题：跟随系统 → 亮 → 暗 循环
+      const root = document.documentElement;
+      const themeBtn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+      const modes = ['auto', 'light', 'dark'] as const;
+      const modeLabel: Record<string, string> = { auto: '跟随系统', light: '浅色', dark: '深色' };
+      const mq = matchMedia('(prefers-color-scheme: dark)');
+
+      function paintTheme(mode: string) {
+        const dark = mode === 'dark' || (mode === 'auto' && mq.matches);
+        root.dataset.theme = dark ? 'dark' : 'light';
+        root.dataset.themeMode = mode;
+        if (themeBtn) themeBtn.title = `配色：${modeLabel[mode] ?? mode}`;
+      }
+      paintTheme(localStorage.getItem('theme') || 'auto');
+
+      themeBtn?.addEventListener('click', () => {
+        const cur = localStorage.getItem('theme') || 'auto';
+        const next = modes[(modes.indexOf(cur as (typeof modes)[number]) + 1) % modes.length];
+        if (next === 'auto') localStorage.removeItem('theme');
+        else localStorage.setItem('theme', next);
+        paintTheme(next);
+      });
+      mq.addEventListener('change', () => {
+        if ((localStorage.getItem('theme') || 'auto') === 'auto') paintTheme('auto');
+      });
+
+      // 正文字体：黑体 ↔ 宋体
+      const typeBtn = document.querySelector<HTMLButtonElement>('[data-type-toggle]');
+      function paintType(t: string) {
+        root.dataset.type = t;
+        if (typeBtn) {
+          typeBtn.dataset.mode = t;
+          typeBtn.setAttribute('aria-pressed', String(t === 'serif'));
+          typeBtn.title = t === 'serif' ? '正文：宋体（点击切黑体）' : '正文：黑体（点击切宋体）';
+        }
+      }
+      paintType(localStorage.getItem('typeface') === 'serif' ? 'serif' : 'sans');
+      typeBtn?.addEventListener('click', () => {
+        const next = root.dataset.type === 'serif' ? 'sans' : 'serif';
+        localStorage.setItem('typeface', next);
+        paintType(next);
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  [data-theme-icon] svg {
+    display: none;
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+  html[data-theme-mode='auto'] [data-theme-icon] .i-auto,
+  html[data-theme='light'][data-theme-mode='light'] [data-theme-icon] .i-light,
+  html[data-theme='dark'][data-theme-mode='dark'] [data-theme-icon] .i-dark {
+    display: block;
+  }
+</style>

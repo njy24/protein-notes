@@ -1,0 +1,51 @@
+# 信息源注册表 —— 采集脚本只读这里
+# 修改后运行 `npm run fetch` 验证；失效的源会在 data/raw/<date>/meta.json 里报错
+
+arxiv:
+  enabled: true
+  lookback_days: 10
+  max_results: 80
+  categories:
+    - q-bio.BM
+    - q-bio.QM
+  keywords:
+    - protein design
+    - binder
+    - miniprotein
+    - de novo design
+    - inverse folding
+    - antibody design
+    - diffusion model
+
+pubmed:
+  enabled: true
+  lookback_days: 7
+  retmax: 60
+  queries:
+    - '"protein design"[Title/Abstract] OR "miniprotein"[Title/Abstract] OR "de novo design"[Title/Abstract]'
+    - '"protein binder"[Title/Abstract] OR "binding protein"[Title/Abstract] AND "deep learning"[Title/Abstract]'
+
+crossref:
+  enabled: true
+  lookback_days: 7
+  rows_per_journal: 25
+  issns:
+    - { issn: "0028-0836", label: Nature }
+    - { issn: "0036-8075", label: Science }
+    - { issn: "1087-0156", label: Nature Biotechnology }
+    - { issn: "1548-7091", label: Nature Methods }
+    - { issn: "2041-1723", label: Nature Communications }
+    - { issn: "0969-2126", label: Structure }
+    - { issn: "0968-0004", label: Trends in Biochemical Sciences }
+
+rss:
+  enabled: true
+  max_items_per_feed: 30
+  feeds:
+    - { name: Nature, url: "https://www.nature.com/nature.rss" }
+    - { name: Nature Biotechnology, url: "https://www.nature.com/nbt.rss" }
+    - { name: Nature Methods, url: "https://www.nature.com/nmeth.rss" }
+    - { name: Nature Communications, url: "https://www.nature.com/ncomms.rss" }
+    - { name: Science, url: "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science" }
+    - { name: "bioRxiv · Biochemistry", url: "https://connect.biorxiv.org/biorxiv_xml.php?subject=biochemistry" }
+    - { name: "bioRxiv · Bioinformatics", url: "https://connect.biorxiv.org/biorxiv_xml.php?subject=bioinformatics" }
