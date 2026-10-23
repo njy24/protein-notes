@@ -1,6 +1,8 @@
 # 折叠之后 · After Folding
 
-一个服务于两个蛋白质课题的公开信息工作流：**追踪进展 → 拆解方法 → 核验证据 → 写成文章 → 发布到站点**。
+一个追踪 AI 蛋白质设计前沿的公开信息工作流：**追踪进展 → 拆解方法 → 核验证据 → 写成文章 → 发布到站点**。
+
+内容以领域的新观点、新方法与新结果为主；作者的课题只作为背景，不作为组织主线。
 
 - 线上站点：<https://njy24.github.io/protein-notes/>（仓库：<https://github.com/njy24/protein-notes>）
 - 技术：Astro 5 静态构建，部署在 GitHub Pages
@@ -144,7 +146,7 @@ SITE_URL=https://yourname.github.io BASE_PATH=/your-repo/ npm run build
 ## 隐私
 
 - `lab/`、`private/` 已在 `.gitignore` 中，用于未发表数据与组内材料。
-- 公开内容只描述两个课题中可公开的方法层；发布前有隐私门（见 `WORKFLOW.md` 第 9 节）。
+- 公开内容以领域进展为主；涉及课题时只描述可公开的方法层，发布前有隐私门（见 `WORKFLOW.md` 第 9 节）。
 - 站点不加载第三方分析脚本。
 
 ## 已知限制

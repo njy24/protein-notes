@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { SITE, PROJECTS, METHOD_STEPS, CATEGORIES, type ProjectId } from '../config/site';
+import { SITE, METHOD_STEPS, CATEGORIES } from '../config/site';
 import { NODES, EDGES, ERAS, type Era } from '../lib/atlas';
 import { url } from '../lib/url';
 import { fmtDate, readingTime } from '../lib/format';
@@ -23,8 +23,8 @@ const latestDate = [latest?.data.date, notes[0]?.data.date].filter(Boolean).sort
           结构预测之后，<br />我们开始<em>设计</em>蛋白质。
         </h1>
         <p class="lede" style="margin-top:1.6rem">
-          这是一个服务于两个蛋白质课题的公开信息工作流。它追踪 AI 设计的最新进展，把论文拆成可复用的方法，
-          并记录每一次从「读到」到「做到」的尝试。
+          这是一个追踪 AI 蛋白质设计前沿的公开信息工作流：关注新观点、新方法与新结果，
+          把论文拆成可复用的方法，并记录从「读到」到「做到」的尝试。
         </p>
         <div class="hero__actions">
           <a class="btn" href={latest ? url(`/briefs/${latest.id}/`) : url('/briefs/')}>
@@ -42,11 +42,10 @@ const latestDate = [latest?.data.date, notes[0]?.data.date].filter(Boolean).sort
         </div>
         <div class="rule" style="margin:.3rem 0"></div>
         <div>
-          <strong>两个课题</strong>
+          <strong>写作背景</strong>
           <div style="margin-top:.4rem;line-height:1.9">
-            {Object.values(PROJECTS).map((p: { id: ProjectId; short: string; title: string }) => (
-              <div><span class="mono" style="font-size:.68rem;color:var(--faint)">{p.id}</span>　{p.title}</div>
-            ))}
+            作者在参与蛋白质相关课题，但课题仍在推进、路线未定。本站以领域的新观点、新技术为主，
+            课题只在确实相关时作为注脚。
           </div>
         </div>
         <div class="mono" style="font-size:.64rem;letter-spacing:.1em;color:var(--faint);margin-top:.4rem">

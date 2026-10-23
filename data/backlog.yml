@@ -1,37 +1,57 @@
 # 选题池：每两周清理一次
-# 字段：id / question / projects / evidence / status(idea|reading|writing|done|dropped) / note
+# 原则：先问「这个领域刚刚发生了什么值得解释的事」，而不是「这对我们课题有什么用」。
+# 字段：id / question / evidence / status(idea|reading|writing|done|dropped) / note
 
-- id: interface-selection
-  question: binder 的界面选择——hotspot 到底从哪来，怎么判断一个表位值得打？
-  projects: [P2]
-  evidence: [Cao 2022, BindCraft, AlphaProteo]
-  status: idea
-  note: 与 P2 的「靶点结构分析—结合位点选择」直接对应
-
-- id: success-criteria
-  question: 如何在一个本科生能承担的通量下定义「成功」：ELISA 阳性、BLI 有信号、还是 SPR 的 Kd？
-  projects: [P2]
-  evidence: [本期速递 001, BindCraft, 氢化酶探针工作]
-  status: idea
-  note: 可作为第一篇方法学深度的续篇
-
-- id: theta-screening
-  question: θ 亚基序列筛选的指标设计——在没有结构、没有标签的情况下，用什么代理指标排序？
-  projects: [P1]
-  evidence: [同源检索, 保守性分析, 语言模型 embedding]
-  status: idea
-  note: 需要先确认课题可公开的边界
-
-- id: negative-results
-  question: 为什么 binder 设计的负结果很少被发表？这对我们的筛选流程意味着什么？
-  projects: [P2]
-  evidence: [预印本与期刊的报告偏差, 工业界报告]
-  status: idea
-  note: 可能写成「方法论 + 访谈式」的文章
-
-- id: boltz-domain
-  question: Boltz-2 的亲和力模块能用到蛋白—蛋白体系吗？适用域的边界在哪里？
-  projects: [P2]
-  evidence: [Boltz-2 预印本, FEP 基准]
+- id: eval-crisis
+  question: binder 的命中率为什么不可比？评估标准本身正在变成研究问题。
+  evidence: [Anthropic 蝎毒账本, BindCraft, 氢化酶探针, 甜味受体计算工作]
   status: reading
-  note: 注意区分小分子—蛋白与蛋白—蛋白
+  note: 首篇深度「四层栈」的直接续篇；核心是分母、判定标准与筛选层级
+
+- id: language-interface
+  question: 自然语言作为设计输入，到底改变了什么、没改变什么？
+  evidence: [Pinal (Nature 2026), Prompteina (arXiv), OFAntibody]
+  status: idea
+  note: 重点不是模型多大，而是「描述是否可验证」
+
+- id: experimental-ledger
+  question: 什么样的数据发布，能让一个设计结果真的可复现？
+  evidence: [Ant 211 个设计全公开, Adaptyv 平台, 负结果报告惯例]
+  status: idea
+  note: 可以做成「实验账本」的格式分析，而不是又一处新闻
+
+- id: all-atom-physics
+  question: 全原子生成模型给出的界面，几何合理和能量合理之间差多远？
+  evidence: [AlphaFold3, Boltz-2, Chai, 物理约束/能量打分]
+  status: idea
+  note: 需要区分「模型喜欢」与「溶液里稳定」
+
+- id: agent-lab
+  question: 智能体进入实验室，哪些环节真的自动化了，哪些只是加快了检索？
+  evidence: [Anthropic 生命科学实验室, 适配体闭环, Claude Science]
+  status: idea
+  note: 避免把「生成假设」写成「完成发现」
+
+- id: protein-scaling
+  question: 蛋白质基础模型有 scaling law 吗？数据、参数与评测之间的关系。
+  evidence: [ESM3, ProGen, 结构预测模型规模对比]
+  status: idea
+  note: 需要找到公开的消融数据，否则容易写成观点文
+
+- id: open-repro
+  question: AF3、Boltz、Chai、RFdiffusion 的开放程度与可复现性，差在哪一层？
+  evidence: [各模型权重/代码许可, 独立复现报告]
+  status: idea
+  note: 对「能不能在自己的机器上跑」这件事最实际
+
+- id: screening-bottleneck
+  question: 计算筛选的通量与实验通量，瓶颈到底在哪一段？
+  evidence: [10 万候选 → 2 个实验, 211 → 17, 高通量表达平台]
+  status: idea
+  note: 可以画一张「漏斗」，比较不同团队的漏斗形状
+
+- id: sequence-proxy
+  question: 没有结构、没有标签时，序列筛选用什么代理指标排序？
+  evidence: [同源检索, 保守性, 语言模型 embedding, 变异效应预测]
+  status: idea
+  note: 领域方法问题，不绑定具体课题

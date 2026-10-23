@@ -7,7 +7,7 @@ export const SITE = {
   nameEn: 'After Folding',
   tagline: 'AI 蛋白质设计的研究手记',
   description:
-    '追踪 AI 蛋白质设计与功能分子从头设计的研究进展，拆解可复用的方法与失效条件，并记录两个蛋白质课题从读到做的过程。',
+    '追踪 AI 蛋白质设计与功能分子从头设计的新观点、新方法与新结果，拆解可复用的方法与失效条件。',
   lang: 'zh-CN',
   locale: 'zh_CN',
   since: 2026,

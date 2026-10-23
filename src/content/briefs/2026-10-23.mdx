@@ -17,9 +17,8 @@ judgement:
     可是「生成结果是否真的满足那句话」仍然没有标准答案，多数工作仍用同一套结构置信度自评。
   - >-
     **binder 的身份在变化。** 氢化酶的工作里，binder 不是药物，而是封闭一条气体通道的探针——用途变了，成功标准也必须跟着变。
-    这对 P2 的直接含义是：先定义 binder 要「做什么」，再定义它要「多强」。
+    评价一个设计之前，先问它要「做什么」，再问它要「多强」。
 tags: [binder, 自然语言设计, agent, 实验验证]
-projects: [P2]
 items:
   - title: Claude 设计抗蝎毒神经毒素结合蛋白，211 个设计全部公开
     titleEn: How Claude designed protein binders against scorpion neurotoxins
@@ -40,7 +39,6 @@ items:
       17/211 ≈ 8.1%，但这是「达到作者自定标准」的比例，不等于达到治疗级亲和力；单价 binder 也无法替代能中和多种毒素的抗血清。
       体内有效性与稳定性均未验证。
     tags: [binder, minibinder, 实验验证]
-    projects: [P2]
   - title: 用自然语言设计功能蛋白：Pinal 在四个任务上拿到实验验证
     titleEn: Programmable design of functional proteins from natural language
     url: https://doi.org/10.1038/s41586-026-11205-z
@@ -61,7 +59,6 @@ items:
       真正值得读的是正文里的失败案例——哪些描述没有生成出可用结构。
     doi: 10.1038/s41586-026-11205-z
     tags: [text-to-protein, foundation model, 实验验证]
-    projects: [P2]
   - title: 用 de novo binder 当探针：堵住氢化酶的氧气通道
     titleEn: De Novo Design of a Protein Binder to Probe Gas Channel and Enhance the Oxygen Tolerance of [NiFe]-Hydrogenase
     url: https://doi.org/10.1002/anie.6395554
@@ -82,7 +79,6 @@ items:
       「三倍以上」的绝对值需要看原文的测定条件与误差范围。
     doi: 10.1002/anie.6395554
     tags: [binder, 探针, 冷冻电镜, 阴性对照]
-    projects: [P2]
   - title: 甜味受体的从头结合蛋白：一套纯计算的设计与排序流程
     titleEn: De novo design of protein binders targeting the human sweet taste receptor as potential sweet proteins
     url: https://doi.org/10.1038/s41538-026-01202-x
@@ -102,7 +98,6 @@ items:
       MD 只跑了 200 ns，三个候选的排序不能当作亲和力排序。
     doi: 10.1038/s41538-026-01202-x
     tags: [binder, 计算筛选, MD]
-    projects: [P2]
   - title: OFAntibody：单抗与双特异性抗体的一次性生成框架
     titleEn: De novo design of monoclonal and bispecific antibodies with OFAntibody
     url: https://arxiv.org/abs/2610.09548
@@ -120,7 +115,6 @@ items:
     caveat: >-
       预印本，作者为机构团队；缺少独立的湿实验数据，成功率的说法需要等实验验证。
     tags: [preprint, 抗体, 双特异性]
-    projects: [P2]
   - title: 把适配体当作沙盒：智能体在 1–2 周内完成设计—测试—改进
     titleEn: Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery
     url: https://arxiv.org/abs/2610.24806
@@ -138,7 +132,6 @@ items:
     caveat: >-
       预印本；适配体的序列—结构关系与蛋白 binder 差异很大，不能直接把命中率外推到蛋白体系。
     tags: [preprint, 闭环, 智能体]
-    projects: [P2]
   - title: Claude 在四周内优化 30 多个生物分子模型，报告约 4 倍加速
     titleEn: How Claude is uplifting biomolecular modeling
     url: https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling
@@ -157,7 +150,6 @@ items:
     caveat: >-
       官方只给出汇总性的加速数字，缺少逐模型的基准与失败案例；不同硬件、不同输入分布下的可复现性需要自己验证。
     tags: [工程, 加速, 开源]
-    projects: [P2]
   - title: Anthropic 成立生命科学实验室：Claude 找到一个功能未知的酶系统
     titleEn: Claude discovers a novel enzyme system
     url: https://www.anthropic.com/news/claude-discovers-novel-enzyme-system
@@ -176,7 +168,6 @@ items:
     caveat: >-
       功能未知意味着这还不是一个可用的生物学结论；「智能体发现」的贡献边界（检索、组合、排序，还是真正的推理）需要看后续论文。
     tags: [agent, 酶, 发现]
-    projects: []
 ---
 
 这两周最值得读的不是又一个模型发布，而是一份**可以下载的账本**：211 个设计、它们的序列、实验判定与原始数据。
