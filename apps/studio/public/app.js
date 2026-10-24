@@ -72,8 +72,13 @@ async function openFile(type, id) {
   $('#source').value = d.content;
   $('#source').scrollTop = 0;
   $('#source').setSelectionRange(0, 0);
-  $('#file-title').textContent = id;
-  $('#file-meta').textContent = type === 'weekly' ? '周报' : '深度';
+  const meta = d.meta || {};
+  $('#file-title').textContent = meta.title || id;
+  $('#file-meta').textContent = [
+    type === 'weekly' ? meta.week : meta.date,
+    type === 'weekly' ? meta.date : '',
+    meta.draft ? '草稿' : '',
+  ].filter(Boolean).join(' · ');
   $('#save').disabled = false;
   $('#preview-toggle').disabled = false;
   $('#publish').disabled = false;

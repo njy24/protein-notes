@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { SITE } from '@protein/core';
 import { NODES, EDGES } from '../lib/atlas';
 import { url } from '../lib/url';
 import { fmtDate, readingTime } from '../lib/format';
@@ -13,80 +12,59 @@ const latest = weekly[0];
 ---
 <Base>
   <div class="wrap">
-    <header class="page-head" style="padding-top:clamp(2.6rem,7vw,5rem)">
-      <p class="kicker">AI 蛋白质设计 / 研究手记</p>
-      <h1 class="display-1" style="margin-top:1rem">折叠之后</h1>
-      <p class="lede" style="margin-top:1.2rem">
-        每周五一份周报，五到六条值得读的进展；不定期一篇深度，把一条路线拆到可以动手；
-        一张持续生长的知识树，用来回答「这个领域到底做了什么」。
-      </p>
-    </header>
-
-    {
-      latest && (
-        <section class="section">
-          <div class="section__head">
-            <h2 class="section__title"><b>01</b> 最新周报</h2>
-            <a class="link-arrow" href={url('/weekly/')}>全部周报</a>
-          </div>
-          <a class="issue-card" href={url(`/weekly/${latest.id}/`)} style="display:block;text-decoration:none">
-            <div class="issue-card__no">WEEK {latest.data.week} · {fmtDate(latest.data.date, 'short')}</div>
-            <h2>{latest.data.title}</h2>
-            <p class="issue-card__summary">{latest.data.summary}</p>
-            <div class="issue-card__foot">
-              <span class="meta">
-                <span>{latest.data.items.length} 条</span>
-                <span class="meta__dot"></span>
-                <span>{latest.data.judgement.length} 条判断</span>
-              </span>
-              <span class="link-arrow">读这一期</span>
-            </div>
-          </a>
-        </section>
-      )
-    }
-
-    <section class="section">
-      <div class="section__head">
-        <h2 class="section__title"><b>02</b> 深度</h2>
-        <a class="link-arrow" href={url('/deep/')}>全部深度</a>
-      </div>
+    <section class="home-hero">
       <div>
-        {deep.slice(0, 3).map((n, i) => (
+        <p class="kicker">AI 蛋白质设计 / 研究手记</p>
+        <h1>折叠之后</h1>
+        <p class="home-hero__lede">
+          每周五一份周报，五到六条值得读的进展；不定期一篇深度，把一条路线拆到可以动手；
+          一张持续生长的知识树，用来回答「这个领域到底做了什么」。
+        </p>
+        <div class="home-hero__actions">
+          <a class="btn" href={url('/weekly/')}>读最新周报</a>
+          <a class="btn btn--ghost" href={url('/deep/')}>浏览深度</a>
+        </div>
+      </div>
+      {latest && (
+        <aside class="home-hero__aside">
+          <a class="latest-card" href={url(`/weekly/${latest.id}/`)}>
+            <span class="latest-card__week">WEEK {latest.data.week} · {latest.data.items.length} 条</span>
+            <h2>{latest.data.title}</h2>
+            <p>{latest.data.summary}</p>
+            <span class="latest-card__meta">{fmtDate(latest.data.date, 'short')} · 读这一期 →</span>
+          </a>
+        </aside>
+      )}
+    </section>
+
+    <div class="home-body">
+      <section>
+        <div class="section-head">
+          <h2>深度</h2>
+          <a href={url('/deep/')}>全部 →</a>
+        </div>
+        {deep.slice(0, 4).map((n, i) => (
           <a class="list-note" href={url(`/deep/${n.id}/`)}>
             <span class="list-note__no">{String(deep.length - i).padStart(2, '0')}</span>
             <span>
               <span class="list-note__title">{n.data.title}</span>
               <span class="list-note__desc">{n.data.summary}</span>
             </span>
-            <span class="list-note__date">{fmtDate(n.data.date, 'short')} · {readingTime(n.body ?? '')} min</span>
+            <span class="list-note__date">{readingTime(n.body ?? '')} min</span>
           </a>
         ))}
-      </div>
-    </section>
+      </section>
 
-    <section class="section" style="border-bottom:0">
-      <a class="map-teaser" href={url('/tree/')} style="text-decoration:none">
-        <div>
-          <p class="kicker">知识树 / Tree</p>
-          <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:550;margin:.7rem 0 .6rem">
-            {NODES.length} 个节点，{EDGES.length} 条关系
-          </h2>
-          <p style="color:var(--ink-2);max-width:38em;line-height:1.8">
-            从 PDB 到 AlphaFold，从 RFdiffusion 到一份 211 个设计的实验账本。按阶段组织的可点击地图，后续会扩成可递归下钻的概念词条。
-          </p>
-          <p style="margin-top:1rem"><span class="link-arrow">进入知识树</span></p>
-        </div>
-        <div class="mono" style="font-size:.7rem;line-height:2;color:var(--muted)">
-          <div>05 / 智能体 · 2026–</div>
-          <div>04 / 实验账本 · 2022–2026</div>
-          <div>03 / 生成式设计 · 2022–2025</div>
-          <div>02 / 结构预测 · 2021–2024</div>
-          <div>01 / 基础 · 1971–2020</div>
-        </div>
-      </a>
-    </section>
-
-    <p class="small faint" style="padding:2rem 0 3rem">{SITE.name} · {SITE.license}</p>
+      <aside>
+        <a class="tree-card" href={url('/tree/')}>
+          <span class="kicker">知识树</span>
+          <div class="tree-card__num">{NODES.length}</div>
+          <p>个词条 · {EDGES.length} 条关系</p>
+          <h2>从结构预测到实验账本</h2>
+          <p>两条学习路线，每个词条都能继续下钻；先看地图，再按概念走。</p>
+          <span class="tree-card__cta">进入知识树</span>
+        </a>
+      </aside>
+    </div>
   </div>
 </Base>

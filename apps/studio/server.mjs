@@ -111,7 +111,11 @@ const server = createServer(async (req, res) => {
       const id = u.searchParams.get('id') || '';
       if (!DIRS[type] || !SAFE_ID.test(id)) return json(res, 400, { error: 'bad params' });
       const src = await readFile(join(DIRS[type], `${id}.mdx`), 'utf8');
-      return json(res, 200, { type, id, content: src });
+      let meta = {};
+      try {
+        meta = parseYaml(splitFrontmatter(src).yaml) || {};
+      } catch {}
+      return json(res, 200, { type, id, content: src, meta });
     }
 
     if (u.pathname === '/api/file' && req.method === 'PUT') {

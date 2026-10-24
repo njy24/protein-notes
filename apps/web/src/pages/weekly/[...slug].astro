@@ -35,15 +35,25 @@ const groups = (Object.keys(CATEGORIES) as CategoryId[])
   .sort((a, b) => Math.min(...a.list.map((i) => i.index)) - Math.min(...b.list.map((i) => i.index)));
 ---
 <Base title={`周报 ${data.week}：${data.title}`} description={data.summary} type="article">
-  <header class="page-head">
+  <header class="issue-head">
     <div class="wrap">
-      <p class="kicker kicker--accent">周报 / {data.week}</p>
-      <h1>{data.title}</h1>
-      <p class="lede" style="margin-top:1rem">{data.summary}</p>
-      <div class="meta" style="margin-top:1.4rem">
-        <time datetime={fmtDate(data.date, 'iso')}>{fmtDate(data.date, 'long')}</time>
-        <span class="meta__dot"></span><span>{items.length} 条</span>
-        {data.period && (<><span class="meta__dot"></span><span>覆盖 {fmtRange(data.period.from, data.period.to)}</span></>)}
+      <div class="issue-head__grid">
+        <div>
+          <p class="kicker kicker--accent">周报 / {data.week}</p>
+          <h1>{data.title}</h1>
+          <p class="issue-head__summary">{data.summary}</p>
+          <div class="meta" style="margin-top:1.3rem">
+            <time datetime={fmtDate(data.date, 'iso')}>{fmtDate(data.date, 'long')}</time>
+            <span class="meta__dot"></span><span>{items.length} 条</span>
+            {data.period && (<><span class="meta__dot"></span><span>覆盖 {fmtRange(data.period.from, data.period.to)}</span></>)}
+          </div>
+        </div>
+        {data.judgement.length > 0 && (
+          <aside class="judgement-card">
+            <p class="kicker kicker--plain">本期判断</p>
+            <ol>{data.judgement.map((j) => <li set:html={inline(j)} />)}</ol>
+          </aside>
+        )}
       </div>
     </div>
   </header>
@@ -65,12 +75,6 @@ const groups = (Object.keys(CATEGORIES) as CategoryId[])
         </div>
       </section>
 
-      {data.judgement.length > 0 && (
-        <section class="judgement">
-          <h2>本期判断 · Judgement</h2>
-          <ol>{data.judgement.map((j) => <li set:html={inline(j)} />)}</ol>
-        </section>
-      )}
 
       {items.map((it) => <WeeklyItem item={it} index={it.index} id={it.anchor} />)}
 

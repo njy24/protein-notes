@@ -48,7 +48,7 @@ const cat = CATEGORIES[item.category];
       {item.caveat && <div class="item__why" style="--c:var(--c-ochre)"><b style="color:var(--c-ochre)">边界</b>{item.caveat}</div>}
     </div>
 
-    <div class="item__foot" style="margin-top:.9rem">
+    <div class="item__links">
       <a href={item.url} target="_blank" rel="noopener noreferrer">原文 / 来源 ↗</a>
       {item.doi && <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer">DOI: {item.doi}</a>}
       {item.tags.map((t) => <span class="faint" style="font-size:.72rem">#{t}</span>)}
