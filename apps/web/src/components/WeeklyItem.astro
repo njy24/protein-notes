@@ -12,6 +12,8 @@ interface Item {
   tldr: string;
   body?: string;
   why?: string;
+  analysis?: string;
+  next?: string;
   caveat?: string;
   doi?: string;
   tags: string[];
@@ -43,9 +45,16 @@ const cat = CATEGORIES[item.category];
     <p class="item__tldr" set:html={inline(item.tldr)} />
     {item.body && <div class="item__body" set:html={`<p>${inline(item.body)}</p>`} />}
 
+    {(item.analysis || item.why) && (
+      <div class="item__analysis">
+        <b>这意味着什么</b>
+        <span set:html={inline(item.analysis || item.why)} />
+      </div>
+    )}
+
     <div class="item__foot">
-      {item.why && <div class="item__why"><b>为什么值得读</b>{item.why}</div>}
       {item.caveat && <div class="item__why" style="--c:var(--c-ochre)"><b style="color:var(--c-ochre)">边界</b>{item.caveat}</div>}
+      {item.next && <div class="item__why"><b>下一步</b>{item.next}</div>}
     </div>
 
     <div class="item__links">

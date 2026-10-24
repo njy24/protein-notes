@@ -12,7 +12,12 @@ const item = z.object({
   category: CATEGORY,
   tldr: z.string(),
   body: z.string().optional(),
+  /** 为什么值得读 / 它改变了什么 */
   why: z.string().optional(),
+  /** 这意味着什么：与已有路线的关系、被挑战的假设 */
+  analysis: z.string().optional(),
+  /** 下一步该看什么 */
+  next: z.string().optional(),
   caveat: z.string().optional(),
   doi: z.string().optional(),
   tags: z.array(z.string()).default([]),
@@ -27,6 +32,8 @@ const weekly = defineCollection({
     date: z.coerce.date(),
     period: z.object({ from: z.coerce.date(), to: z.coerce.date() }).optional(),
     summary: z.string(),
+    /** 本期主线：一段可被反驳的论证，而不只是摘要 */
+    thesis: z.string().optional(),
     judgement: z.array(z.string()).max(5).default([]),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

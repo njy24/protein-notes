@@ -42,6 +42,9 @@ const groups = (Object.keys(CATEGORIES) as CategoryId[])
           <p class="kicker kicker--accent">周报 / {data.week}</p>
           <h1>{data.title}</h1>
           <p class="issue-head__summary">{data.summary}</p>
+          {data.thesis && (
+            <div class="thesis"><b>本期主线</b>{data.thesis}</div>
+          )}
           <div class="meta" style="margin-top:1.3rem">
             <time datetime={fmtDate(data.date, 'iso')}>{fmtDate(data.date, 'long')}</time>
             <span class="meta__dot"></span><span>{items.length} 条</span>

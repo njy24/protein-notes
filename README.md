@@ -62,6 +62,7 @@ week: 2026-W43
 date: 2026-10-23
 period: { from: 2026-10-07, to: 2026-10-23 }
 summary: 导语
+thesis: 本期主线（一段可被反驳的论证）
 judgement: [三条可被反驳的判断]
 tags: []
 items:
@@ -70,10 +71,11 @@ items:
     source: Nature
     date: 2026-10-21
     category: design      # methods|design|experiments|tools|industry|commentary
-    tldr: 一句话
-    body: 3–6 句，约 250–300 字
-    why: 为什么值得读
+    tldr: 一句话结论
+    body: 背景 + 方法 + 关键数字（2–4 段）
+    analysis: 这意味着什么
     caveat: 边界
+    next: 下一步该看什么
     doi: 10.1038/...
 ```
 
