@@ -1,0 +1,2474 @@
+{
+  "date": "2026-10-31",
+  "generatedAt": "2026-10-31T00:15:53.772Z",
+  "threshold": 8,
+  "counts": {
+    "total": 134,
+    "passed": 9,
+    "byCategory": {
+      "experiments": 6,
+      "tools": 3
+    }
+  },
+  "ingest": {
+    "arxiv": 2,
+    "pubmed": 12,
+    "crossref": 91,
+    "rss:Nature": 2,
+    "rss:Nature Biotechnology": 0,
+    "rss:Nature Methods": 0,
+    "rss:Nature Communications": 0,
+    "rss:Science": 30,
+    "rss:bioRxiv · Biochemistry": 0,
+    "rss:bioRxiv · Bioinformatics": 0
+  },
+  "errors": [],
+  "items": [
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Agent-guided epitope excision enables economical de novo binder design",
+      "abstract": "De novo protein design campaigns remain bottlenecked by the inference compute time required to generate and rank candidates, limiting wider functional exploration. Here, we introduce and evaluate an epitope excision approach that truncates targets to local interface windows to accelerate both backbone diffusion and structure prediction. Across 15 targets and 3,666 designs, excised windows closely reproduced full-target binding interfaces (median CαRMSD of 0.37 Å) and made it practical to design binders against the 719-residue extracellular domain of fibroblast activation protein alpha (FAP) by cutting RFdiffusion and AlphaFold3 GPU time by ~ 88% in one of the epitopes. Pairing this workflow with an agentic optimization loop allowed the system to autonomously identify catalytic-site targeting strategies. Under a fixed compute budget, a human-in-the-loop (HITL) workflow raised the computational hit rate from 5.06% to 9.33% while further cutting GPU hours by ~ 42%. We also found that omitting target multiple sequence alignments during refolding roughly substantially increased the apparent yield. Wet-lab validation with yeast display identified nanomolar binders from the generated designs with the HITL and the fully autonomous agent (human-out-of-the-loop, HOOTL) arms recovering more enriched designs than the PI-alone baseline. Together, target excision and agent-guided search offer a practical way to scale de novo binder design to large, therapeutically relevant proteins.",
+      "authors": [
+        "Jun W. Kim",
+        "Artiom Myaskovsky",
+        "Oscar Donosa",
+        "Lawrence Chan",
+        "Jamie Rogers",
+        "Avinatan Hassidim"
+      ],
+      "date": "2026-10-23",
+      "url": "https://arxiv.org/abs/2610.33195v1",
+      "venue": "arXiv",
+      "arxivId": "2610.33195v1",
+      "id": "url:https://arxiv.org/abs/2610.33195v1",
+      "tags": [],
+      "score": 26,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "protein design",
+          "de novo protein",
+          "epitope"
+        ],
+        "method": [
+          "diffusion",
+          "structure prediction",
+          "agent"
+        ],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Computational De Novo Design of Miniprotein Candidate Neutralizers Targeting the IL-23 Cytokine Subunit p19",
+      "abstract": "Interleukin-23 (IL-23) drives T-helper-17 inflammation underlying inflammatory bowel disease and psoriasis; anti-p19 antibodies are clinically effective but large, costly, and injectable. De novo miniproteins are an attractive alternative, yet published designs target the IL-23 receptor; the IL-23 cytokine itself has not been addressed. A further obstacle is that the standard confidence score (ipTM) tracks construct length rather than interface quality. We computationally design miniprotein binders against the IL-23R-binding face of p19 (PDB 3DUH) and score every design with ipSAE, a length-robust interface metric derived from AlphaFold-initial-guess predicted aligned error. A conventional RFdiffusion/ProteinMPNN/ColabFold pipeline yields no reliable predicted interface across 972 designs (best ipSAE 0.30), and a scoring artifact, in which single-sequence ColabFold under-rates binder pLDDT by approximately 56 points, explains an earlier misleading \"binders do not fold\" signal. An interface-optimized hallucination method (BindCraft), scored identically, yields 42 of 50 designs above ipSAE 0.60 (best 0.804). An AlphaFold-independent geometric check reproduces the conventional failure: no top-ranked conventional design reaches the buried area or interface hydrogen-bond count of the weakest lead. Five all-alpha-helical leads (72-104 residues) collectively engage all six targeted hotspots; two dock within the intact p40/p19 heterodimer and all show favorable Rosetta energetics. A p40-alone counter-screen returns ipSAE 0.00 for all five, indicating no spurious p40 interface. To o",
+      "authors": [
+        "Raghav Paladugu",
+        "Fardina Fathmiul Alam"
+      ],
+      "date": "2026-10-23",
+      "url": "https://arxiv.org/abs/2610.32779v1",
+      "venue": "arXiv",
+      "arxivId": "2610.32779v1",
+      "id": "url:https://arxiv.org/abs/2610.32779v1",
+      "tags": [],
+      "score": 23,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "miniprotein",
+          "miniproteins",
+          "de novo design",
+          "protein binder"
+        ],
+        "method": [
+          "diffusion",
+          "hallucination"
+        ],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De novo pan-rhodamine binders for fluorescence microscopy from mammalian cells to extremophiles.",
+      "abstract": "Fluorescent imaging in live cells is a cornerstone of life sciences. While natural fluorescent proteins have been engineered to enhance individual features, no existing tag combines ideal properties into a single system: high brightness, reversible binding, compact size, and stability across diverse conditions. Here, we achieve this through de novo design of rhodamine binders (Rhobin). To harness the broad repertoire of rhodamine fluorophores, we developed a generalizable design strategy for a pan-rhodamine binder compatible with diverse wavelengths and applications. Rhobin enables live- and fixed-cell imaging of various subcellular targets in mammalian cells, showing brightness surpassing existing tags. Its reversible fluorophore binding supports super-resolution stimulated emission depletion (STED) and live-cell single-molecule imaging for extended durations compared with HaloTag. Beyond conventional systems, Rhobin enables live imaging of the extremophile Sulfolobus acidocaldarius at 75°C, previously inaccessible with current tags. Together, these results establish Rhobin as a versatile platform for next-generation imaging and biosensor design.",
+      "authors": [
+        "Chen Y",
+        "Yserentant K",
+        "Hong K",
+        "Chen K",
+        "Kuang Y",
+        "Picardo RS"
+      ],
+      "date": "2026-10-29",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42679818/",
+      "doi": "10.1016/j.cell.2026.08.007",
+      "venue": "Cell",
+      "pmid": "42679818",
+      "id": "doi:10.1016/j.cell.2026.08.007",
+      "tags": [],
+      "score": 17,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De Novo Design and Structural Optimization of Mn(salen)-Based Artificial Metalloenzymes for Asymmetric Sulfoxidation.",
+      "abstract": "Artificial metalloenzymes (ArMs) exhibit exceptional selectivity, yet extending their reactivity beyond native cofactors remains a major challenge. While previous designs using native protein scaffolds to incorporate nonnative cofactors have been reported, de novo protein design enables tailored scaffolds that incorporate nonnative cofactors, unlocking transformations inaccessible to natural enzymes. Here, we report the computational design of de novo proteins that bind Mn(salen)-based complexes for asymmetric sulfoxidation. The resulting ArMs outperform the free cofactor, achieving up to 45% yield and an enantiomeric ratio (e.r.) of 26:74 under optimized conditions. A 1.5 Å resolution crystal structure confirms the designed architecture and reveals key secondary-sphere interactions that govern reactivity. Guided by these insights, rational mutagenesis enhanced performance up to 79% yield and an e.r. up to 16:84. This work establishes a general strategy for integrating complex nonnative cofactors into de novo scaffolds, enabling selective catalysts for reactions beyond the reach of natural enzymes.",
+      "authors": [
+        "Wang JX",
+        "Deng Y",
+        "Kalvet I",
+        "Haque A",
+        "Dai H",
+        "Baker D"
+      ],
+      "date": "2026-10-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42758048/",
+      "doi": "10.1002/anie.5852828",
+      "venue": "Angewandte Chemie (International ed. in English)",
+      "pmid": "42758048",
+      "id": "doi:10.1002/anie.5852828",
+      "tags": [],
+      "score": 17,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "de novo design",
+          "de novo protein"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "IDPForge: deep learning of proteins with global and local regions of disorder",
+      "abstract": "Abstract Although machine learning has transformed protein structure prediction of folded protein ground states with remarkable accuracy, intrinsically disordered proteins and regions (IDPs/IDRs) are defined by diverse and dynamical structural ensembles that are predicted with low confidence by algorithms such as AlphaFold and RoseTTAFold. We present a machine learning method, IDPForge ( I ntrinsically D isordered P rotein, FO lded and disordered R egion GE nerator), that exploits a transformer protein language diffusion model to create all-atom IDP ensembles and IDR ensembles that maintains the folded domains. IDPForge does not require sequence-specific training, back transformations from coarse-grained representations, nor ensemble reweighting. The created IDP/IDR conformational ensembles show good agreement with both NMR and SAXS solution experimental data, and options for biasing with experimental restraints are available if desired. IDPForge with these diverse capabilities facilitates integrative and structural studies for proteins that contain intrinsic disorder, and is available as an open source resource for general use.",
+      "authors": [
+        "Stefano De Castro",
+        "Oufan Zhang",
+        "Zi Hao Liu",
+        "Julie D. Forman-Kay",
+        "Teresa Head-Gordon"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79191-4",
+      "doi": "10.1038/s41467-026-79191-4",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79191-4",
+      "tags": [],
+      "score": 16,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion",
+          "structure prediction",
+          "all-atom"
+        ],
+        "context": [
+          "open source",
+          "deep learning"
+        ],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Structural mechanism of programmable gene integration by the R2 retrotransposon coupled with CRISPR-Cas9.",
+      "abstract": "R2 retroelements are non-long-terminal-repeat retrotransposons that primarily insert into 28S ribosomal DNA loci across diverse eukaryotes. R2 elements home to their target sites through target-primed reverse transcription (TPRT), in which the R2 protein recognizes and nicks the target DNA to prime reverse transcription using an R2-encoding RNA as the template. The avian R2 system from Taeniopygia guttata (R2Tg) can insert a payload sequence within an RNA template into 28S ribosomal DNA loci in human cells. Here, we present cryo-electron microscopy structures of the R2Tg-template RNA-target DNA complex in the TPRT initiation state, both alone and bound to a Cas9-guide RNA complex. These structures provide mechanistic insights into R2Tg-mediated TPRT in its natural context and in the programmable gene integration system STITCHR (site-specific target-primed insertion through targeted CRISPR homing of retroelements). Furthermore, we combine these structural insights with computational protein design methods to engineer an enhanced STITCHR system.",
+      "authors": [
+        "Komatsu D",
+        "Hiraizumi M",
+        "Fell CW",
+        "Fujimatsu K",
+        "Nagahata N",
+        "Yamada S"
+      ],
+      "date": "2026-10-28",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42951937/",
+      "doi": "10.1038/s41594-026-01903-7",
+      "venue": "Nature structural & molecular biology",
+      "pmid": "42951937",
+      "id": "doi:10.1038/s41594-026-01903-7",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Video-rate volumetric chemical imaging via mid-infrared photothermal optical diffraction tomography",
+      "abstract": "Abstract Label-free vibrational microscopy provides chemically specific access to cellular structures, yet quantitative volumetric imaging of intracellular dynamics remains challenging on subsecond timescales. Here, we demonstrate video-rate mid-infrared photothermal optical diffraction tomography (MIP-ODT) by combining high photothermal sensitivity with rapid angular scanning. The system achieves 19.2 volumes per second, nearly 400 times faster than previous MIP tomography implementations, with a signal-to-noise ratio exceeding 70 and no temporal averaging. We track lipid droplets in living cells and quantify anomalous diffusion from three-dimensional trajectories, revealing heterogeneous intracellular transport behaviors obscured in two-dimensional measurements. Rapid mid-infrared wavenumber sweeping further enables broadband multi-wavenumber volumetric chemical imaging across a 300 cm⁻¹ spectral window within 1 s. These results establish MIP-ODT as a platform for high-speed, label-free volumetric chemical imaging of single cells and quantitative investigation of dynamic intracellular organization.",
+      "authors": [
+        "Masato Fukushima",
+        "Keiichiro Toda",
+        "Yusei Sugawara",
+        "Shotaro Kawano",
+        "Takuro Ideguchi"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78699-z",
+      "doi": "10.1038/s41467-026-78699-z",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78699-z",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Simulating Directed Evolution In Silico with an Iterative, Physics-Based Workflow.",
+      "abstract": "Directed evolution consistently delivers engineered enzymes that facilitate diverse biocatalytic transformations. Despite advances in automation and high-throughput workflows, our ability to rapidly engineer novel enzymes is limited by our inability to thoroughly sample the vast protein design space. Generative artificial intelligence (AI) methods have alleviated this challenge to some degree, due to their ability to propose mutations based on learned patterns from complex protein data sets. However, the hidden logic of these AI-based methods can complicate our ability to reveal and exploit fundamental details of these enzymes. To complement these hidden-logic models, we present a structure- and physics-based workflow that mimics directed evolution in silico . This Virtual Protein EngineeR (referred to as ViPER) aims to simulate directed evolution by leveraging computational modeling, molecular dynamics simulations, in silico mutagenesis, and structure-based property evaluation to iteratively engineer an enzyme toward a desired target. In this work, we present a retrospective analysis to demonstrate ViPER's ability to efficiently navigate the complex protein-protein interfaces associated with the oligomerization of a ketoreductase (KRED) enzyme. In addition to successfully predicting >70% of sites that are crucial for toggling the oligomerization of this KRED enzyme (after only five rounds), this dynamics-based methodology identifies a distal mutation that was incorporated during experiment-based directed evolution. This work provides a novel foundation for computationally",
+      "authors": [
+        "Jones CM",
+        "Verma D"
+      ],
+      "date": "2026-10-27",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42959945/",
+      "doi": "10.1021/acsomega.6c08421",
+      "venue": "ACS omega",
+      "pmid": "42959945",
+      "id": "doi:10.1021/acsomega.6c08421",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [
+          "high-throughput"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Prediction of Residue-Level Base Preference for DNA-Binding Proteins Using a Multimodal Learning Framework.",
+      "abstract": "Specific recognition between proteins and DNA governs essential cellular functions, yet the binding specificity of most DNA-binding proteins (DBPs) remains experimentally uncharacterized and high-throughput experimental methods still lag far behind the ever-growing protein data set. Here, we present 3M-BSIP (3-modal base-specific interaction predictor), a multimodal deep learning framework capable of predicting the DNA-binding interface and residue-level base preference for DBPs. 3M-BSIP constructs a holistic protein representation by integrating three distinct modalities: a protein language model capturing evolutionary conservation; a graph neural network encoding 3D structural features; and a hierarchical encoder characterizing physicochemical properties of protein surface pointclouds. Comprehensive benchmarking demonstrates that 3M-BSIP achieves SOTA performance on both interface-residue identification and base-preference predictions. Crucially, the model maintains robust performance on computationally constructed protein structures and is also tolerant toward those undergoing profound structural rearrangements upon DNA binding. Two real-world applications of 3M-BSIP demonstrate that our model not only can accurately predict the specific binding motif of structurally unknown transcription factors but also, more importantly, can guide rapid reprogramming of the base preference of DBPs based on a purely computational pipeline. Therefore, 3M-BSIP holds great potential in annotating the binding motifs of all DBPs in a high-throughput manner and designing new DBPs with desire",
+      "authors": [
+        "Li S",
+        "He W",
+        "Zhang M",
+        "Zhang X",
+        "Fang WQ",
+        "Xu MJ"
+      ],
+      "date": "2026-10-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42953628/",
+      "doi": "10.1021/jacsau.6c00925",
+      "venue": "JACS Au",
+      "pmid": "42953628",
+      "id": "doi:10.1021/jacsau.6c00925",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "language model"
+        ],
+        "context": [
+          "benchmark",
+          "high-throughput",
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Roads not taken: The mismatch between safety and regulation of plant breeding innovation.",
+      "abstract": "Meeting global food security goals while reducing agriculture's environmental impact requires continued crop improvement and innovation. Advances in transgenesis, cisgenesis, and genome editing now enable increasingly precise genetic modification with risks comparable to those of conventional breeding, yet regulatory frameworks remain focused on the method used rather than the product. We highlight recent examples, including immune receptor transfer, cisgenesis-based disease resistance stacking, photosynthesis engineering, and AI-guided protein design, that illustrate innovations constrained by current regulatory approaches. A decisive shift toward science-based, proportionate, and product-focused regulation is needed so that improved crops are evaluated on the basis of their properties, not how they were made.",
+      "authors": [
+        "Jones JDG",
+        "Gao C"
+      ],
+      "date": "2026-10-29",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42956714/",
+      "doi": "10.1016/j.cell.2026.09.018",
+      "venue": "Cell",
+      "pmid": "42956714",
+      "id": "doi:10.1016/j.cell.2026.09.018",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "In-cell structures visualize human pre-ribosome assembly in the nucleolus",
+      "abstract": "In eukaryotes, ribosome biogenesis initiates within the nucleolus, a hallmark multilayered compartment of the nucleus. Structures of pre-ribosomes have been characterized ex situ, but their assembly pathways within human nucleoli have not been described. Here, we used cryogenic correlative light and electron tomography to visualize molecular landscapes within HeLa cell nucleoli and obtained in-cell structural snapshots of both ribosomal subunit precursors, the small subunit processome and the pre-60S. These recapitulate major states resolved previously ex situ and reveal additional critical interaction partners, including the RNA exosome, rixosome, and nuclear export receptor CRM1-RanGTP. We further show how pre-ribosome assembly landscapes are altered upon RNA polymerase I inhibition. Our study combines molecular structures with cellular context to elucidate the spatiotemporal assembly pathway of the human ribosome.",
+      "authors": [
+        "Xiaohan Zhao",
+        "Yuki Hayashi",
+        "Herman K. H. Fung",
+        "Sara Cuylen-Haering",
+        "Julia Mahamid",
+        "Christoph W. Müller"
+      ],
+      "date": "2026-10-29",
+      "url": "https://doi.org/10.1126/science.aej0483",
+      "doi": "10.1126/science.aej0483",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aej0483",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Stimulated protein degradation to promote mitochondrial function and neuronal survival",
+      "abstract": "Targeted protein degradation is a promising modality to treat cancer or inflammation, but whether it can provide a similar benefit for disorders caused by pervasive protein dysregulation is unclear. We describe stimulated protein degradation (SPD) as a strategy that leverages agonists of stress-responsive E3 ubiquitin ligases to simultaneously eliminate multiple pathogenic factors. Specifically, we show that activators of the reductive stress response E3 CUL2 FEM1B boost degradation of multiple physiological substrates to improve mitochondrial import and electron transport chain assembly. In this manner, CUL2 FEM1B agonists preserve mitochondrial function and neuronal survival in models of neurodegenerative COX deficiency syndrome and Friedreich’s ataxia. By activating E3 ligases that evolved to safeguard cellular integrity, SPD expands the use of compound-induced protein degradation to complex pathologies of high unmet need.",
+      "authors": [
+        "Srividya Chandrasekhar",
+        "Rachael McMinimy",
+        "Andrew G. Manford",
+        "Eddie Wehri",
+        "Christine L. Gee",
+        "Caitlyn Miller"
+      ],
+      "date": "2026-10-29",
+      "url": "https://doi.org/10.1126/science.aed2525",
+      "doi": "10.1126/science.aed2525",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aed2525",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Papaver self-incompatibility is controlled by two multiallelic idiomorphs",
+      "abstract": "Self-incompatibility (SI) prevents self-fertilization through highly polymorphic genetic recognition at the S locus with multiple alleles. In Papaver rhoeas , the S determinants were previously identified as PrpS and PrsS . However, we found that PrpS-PrsS was absent in many S haplotypes. In this work, we report the identification of an alternative pair of polymorphic S genes, S locus oligopeptide transporter ( SOPT ) and S locus glycine-rich protein ( SGRP ), segregating at the S locus when PrpS-PrsS is absent. SOPT and SGRP display hallmark S determinant features and confer SI when heterologously expressed in Arabidopsis thaliana . Therefore, instead of having allelomorphs with homologous variants, the Papaver SI system is determined by two multiallelic idiomorphs sharing no obvious common ancestry. This discovery of a dual-idiomorph system reveals a distinct genetic basis for polymorphism, with implications for the evolution of allorecognition mechanisms.",
+      "authors": [
+        "Ke Jin",
+        "Zezhen Du",
+        "Tao Xiong",
+        "Fuyu Leng",
+        "Jian Liu",
+        "Mannan Zhang"
+      ],
+      "date": "2026-10-29",
+      "url": "https://doi.org/10.1126/science.aeg6988",
+      "doi": "10.1126/science.aeg6988",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeg6988",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Perinatal elimination of genetically aberrant human cortical neurons",
+      "abstract": "Abstract Human neurons are postmitotic and long-lived, requiring precise genomic regulation. Normal neuronal function is highly dosage-sensitive, with copy number variants (CNVs) and heterozygous point mutations associated with a host of neurodevelopmental and neuropsychiatric conditions 1–4 . Here we investigated somatic CNVs arising in single neurons to understand the dynamic processes that shape the normal neuronal genetic landscape. Altogether, we sequenced 2,357 single neurons from human postmortem brain from fetal to postnatal life. Two single-cell whole-genome sequencing approaches—Tn5-transposase-based amplification (1,526 neurons, 16 individuals) and primary template amplification 5 (831 neurons, 12 individuals)—showed that an average of 25.9% [12.7–46%] of prenatal cortical neurons have highly aberrant genomes, that is, widespread CNVs involving multiple chromosomes. This proportion reduced by about 4.5-fold after birth across the two single-cell whole-genome sequencing approaches (Fisher meta-analysis P = 3.5 × 10 − 6 ). Neurons with widespread CNVs were mainly eliminated perinatally, timed roughly parallel to periods of programmed cell death 6 , whereas neurons with smaller CNV burdens declined slowly in frequency with postnatal age. CNVs in surviving neurons were depleted for dosage-sensitive genes and genes involved in neurodevelopmental disorders (hypergeometric test P < 0.05), suggesting selective elimination of neurons with these CNVs. Analysis of 44,861 nuclei with single-nucleus assay for transposase-accessible chromatin (snATAC) and single-nucleus RNA se",
+      "authors": [
+        "Diane D. Shao",
+        "Yifan Zhao",
+        "Joseph Brew",
+        "Yahia Adla",
+        "Urmi Ghosh",
+        "Vinayak V. Viswanadham"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41586-026-11190-3",
+      "doi": "10.1038/s41586-026-11190-3",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11190-3",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Subcycle videography of Landau–Zener–Majorana transitions in graphene",
+      "abstract": "Abstract Strong light fields have unlocked entirely new possibilities to tailor coherent electron trajectories, engineer band structures and shape emergent phases of matter all-optically 1–9 . Unravelling the underlying quantum mechanisms requires a visualization of the lightwave-driven electron motion 10,11 directly in the band structure. Although photoelectron momentum microscopy has imaged photoexcited electrons averaged over many cycles of light 12–19 , subcycle band-structure videography has been limited to small electron momenta 8,20 . Yet, lightwave-driven elementary processes in quantum materials often occur throughout momentum space. Here we introduce attosecond-precision, subcycle band-structure videography covering the entire first Brillouin zone and visualize one of the most fundamental but elusive strong-field processes: non-adiabatic Landau–Zener–Majorana tunnelling. The interplay of strong-field-driven acceleration within the Dirac-like band structure of graphene and periodic Landau–Zener–Majorana interband tunnelling manifests in a coherent subcycle displacement and distortion of the carrier distribution at the Brillouin zone edge. The extremely non-thermal electron distributions also allow us to disentangle competing scattering processes and assess their impact on coherent electronic control. Our panoramic view of field-driven electron motion enables a new quality of microscopic understanding of strong-field control of quantum materials.",
+      "authors": [
+        "V. Eggers",
+        "G. Inzani",
+        "M. Meierhofer",
+        "L. Münster",
+        "J. Helml",
+        "R. Wallauer"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41586-026-11214-y",
+      "doi": "10.1038/s41586-026-11214-y",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11214-y",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "An unexpected function of a cell-cycle enzyme might explain the toxic effects of its inhibitors",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/d41586-026-03288-5",
+      "doi": "10.1038/d41586-026-03288-5",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03288-5",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Eukaryotes’ closest relatives are internally simple syntrophic peptidotrophic archaea",
+      "abstract": "Abstract Eukaryotes are theorized to have an origin associated with the archaeal phylum Promethearchaeota (formerly Asgard archaea) 1–3 . The first cultured representatives revealed valuable insights 4,5 but are still distantly related to eukaryotes, leaving many unknowns regarding eukaryogenesis. Here we report the isolation of two strains, HC1 and SC1, that belong to the archaeal lineage that branches closest to eukaryotes (Heimdallarchaeia); 6–8 these isolates are members of a pure co-culture and a tri-culture with methanogenic partners. Both are obligately anaerobic, syntrophic, peptide-degrading and mesophilic archaea that produce protrusions and vesicles but lack persistent internal membrane structures, like Promethearchaeales 4,5 . All Promethearchaeota isolates demonstrate behaviour focused on cell construction and membrane structures rather than division, in contrast to typical prokaryotes 9 . Strain HC1 possesses genes associated with aerobic lifestyles (such as cytochrome c oxidase (Cox)) but co-cultures cannot grow under (micro)oxic conditions. Meanwhile, the strain demonstrates growth under microoxic conditions when in the presence of aerobes, suggesting that Cox supports oxygen detoxification rather than respiration. Comparative genomics provides evidence that, like HC1, Cox-possessing Heimdallarchaeia studied to date probably do not respire oxygen. The wide conservation of anaerobiosis, cell structure without persistent intracellular membranes and membrane protrusions across Promethearchaeota suggest that the archaeal ancestor of eukaryotes may have had such",
+      "authors": [
+        "Hiroyuki Imachi",
+        "Masaru K. Nobu",
+        "Shun’ichi Ishii",
+        "Hiroki Hashiguchi",
+        "Yuga Hirakata",
+        "Naoki Hosogi"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41586-026-11170-7",
+      "doi": "10.1038/s41586-026-11170-7",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11170-7",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Presynaptic homeostasis mediated by exocytosis of a SNARE protein",
+      "abstract": "",
+      "authors": [
+        "Hongfei Xu",
+        "Lee Rao",
+        "Robert H. Edwards"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41586-026-11201-3",
+      "doi": "10.1038/s41586-026-11201-3",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11201-3",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "SWI/SNF complexes shape 3D chromatin architecture through CTCF and cohesin",
+      "abstract": "Abstract The BAF (also known as mammalian SWI/SNF) chromatin remodelling complexes are essential regulators of nucleosome positioning and transcription factor binding 1,2 . Loss-of-function (LOF) mutations in genes encoding components of the BAF complexes are among the most frequent across cancer types 3 . However, a unifying mechanism that explains their widespread disruption remains unclear. Here we disrupted BAF function through pharmacological inhibition and ARID1A deletion across various mammalian cell types and tissues and observed a conserved chromatin response: increased accessibility at CTCF-binding sites. ARID1A LOF alone was sufficient to drive these changes, which demonstrates that canonical BAF (cBAF) disruption is the key driver of CTCF gain. Genomic profiling showed increased CTCF and SMC3 occupancy, which reveals an antagonistic relationship between cBAF and CTCF–cohesin complexes. Furthermore, cBAF loss restructured 3D genome organization, which led to a strengthening of topologically associating domain boundaries and subdivision of large domains into smaller insulated structures. Long-range enhancer–promoter loops were replaced by shorter, promoter-proximal loops anchored at CTCF-enriched sites. To determine how CTCF function is enabled following cBAF loss, we profiled CTCF-interacting cofactors and found that CTCF binds directly to fully assembled PBAF. After cBAF depletion, PBAF was recruited to sites of increased CTCF occupancy, which demonstrates that there is an antagonistic switch between SWI/SNF subcomplexes. In vivo, conditional Arid1a deletion in",
+      "authors": [
+        "Sonia Debek",
+        "Cem Meydan",
+        "Christopher R. Chin",
+        "Jiali Yu",
+        "Ceyda Durmaz",
+        "Ioanna Tsialta"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41586-026-11197-w",
+      "doi": "10.1038/s41586-026-11197-w",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11197-w",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Pretrained graph transformer-driven de novo design and machine learning prioritization of computationally predicted ENR-InhA (InhA) inhibitors with potential relevance to drug-resistant Mycobacterium tuberculosis .",
+      "abstract": "Multidrug-resistant tuberculosis (MDR-TB) undermines frontline therapy, and conventional drug discovery is slow and resource intensive. We present an integrated computational pipeline for the de novo design of inhibitors of a single clinically validated target, the NADH-dependent enoyl-[acyl-carrier-protein] reductase of Mycobacterium tuberculosis (ENR-InhA, encoded by inhA ). Bioactive compounds were retrieved from ChEMBL and curated to 80 with equality-qualified IC 50 values. Four conventional machine-learning models and one deep neural network were trained on Morgan and MACCS fingerprints to predict pIC 50 . DrugGEN, a pretrained graph-transformer generative adversarial network, designed de novo molecules. Of 74 generated, 67 were novel relative to the curated set (nearest-neighbour Tanimoto < 0.85), and the 23 with predicted pIC 50 ≥ 7.0 proceeded to ADMET screening and docking. Three compounds met all drug-likeness criteria, raised no toxicity alerts in the models applied, and gave docking scores (-8.27, -7.66, and -7.76 kcal/mol) more negative than direct ENR-InhA inhibitors docked identically. All three complexes maintained stable RMSD profiles over 200 ns of molecular dynamics, and compound 3 showed the greatest rigidity and broadest interaction profile. These are computationally prioritized candidates of potential relevance to drug-resistant tuberculosis; none was tested against M. tuberculosis or drug-resistant isolates.",
+      "authors": [
+        "Nisar H",
+        "Alwahaishi S",
+        "Khan A",
+        "Al-Ghafli H",
+        "Ur Rahman A",
+        "Agouni A"
+      ],
+      "date": "2026-10-27",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42944782/",
+      "doi": "10.1080/1062936x.2026.2751659",
+      "venue": "SAR and QSAR in environmental research",
+      "pmid": "42944782",
+      "id": "doi:10.1080/1062936x.2026.2751659",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "tools",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Shared α-helix chimeraffibodies enable linker-free bispecific protein design.",
+      "abstract": "Small protein scaffolds enable precise targeting but often rely on flexible linkers that increase conformational heterogeneity and immunogenic liabilities. Here we develop Chimeraffibodies (CABs), a linker-free bispecific scaffold class that encodes interdomain geometry through seamless α-helix sharing. CABs are designed by AlphaSync, a structure-design framework that defines domain orientation through closed-form exhaustive local rigid-body superposition and ProteinMPNN-based sequence refinement. Using HER2-binding affibody and an albumin-binding domain, we generated 861CM, which preserved parental paratopes while enforcing a defined shared-helix architecture. Structural, biophysical and cellular analyses demonstrated stable assembly, cooperative target recruitment and retained affinity, with HSA binding of ∼14.3 pM and HER2 binding of 610 pM in the albumin-bound state. In vivo imaging revealed sustained tumor localization, reduced hepatic and renal background and improved organ-to-tumor contrast. CABs establish helix sharing as a geometry-encoded strategy for generating compact, homogeneous, and pharmacokinetically optimized bispecific proteins.",
+      "authors": [
+        "Qiu X",
+        "Chen X",
+        "Zeng Z",
+        "Li Y",
+        "Yuan J",
+        "Xu C"
+      ],
+      "date": "2026-10-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42933412/",
+      "doi": "10.1016/j.chembiol.2026.09.022",
+      "venue": "Cell chemical biology",
+      "pmid": "42933412",
+      "id": "doi:10.1016/j.chembiol.2026.09.022",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Revisiting earlier protease inhibitor studies using modern AI structure modeling tools.",
+      "abstract": "Crystallographic studies of proteases and inhibitors by Wolfram Bode and colleagues in the late twentieth century relied on simple graphical modeling, force-field energy functions, and human intuition. These systems now provide interesting tests of modern AI methods. We examine three classes of protease inhibitors and their complexes. For cystatin, originally modeled with papain by manual fitting of protein surfaces, AI methods recover both the inhibitor fold and binding geometry to differing extents, with some approaches favoring a single binding mode and others generating broader ensembles that may explore alternative geometries. De novo design against papain reveals a similar contrast between conservative and exploratory modes of prediction. For the two-headed serine protease inhibitor from mung bean, prediction of its symmetric ternary complex with two trypsin molecules depends strongly on recovery of the small disulfide-rich inhibitor fold. Finally, modeling α1-antitrypsin tests whether AI methods can distinguish known uncleaved and cleaved conformations of a structurally more plastic inhibitor. Local restructuring of the central β-sheet is central to mechanism, while the overall fold remains conserved. These applications show diverse uses of AI modeling tools, from reproducing known structures to exploring assemblies and generating novel interactions, while exposing limitations in flexibility and sampling.",
+      "authors": [
+        "Czech MR",
+        "Engh RA"
+      ],
+      "date": "2026-10-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42925217/",
+      "doi": "10.1515/hsz-2026-0137",
+      "venue": "Biological chemistry",
+      "pmid": "42925217",
+      "id": "doi:10.1515/hsz-2026-0137",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De Novo Design of RNA Switches for Conditional Transcription Repression.",
+      "abstract": "Controlling transcriptional synthesis of RNA provides a powerful means to design molecular circuitry and reprogram cellular behaviors. We report the computationally de novo design of a transcriptional RNA switch, termed RNA BRAKE, to precisely repress transcriptional RNA synthesis in response to a cellular RNA trigger in live cells. The design principle uses an introduced RNA trigger to regulate the co-transcriptional folding pathway of nascently transcribed RNA BRAKEs into an RNA terminator, thereby repressing downstream RNA transcription. Without the RNA trigger, the RNA polymerase can pass through the RNA BRAKE and continue transcribing downstream genes. We validated the designed RNA BRAKE's performance by encoding the downstream gene with GFP and found that the presence of trigger RNA can significantly repress the GFP expression and GFP mRNA transcription in Escherichia coli cells. We further investigated the mechanism of RNA BRAKE design and studied its compatibility with different RNA polymerases and ribozymes for gene regulation. To demonstrate the generality of RNA BRAKE in response to cellular mRNA, we successfully developed RNA BRAKEs that enable mCherry mRNA to repress the transcription of its encoded downstream gene. This developed RNA BRAKE offers a new strategy for manipulating cellular gene expression with broad biomedical applications.",
+      "authors": [
+        "Sun C",
+        "Hong F"
+      ],
+      "date": "2026-10-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42711742/",
+      "doi": "10.1002/anie.1770267",
+      "venue": "Angewandte Chemie (International ed. in English)",
+      "pmid": "42711742",
+      "id": "doi:10.1002/anie.1770267",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Stimulated protein degradation to promote mitochondrial function and neuronal survival",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aed2525?af=R",
+      "doi": "10.1126/science.aed2525?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aed2525?af=r",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "In-cell structures visualize human pre-ribosome assembly in the nucleolus",
+      "abstract": "Science, Volume 394, Issue 6823, Page 534-540, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aej0483?af=R",
+      "doi": "10.1126/science.aej0483?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aej0483?af=r",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Continuous mass measurement of single proteins",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41592-026-03275-8",
+      "doi": "10.1038/s41592-026-03275-8",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03275-8",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Author Correction: Prediction of protein subcellular localization in single cells",
+      "abstract": "",
+      "authors": [
+        "Xinyi Zhang",
+        "Yitong Tseo",
+        "Yunhao Bai",
+        "Fei Chen",
+        "Caroline Uhler"
+      ],
+      "date": "2026-10-28",
+      "url": "https://doi.org/10.1038/s41592-026-03346-w",
+      "doi": "10.1038/s41592-026-03346-w",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03346-w",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Synthetic tools to redirect the ubiquitin E3 ligase activity of a plant-specific N-recognin",
+      "abstract": "Abstract The Arg/N-degron pathway regulates important agronomic traits. In plants, the PROTEOLYSIS 1 (PRT1) protein binds to aromatic amino-terminal residues and recruits ubiquitin (Ub) conjugating enzymes to ubiquitinate substrate proteins. Here, we demonstrate that PRT1 recruits the UBC35-UEV1A complex via RING1 of PRT1. This stimulates UBC35 to produce K63-linked Ub chains. To afford chemical control over Ub signalling, we construct a synthetic substrate of PRT1 with an N-terminal calmodulin-binding peptide (CBP). The addition of the CBP sequence to the substrate creates an off switch for PRT1-dependent ubiquitination that is regulated by calcium and calmodulin. Finally, we produce a set of nanobodies that are recognised by PRT1 and induce the ubiquitination of a reporter protein. Altogether, we introduce and biochemically validate several tools to both redirect and chemically control the Arg/N-degron pathway.",
+      "authors": [
+        "Keely E. A. Oldham",
+        "Suyan Yee",
+        "Kai Xun Chan",
+        "Peter D. Mabbitt"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78958-z",
+      "doi": "10.1038/s41467-026-78958-z",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78958-z",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Enzymes can activate and mobilize dense biomolecular condensates across scales",
+      "abstract": "",
+      "authors": [
+        "Mirco Dindo",
+        "Jakob Metson",
+        "Weitong Ren",
+        "Michalis Chatzittofi",
+        "Kiyoshi Yagi",
+        "Alessandro Bevilacqua"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-77666-y",
+      "doi": "10.1038/s41467-026-77666-y",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-77666-y",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "CO2 hydrogenation across the pressure gap over Ag/ZnO:Al2O3 catalysts",
+      "abstract": "Abstract The hydrogenation of carbon dioxide to value-added chemicals is a major challenge. Metal-oxide interfaces and surface structures play fundamental roles and govern the selectivity of this reaction; thus, catalysts must be investigated under relevant reaction conditions to identify structure-activity relationships and engineer more efficient materials. This work aims to elucidate mechanisms of carbon dioxide hydrogenation to methanol and side products by using operando characterization techniques within a pressure range of 1 mbar up to 15 bar. Bifunctional Ag/ZnO and Ag/ZnO:Al 2 O 3 catalysts are studied using multiple spectroscopic techniques combined with online product analysis. During catalyst activation in hydrogen, several restructuring processes of the catalyst occur at different pressures. Under carbon dioxide hydrogenation reaction conditions carbonate, formate and CH x surface intermediates show strong pressure-dependent abundances. Combining thermodynamics with in situ and operando investigations of pressure-dependent structures and intermediates allows assessing carbon dioxide hydrogenation through the pressure gap.",
+      "authors": [
+        "Paul M. Leidinger",
+        "Silvia Mauri",
+        "Piero Torelli",
+        "Benedikt Buhk",
+        "Vitaly L. Sushkevich",
+        "Jeppe V. Lauritsen"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79019-1",
+      "doi": "10.1038/s41467-026-79019-1",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79019-1",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Spatial patterning of hierarchical lamellar-cellular structured hydrogels for programmable deformation-coupled information encryption",
+      "abstract": "",
+      "authors": [
+        "Xin Yao",
+        "Wei-Teng Zhang",
+        "Ru-Yu Zheng",
+        "Haili Qin",
+        "Jiaxin Yu",
+        "Huai-Ping Cong"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79008-4",
+      "doi": "10.1038/s41467-026-79008-4",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79008-4",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Ligand hardness as a key feature differentiating base- versus noble-metal mechanisms of nickel-catalyzed Suzuki-Miyaura cross-couplings",
+      "abstract": "Abstract Nickel-catalyzed cross-coupling reactions that engage alkyl electrophiles provide potential routes for synthesis of molecules with high F sp3 . However, development of these reactions remains a challenge since the impact of ligand identity on competing mechanistic pathways is not yet well understood. To address this knowledge gap, we establish structure-reactivity trends across >550 Suzuki-Miyaura cross-coupling reactions with known mechanistic pathways. We evaluate reaction outcome by ligand features including heteroatom identity, hybridization, bite angle, geometry, and buried volume. The most important determinant of reactivity is heteroatom identity: nitrogen-based ligands support open-shell reactions while phosphorus-based ligands support closed-shell reactions. Here we report that experimental and calculated reduction potentials and charge density analysis correlate with catalytic activity and propose a rationale for these observations based on hard-soft acid-base theory.",
+      "authors": [
+        "Anjali S. Bardhan",
+        "Erin M. Eason",
+        "Claire A. Herbert",
+        "Tamal Das",
+        "Andrew D. Cypcar",
+        "Jenny Y. Yang"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79154-9",
+      "doi": "10.1038/s41467-026-79154-9",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79154-9",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A combinatorial genetics approach reveals limits to redundancy within Plasmodium falciparum invasion ligand families",
+      "abstract": "Abstract To maintain infection in the human bloodstream, Plasmodium falciparum parasites undergo repeated cycles of invasion of and multiplication inside red blood cells (RBCs). Two protein families, the Erythrocyte binding-like (EBA) and Reticulocyte binding-like (Rh) proteins, are known to play a key role in invasion, mediating early stages of attachment of the P. falciparum merozoite to the host RBC. There is a degree of redundancy within these families, such that disrupting the function of individual EBA/Rh proteins in vitro is not sufficient to prevent invasion. By employing a novel approach to disrupt multiple EBA and Rh genes in combination, we systematically assess functional interdependency across these families for the first time. This analysis, and further characterisation of mutant parasites, reveals that disruption of some pairs of EBA/Rh ligands significantly impacts P. falciparum invasion, whereas others do not. Disruption of PfEBA175 in combination with either PfRh2b or PfRh4 significantly reduces parasite multiplication in vitro, indicating that the remaining EBA/Rh proteins cannot fully compensate for the absence of these three key invasion ligands. PfEBA175, PfRh2b and PfRh4 may therefore represent a critical nexus of the parasite invasion machinery, and combinatorial approaches that target these specific ligands could be a beneficial therapeutic approach.",
+      "authors": [
+        "Eleanor Silvester",
+        "Anna Kuroshchenkova",
+        "Carla Briggs",
+        "Alazhar Colombowala",
+        "Victor Flores",
+        "Emma Kals"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78985-w",
+      "doi": "10.1038/s41467-026-78985-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78985-w",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Precise modular engineering of neutral organometallic rectangles from binuclear palladacycles via hierarchical assembly strategy",
+      "abstract": "Abstract Metallosupramolecular assembly provides a powerful strategy for the precise construction of well-defined architectures with diverse topologies and functionalities. However, the construction of neutral organometallic architectures supported by robust metal-carbon bonds remains underdeveloped, largely because kinetic persistence limits the reversible structural correction required for conventional self-assembly. Herein, we employ binuclear palladacycles as intrinsically neutral and geometrically preorganized building blocks and develop a hierarchical assembly strategy that temporally separates geometric programming, scaffold editing, and topology locking. Through a polymerization-cleavage-assembly process, cyclopalladated polymers are converted into discrete binuclear precursors while retaining their programmed geometrical information. Subsequent trans-effect-directed N -heterocyclic carbene ligation affords a series of size-tunable, kinetically robust, and neutral organometallic rectangles. The resulting architectures are fully characterized by spectroscopic methods and single crystal X-ray diffraction analyses. Moreover, single crystal X-ray diffraction identifies guest-mediated breathing-like geometric deformations in the solid state, driven by exo-wall π-π stacking and charge-transfer interactions with both electron-rich and electron-deficient planar guests. This work establishes a hierarchical construction principle for accessing discrete neutral organometallic architectures by separating geometric programming from the final locking of the topology through stron",
+      "authors": [
+        "Yanzhe Ma",
+        "Lixin Duan",
+        "Tianheng Hou",
+        "Jiaxin Zhang",
+        "Haonan Sun",
+        "Ran Ma"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79020-8",
+      "doi": "10.1038/s41467-026-79020-8",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79020-8",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Genome-scale eCLIP mapping of SARS-CoV-2 RNA interactions with NSP8, NSP12, and N reveals regulatory sites",
+      "abstract": "Abstract The global impact of the COVID-19 pandemic highlights the need for a deeper understanding of SARS-CoV-2 replication. Although the essential roles of the RNA-dependent RNA polymerase (NSP12), primase (NSP8), and nucleocapsid (N) proteins are established, their contact points with the full-length viral RNA genome during active infection require further characterization. Here, we used enhanced crosslinking and immunoprecipitation (eCLIP) to map direct interactions of NSP8, NSP12, and N across the SARS-CoV-2 genome during live virus infection at early and late stages of replication. We mapped NSP8 and NSP12 binding to the 5′ and 3′ ends of positive- and negative-sense RNA, consistent with their roles in viral replication, transcription, and translation. We also observed an NSP12 binding site within the conserved Y1 domain of NSP3 that modulates RNA and protein abundance. In addition, N binds the 5′ untranslated region (UTR), supporting a role in translational regulation early in infection, and associates with the frameshift element, where it modulates ribosomal frameshifting. Together, these findings map SARS-CoV-2 RNA–protein interactions across the viral genome and delineate specific regulatory regions for potential antiviral intervention.",
+      "authors": [
+        "Joy S. Xiang",
+        "Karen X. Zhao",
+        "Laliv Tadri",
+        "Kurt Tamaru",
+        "Brian A. Yee",
+        "Katherine Rothamel"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78788-z",
+      "doi": "10.1038/s41467-026-78788-z",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78788-z",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Equipositioning of chromosomes in the polyploid archaeon Haloferax volcanii by HpaAB",
+      "abstract": "Abstract Proper genome segregation is essential for cellular survival, yet this process is poorly understood in archaea. Archaea show considerable variability in genome ploidy and organization. Haloferax volcanii DS2 is a polyploid archaeon with a fragmented genome consisting of a main chromosome, three secondary chromosomes and a plasmid. Due to high ploidy, genomic segregation in H. volcanii is typically considered random. However, we identified four two-gene operons encoding ParA-like proteins and uncharacterized partners. Here we characterized HpaA and HpaB, encoded on the secondary chromosome pHV3. HpaA contains conserved ATPase walker motifs and is a ParA protein with a bacterial origin. Mutation of key residues in HpaA alters its localization, while HpaA is necessary for proper HpaB spatial distribution. HpaB forms cytosolic foci and functions as a centromere-binding protein, analogous to bacterial ParB. Deletion of the genes hpaA and hpaB results in severe growth defects when xylose is the sole carbon source, consistent with the location of xylose degradation genes on pHV3. It also reduces the pHV3 to main chromosome ratio. Single-particle tracking suggests that HpaB influences HpaA dynamics. Together, these findings demonstrate an equipositioning of pHV3, likely supporting maintenance in the different cell morphologies observed in H. volcanii .",
+      "authors": [
+        "Kartikeyan Premrajka",
+        "Ulrike Johnsen",
+        "Holger Preidel",
+        "Jascha Wienberg",
+        "Chiara Corleis",
+        "Marius Ortjohann"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78993-w",
+      "doi": "10.1038/s41467-026-78993-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78993-w",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Spawning Season: An Experiment in Queer Parenthood",
+      "abstract": "Science, Volume 394, Issue 6823, Page 492-492, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem8469?af=R",
+      "doi": "10.1126/science.aem8469?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem8469?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "We have some explaining to do",
+      "abstract": "Science, Volume 394, Issue 6823, Page 491-491, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem0071?af=R",
+      "doi": "10.1126/science.aem0071?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem0071?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Constructing the history of a contested region",
+      "abstract": "Science, Volume 394, Issue 6823, Page 492-492, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem1550?af=R",
+      "doi": "10.1126/science.aem1550?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem1550?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Pervasive patterns in bird songs resemble those in human speech and song and are independent of vocal learning",
+      "abstract": "Science, Volume 394, Issue 6823, Page 556-561, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adr9983?af=R",
+      "doi": "10.1126/science.adr9983?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adr9983?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Chiral altermagnon in MnTe",
+      "abstract": "Science, Volume 394, Issue 6823, Page 541-543, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adv3196?af=R",
+      "doi": "10.1126/science.adv3196?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adv3196?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Rapid longitudinal flights cause time shifts and Sun compass error",
+      "abstract": "Science, Volume 394, Issue 6823, Page 520-524, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adz2542?af=R",
+      "doi": "10.1126/science.adz2542?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adz2542?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Intrinsic gestational timing governs human cerebellar development after preterm birth",
+      "abstract": "Science, Volume 394, Issue 6823, Page 549-555, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeb9095?af=R",
+      "doi": "10.1126/science.aeb9095?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeb9095?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Spatial coordination in the codevelopment of the human urogenital system during organogenesis",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee5093?af=R",
+      "doi": "10.1126/science.aee5093?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee5093?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A commensally regulated immune rheostat fine-tunes skin barrier fitness",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee5920?af=R",
+      "doi": "10.1126/science.aee5920?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee5920?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Western Pacific double subduction drives Gulf of California rifting",
+      "abstract": "Science, Volume 394, Issue 6823, Page 515-519, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef5187?af=R",
+      "doi": "10.1126/science.aef5187?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef5187?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Whole-body single-cell atlas of an adult vertebrate, Danionella cerebrum",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeg1125?af=R",
+      "doi": "10.1126/science.aeg1125?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeg1125?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Papaver self-incompatibility is controlled by two multiallelic idiomorphs",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeg6988?af=R",
+      "doi": "10.1126/science.aeg6988?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeg6988?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Data-driven discovery and rapid, direct synthesis of MXenes",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeh5957?af=R",
+      "doi": "10.1126/science.aeh5957?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh5957?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Genomic erosion across avifauna in a biodiversity hotspot sounds a conservation alarm",
+      "abstract": "Science, Volume 394, Issue 6823, Page 525-528, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef3063?af=R",
+      "doi": "10.1126/science.aef3063?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef3063?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "hotspot"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The delocalized nature of chemical bonding at a catalytic metal surface",
+      "abstract": "Science, Volume 394, Issue 6823, Page 529-533, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei5255?af=R",
+      "doi": "10.1126/science.aei5255?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei5255?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The global geography of threats to freshwater biodiversity",
+      "abstract": "Science, Volume 394, Issue 6823, Page 510-514, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeb7910?af=R",
+      "doi": "10.1126/science.aeb7910?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeb7910?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Altermagnetism revealed by polarized neutrons in MnF2",
+      "abstract": "Science, Volume 394, Issue 6823, Page 544-548, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aec2602?af=R",
+      "doi": "10.1126/science.aec2602?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aec2602?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "In Other Journals",
+      "abstract": "Science, Volume 394, Issue 6823, Page 502-503, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen5956?af=R",
+      "doi": "10.1126/science.aen5956?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen5956?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "It’s not perfect—but it’s me",
+      "abstract": "Science, Volume 394, Issue 6823, Page 566-566, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen5957?af=R",
+      "doi": "10.1126/science.aen5957?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen5957?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Taking the brakes off a stress response",
+      "abstract": "Science, Volume 394, Issue 6823, Page 488-489, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem1560?af=R",
+      "doi": "10.1126/science.aem1560?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem1560?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Caught by chirality",
+      "abstract": "Science, Volume 394, Issue 6823, Page 490-490, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem3997?af=R",
+      "doi": "10.1126/science.aem3997?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem3997?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "How comparable are bird and human sounds?",
+      "abstract": "Science, Volume 394, Issue 6823, Page 487-488, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem2333?af=R",
+      "doi": "10.1126/science.aem2333?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem2333?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Untangling time and prematurity in brain development",
+      "abstract": "Science, Volume 394, Issue 6823, Page 485-486, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem4864?af=R",
+      "doi": "10.1126/science.aem4864?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem4864?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Rallying hedgehog poo enthusiasts",
+      "abstract": "Science, Volume 394, Issue 6823, Page 494-494, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aej2391?af=R",
+      "doi": "10.1126/science.aej2391?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aej2391?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Advance more drugs for China’s aquaculture",
+      "abstract": "Science, Volume 394, Issue 6823, Page 493-494, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.ael5303?af=R",
+      "doi": "10.1126/science.ael5303?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael5303?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Use common standards to stop risky research",
+      "abstract": "Science, Volume 394, Issue 6823, Page 493-493, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.ael6976?af=R",
+      "doi": "10.1126/science.ael6976?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael6976?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Erratum for the Research Article “Turf algae redefine the chemical landscape of temperate reefs, limiting kelp forest recovery”",
+      "abstract": "Science, Volume 394, Issue 6823, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen4323?af=R",
+      "doi": "10.1126/science.aen4323?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen4323?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Gone forever",
+      "abstract": "Science, Volume 394, Issue 6823, Page 480-484, October 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen6334?af=R",
+      "doi": "10.1126/science.aen6334?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen6334?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Are dinosaur fossils hogging top journals? Analysis sparks debate over ‘charismatic’ finds",
+      "abstract": "",
+      "authors": [
+        "Ewen Callaway"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/d41586-026-03512-2",
+      "doi": "10.1038/d41586-026-03512-2",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03512-2",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Nature",
+      "type": "paper",
+      "title": "Dog years: could longevity science extend your pets' lives? ]]>",
+      "abstract": "Nature, Published online: 30 October 2026; doi:10.1038/d41586-026-03553-7 Nature staff discuss the emerging field of pet longevity — plus, a researcher decides not to care about their student reviews. Are they wrong?]]>",
+      "authors": [],
+      "date": "2026-10-30",
+      "url": "https://www.nature.com/articles/d41586-026-03553-7",
+      "doi": "10.1038/d41586-026-03553-7",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03553-7",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Nature",
+      "type": "paper",
+      "title": "3+ stabilized in KRh@MFI catalyses regioselective hydroformylation]]>",
+      "abstract": "Nature, Published online: 30 October 2026; doi:10.1038/s41586-026-11337-2 Author Correction: Rh 3+ stabilized in KRh@MFI catalyses regioselective hydroformylation]]>",
+      "authors": [],
+      "date": "2026-10-30",
+      "url": "https://www.nature.com/articles/s41586-026-11337-2",
+      "doi": "10.1038/s41586-026-11337-2",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11337-2",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Somewhere over the transcontinental burrito tunnel",
+      "abstract": "",
+      "authors": [
+        "Elitsa Dermendzhiyska"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/d41586-026-03368-6",
+      "doi": "10.1038/d41586-026-03368-6",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03368-6",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "I built the UK government’s metascience unit — here’s what countries need to know",
+      "abstract": "",
+      "authors": [
+        "Jen Gold"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/d41586-026-03502-4",
+      "doi": "10.1038/d41586-026-03502-4",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03502-4",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Patrick Stewart dies: how Captain Picard inspired today’s science leaders",
+      "abstract": "",
+      "authors": [
+        "Mohana Basu"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/d41586-026-03543-9",
+      "doi": "10.1038/d41586-026-03543-9",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03543-9",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Foundation models unlock robust phenotypic representations from Cell Painting images",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41592-026-03271-y",
+      "doi": "10.1038/s41592-026-03271-y",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03271-y",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Multivalent ADAR1 recruitment for precise RNA editing",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41592-026-03285-6",
+      "doi": "10.1038/s41592-026-03285-6",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03285-6",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Spatial single-cell mapping of transcriptional differences across genetic backgrounds in mouse brains",
+      "abstract": "",
+      "authors": [
+        "Zachary Hemminger",
+        "Gabriela Tam",
+        "Haley De Ocampo",
+        "Aihui Wang",
+        "Thomas Underwood",
+        "Fangming Xie"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41592-026-03289-2",
+      "doi": "10.1038/s41592-026-03289-2",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03289-2",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Weakened association between sequential phenological events corresponds to interphase extension",
+      "abstract": "",
+      "authors": [
+        "Yichen Zhang",
+        "Mengdi Gao",
+        "Yao Zhang",
+        "Josep Peñuelas",
+        "Yongshuo Fu",
+        "Chaoyang Wu"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79161-w",
+      "doi": "10.1038/s41467-026-79161-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79161-w",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Sequential protonation and deprotonation reactions govern alternating access in a Major Facilitator Superfamily proton/multidrug antiporter",
+      "abstract": "Abstract Drug/proton antiporters of the Major Facilitator Superfamily are key drivers of antimicrobial resistance. However, the molecular mechanisms underlying proton-coupled drug efflux are inherently complex and remain unresolved. Here, we dissect the timing and mechanism of proton coupling in the multidrug transporter LmrP, a prototypical exporter of clinically relevant antibiotics and toxins. By directly tracking chamber opening in the native plasma membrane, we capture functionally relevant conformational transitions within a lipid environment and map them onto the catalytic carboxylates that govern transport. Our results suggest that earlier DEER distance measurements in detergent solution captured a restricted subset of conformational states, which our pH 8.0 data extend and place into a broader framework. Complementary pH 5.0 measurements reveal additional mechanistic features and, together, these datasets define the transport cycle in a membrane-embedded context. Supported by molecular dynamics simulations, the results reveal a coordinated, transport cycle-dependent mechanism in which paired catalytic carboxylates act sequentially in substrate binding, proton relay, gate control, and transporter resetting.",
+      "authors": [
+        "Sana Khalid",
+        "Himansha Singh",
+        "Keiko Shinoda",
+        "Xiaofen Lin",
+        "Hendrik W. van Veen"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78611-9",
+      "doi": "10.1038/s41467-026-78611-9",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78611-9",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "industry",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "dataset"
+        ],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Recruitment of TEX15 by HUSH2 drives repression of multicopy gene families in fertility regulation",
+      "abstract": "",
+      "authors": [
+        "Fang Yang",
+        "Sora Yoon",
+        "Ankit Jaiswal",
+        "Zhenlong Kang",
+        "N. Adrian Leu",
+        "Kevin Monahan"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79016-4",
+      "doi": "10.1038/s41467-026-79016-4",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79016-4",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Author Correction: Inactivated vaccine-elicited potent antibodies can broadly neutralize SARS-CoV-2 circulating variants",
+      "abstract": "",
+      "authors": [
+        "Yubin Liu",
+        "Ziyi Wang",
+        "Xinyu Zhuang",
+        "Shengnan Zhang",
+        "Zhicheng Chen",
+        "Yan Zou"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79108-1",
+      "doi": "10.1038/s41467-026-79108-1",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79108-1",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Process-dependent shifts in conspecific negative density dependence during boreal forest succession",
+      "abstract": "Abstract Conspecific negative density dependence (CNDD)—the stronger negative effects of conspecific than heterospecific neighbours on plant demographic performance—is a key process proposed to stabilize forest diversity, yet how it changes during succession remains poorly understood. Using a 25-year spatially explicit dataset from 148 post-fire plots in boreal forests, we show that species richness increases with stand age and that CNDD varies in process- and abundance-dependent ways across recruitment, survival, and growth. Plot-level CNDD shows no significant change with stand age in recruitment or survival, but mean relative effects are generally stronger for recruitment, and CNDD shifts from destabilizing to stabilizing for growth as stands mature. Species-level CNDD is strongly associated with species abundance, with rare species consistently experiencing stronger CNDD in recruitment and growth, whereas common species tend toward neutral or destabilizing effects. For survival, by contrast, CNDD is stronger in common than in rare species. These abundance-related differences remain broadly consistent across stand development, except in recruitment, where CNDD intensifies in rare species but remains consistently weak or near-neutral in common species. This shifting balance of density-dependent pressures highlights succession-driven trade-offs as central to species coexistence and increases in diversity in disturbance-driven forests.",
+      "authors": [
+        "Yingying Zhu",
+        "Chen Chen",
+        "Han Y. H. Chen"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79050-2",
+      "doi": "10.1038/s41467-026-79050-2",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79050-2",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "dataset"
+        ],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Interfacial reinforcement relieves mechanical mismatch for stable perovskite photovoltaics",
+      "abstract": "",
+      "authors": [
+        "Yunfei Li",
+        "Yuqi Zhang",
+        "Siyuan Zhu",
+        "Sheng Fu",
+        "Nannan Sun",
+        "Xiaotian Zhu"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-79172-7",
+      "doi": "10.1038/s41467-026-79172-7",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79172-7",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "One Health genomic surveillance identifies potential genetic links of antimicrobial-resistant foodborne pathogens across sectors",
+      "abstract": "",
+      "authors": [
+        "Norikazu Kitamura",
+        "Hiroto Shinomiya",
+        "Michiko Kawanishi",
+        "Noriko Konishi",
+        "Kenji Ohya",
+        "Haruyoshi Tomita"
+      ],
+      "date": "2026-10-30",
+      "url": "https://doi.org/10.1038/s41467-026-78530-9",
+      "doi": "10.1038/s41467-026-78530-9",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78530-9",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    }
+  ]
+}
