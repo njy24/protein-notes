@@ -1,0 +1,2469 @@
+{
+  "date": "2026-11-21",
+  "generatedAt": "2026-11-21T01:53:27.466Z",
+  "threshold": 8,
+  "counts": {
+    "total": 136,
+    "passed": 13,
+    "byCategory": {
+      "experiments": 6,
+      "tools": 3,
+      "design": 3,
+      "commentary": 1
+    }
+  },
+  "ingest": {
+    "arxiv": 3,
+    "pubmed": 13,
+    "crossref": 90,
+    "rss:Nature": 1,
+    "rss:Nature Biotechnology": 0,
+    "rss:Nature Methods": 0,
+    "rss:Nature Communications": 0,
+    "rss:Science": 30,
+    "rss:bioRxiv · Biochemistry": 0,
+    "rss:bioRxiv · Bioinformatics": 0
+  },
+  "errors": [],
+  "items": [
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "An AI-designed, recombinantly produced FtsZ-directed peptide with in vitro activity against pan-drug-resistant clinical isolates.",
+      "abstract": "Antimicrobial resistance is outpacing the antibiotic pipeline, yet antimicrobial peptides (AMPs) - the most-cited alternative class - remain constrained by proteolytic instability, host toxicity, and the cost of solid-phase synthesis. We report an integrated design-to-validation pipeline that addresses these constraints and yields a de novo peptide directed at an intracellular, non-lytic target. Instead of relying on membrane disruption, the design was directed at FtsZ, the essential bacterial cell-division GTPase, at a consensus epitope (residues 60-145) that our alignments show is substantially more conserved across the Gram-positive/Gram-negative divide than FtsZ overall (68.6% versus 50.1% identity between Enterococcus and Klebsiella orthologues) while sharing only approximately 8-24% identity with human tubulin. A sequence-space diffusion model conditioned on the amino-acid composition of experimentally validated AMPs generated ten binders; fusion to 120 cell-penetrating motifs, machine-learning triage, co-folding and replicated molecular dynamics identified a single lead, Combined111. Rather than chemical synthesis, the peptide was produced biologically: the codon-optimised gene was cloned in-house into pHT254 and expressed as an intracellular, C-terminal 8xHis-tagged product in the protease-deficient Bacillus subtilis WB800N host, giving a mean transcript induction of 3.40-fold (SD 2.01, n = 4 biological replicates) and a single band of approximately 11.1 kDa after one-step Ni-NTA purification. Against one pan-drug-resistant clinical isolate of each of seven species,",
+      "authors": [
+        "Yousif YI",
+        "Yaseen LQ",
+        "Suleiman AA"
+      ],
+      "date": "2026-11-14",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43033290/",
+      "doi": "10.1007/s11274-026-05392-0",
+      "venue": "World journal of microbiology & biotechnology",
+      "pmid": "43033290",
+      "id": "doi:10.1007/s11274-026-05392-0",
+      "tags": [],
+      "score": 20,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "epitope"
+        ],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Zero-shot de novo design of a metalloenzyme.",
+      "abstract": "De novo design of enzymes is a frontier challenge, requiring consideration of catalytic mechanism and optimization across biochemical and biophysical criteria. Here, we present dEVA (design by EVolutionary Algorithm), a multi-objective protein design method built on principles drawn from evolutionary biology. We apply dEVA to the zero-shot, de novo design of metalloenzymes by optimizing the coordination sphere of catalytic metals. We characterize a bi-zinc metalloenzyme that exhibits promiscuous hydrolytic activity towards both phosphomonoesters and phosphodiesters. This design achieves a rate enhancement ((k cat /K M )/k w ) of up to 3 x 10 13 relative to the uncatalyzed reaction, comparable to characterized natural phosphatases. Structural characterization via x-ray crystallography and absorption spectroscopy supports the design of a de novo active site. These results demonstrate that de novo enzymes can be designed without pre-specified motifs, natural templates, or evolutionary information.",
+      "authors": [
+        "El Nesr G",
+        "D&#xfc;rr SL",
+        "Mathews II",
+        "Wen Q",
+        "Zhao K",
+        "Sarangi R"
+      ],
+      "date": "2026-11-19",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43056425/",
+      "doi": "10.1126/science.aej3009",
+      "venue": "Science (New York, N.Y.)",
+      "pmid": "43056425",
+      "id": "doi:10.1126/science.aej3009",
+      "tags": [],
+      "score": 17,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Confident and Wrong: Structure Confidence Is a Poor Selection Filter for Protein Function",
+      "abstract": "Structure-guided protein design can generate plausible candidates, but structural confidence does not predict function. We trained a function-guided model on measured metal-binding affinity with protein sequence, ligand identity, and assay conditions, and used it to design rare earth element (REE) binding variants of lanmodulin, a lanthanide-binding protein with four EF-hand domains. We screened 297 designs from three strategies against terbium and dysprosium, adjacent lanthanides among the hardest REE pairs to separate. Selection on structural confidence inverted the outcome it was meant to improve. The Structure-Confidence-Selected panel carried the highest pTM, complex ipLDDT, and composite confidence scores, and expressed at 97%, yet only 16.7% of its designs bound terbium (95% CI 10.4 to 25.7), against 83.3% (74.6 to 89.5) for the function-guided panel, whose confidence scores were the lowest. The odds of binding differed 25-fold between the two panels (Fisher exact $p = 1 \\times 10^{-20}$). No structural-confidence metric separated binders from non-binders consistently across panels, whereas the function-trained model's predicted pKd gave the highest ROC AUC in every panel, 0.79 to 0.92, and ranked measured affinity among function-guided binders at Spearman $ρ= 0.98$. On the design objective, Tb/Dy selectivity, the function-guided designs also exceeded the natural lanmodulin family, outranking a randomly drawn ortholog 84% of the time across 149 orthologs. Structural confidence is a plausibility signal, not a selection criterion for function; direct supervision on mea",
+      "authors": [
+        "Eric LoPrete",
+        "Pavle Jeremić"
+      ],
+      "date": "2026-11-12",
+      "url": "https://arxiv.org/abs/2611.17391v1",
+      "venue": "arXiv",
+      "arxivId": "2611.17391v1",
+      "id": "url:https://arxiv.org/abs/2611.17391v1",
+      "tags": [],
+      "score": 17,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Reprogramming Protein Function by Expanding Chemical and Combinatorial Space: Integrating Chemical and Computational Strategies.",
+      "abstract": "Proteins are biological macromolecules that perform critical functions, including catalysis, molecular recognition, and cellular regulation. Natural evolution has generated remarkable protein diversity, leaving vast opportunities for engineered molecular innovation. Protein engineering has evolved from the rational design of proteins over the last few decades to approaches based on directed evolution and computational methods to enhance their properties. Protein engineering is shifting from optimization-based approaches to an integrated approach, which includes rational design, directed evolution, computational and generative modeling, synthetic chemistry, synthetic biology, and laboratory automation. These strategies widen the scope of experimentally accessible chemical and structural toolboxes in proteins without sacrificing the physicochemical constraints, cellular compatibility, evolutionary processes, and experimental validation. Meanwhile, synthetic chemistry is extending the natural abilities of proteins by incorporating noncanonical amino acids, novel cofactors, and modified metal centers and catalytic environments. These technologies enable the creation of artificial enzymes, programmed molecular binders, synthetic receptors, molecular machines, and biomaterials that have functions beyond those of their natural counterparts. This review introduces advances in the protein engineering field, from past methods of modifying proteins to present-day opportunities for generating proteins with artificial intelligence, and explains how the fields of computation, chemistry,",
+      "authors": [
+        "Shad M"
+      ],
+      "date": "2026-11-17",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43046257/",
+      "doi": "10.1002/bit.70445",
+      "venue": "Biotechnology and bioengineering",
+      "pmid": "43046257",
+      "id": "doi:10.1002/bit.70445",
+      "tags": [],
+      "score": 16,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders"
+        ],
+        "method": [
+          "generative model"
+        ],
+        "context": [
+          "experimental validation"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Chemical Biology in the Age of Artificial Intelligence: From Ligand Discovery to Virtual Cells.",
+      "abstract": "Artificial intelligence is rapidly changing how scientists, including chemical biologists, conduct research. This review is intended to serve as an introduction for chemical biologists to applications of artificial intelligence in chemical biology. We review how chemical and biological data are featurized, the types of models commonly used in chemical biology applications, challenges in assessing accuracy of artificial intelligence models, and recent developments in agentic artificial intelligence for autonomous research. The applications we will cover include protein structure prediction, ligand discovery, peptide and protein design, prediction of mutational effects, interactomics and gene regulation, and virtual cells.",
+      "authors": [
+        "Guo X",
+        "Ma Y",
+        "McDaniel JM",
+        "Vadlamudi S",
+        "Butt CM",
+        "Fieldhouse MR"
+      ],
+      "date": "2026-11-16",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43036097/",
+      "doi": "10.1021/acschembio.6c00553",
+      "venue": "ACS chemical biology",
+      "pmid": "43036097",
+      "id": "doi:10.1021/acschembio.6c00553",
+      "tags": [],
+      "score": 13,
+      "pass": true,
+      "category": "commentary",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "structure prediction",
+          "agent"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De Novo Design of Catalytically Active Salen-Binding Proteins.",
+      "abstract": "De novo design of catalytic metalloproteins has the potential to generate enzymes that combine the efficiency of natural proteins with the reactivity of synthetic organometallic catalysts. Here, we develop a computational strategy to design enzymes with novel tertiary structures that bind metal salen complexes, classic small-molecule catalysts not found in biology. Six proteins were designed and screened for function; five of six express well, bind a Co-salen cofactor, and catalyze a transition metal hydrogen atom transfer (MHAT)-mediated deallylation reaction, representing the first de novo proteins to catalyze this class of transformation. The spectroscopic properties and crystal structure of the most active sequence were in excellent agreement with the design, and the holoprotein retained its structure and activity over a broad range of pH (2-12), temperatures up to 95 °C, and aqueous/organic solvent mixtures. We suggest that the combinatorial space provided by metal ion identity, ligand substitution, and active site structure can be used to generate artificial metalloenzymes that catalyze many chemical transformations.",
+      "authors": [
+        "Bakanas I",
+        "Horst M",
+        "Ouchida S",
+        "Jung S",
+        "Simunic L",
+        "Lombardi A"
+      ],
+      "date": "2026-11-18",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43053445/",
+      "doi": "10.1021/jacs.6c08768",
+      "venue": "Journal of the American Chemical Society",
+      "pmid": "43053445",
+      "id": "doi:10.1021/jacs.6c08768",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design",
+          "de novo protein"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": [
+          "small-molecule"
+        ]
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Using an energy pixels approach to estimate the size a 2nd Generation DEL must be to train a high-resolution binding model",
+      "abstract": "DNA-encoded libraries (DELs) are commonly used to find small-molecule binders to a target protein. But the hard part is no longer finding a hit. It is building a machine-learning model good enough to guide the medicinal chemistry that follows, one that can resolve the shift in affinity when a chemist changes a single atom. Such a model needs two things from its training data: dense sampling of the small patch of chemical space around the hit, and an adequate number of genuinely tight binders within it. A diverse naive DEL gives neither. It samples an enormous space, so any one neighborhood is covered far too thinly, and the tightest binders are rare. A model trained on that naive DEL data must extrapolate to binders tighter than any it has seen, and that is where models can fail. One way to get training data with both properties is a second-generation DEL built around the hit. We ask how complex that library must be. We treat binding as a sum of small, independent interactions, called pixels on the target and antipixels on the ligand. From the spread of affinities measured in the naive library, with no structural information and nothing yet synthesized, we estimate the complexity such a library must have to supply that dense sampling and those tight binders. The method does two useful things. It turns the number of tight binders a model needs into the number of compounds a library must contain. And it estimates the expected yield of a randomly designed second-generation DEL, so the gain from designing the library with machine learning or active learning can be measured agai",
+      "authors": [
+        "Boris P. Belotserkovskii",
+        "R. Edward Watts"
+      ],
+      "date": "2026-11-12",
+      "url": "https://arxiv.org/abs/2611.17121v1",
+      "venue": "arXiv",
+      "arxivId": "2611.17121v1",
+      "id": "url:https://arxiv.org/abs/2611.17121v1",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": [
+          "small-molecule"
+        ]
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "FLIGHTED: Inferring fitness landscapes from noisy high-throughput experimental data.",
+      "abstract": "Machine learning (ML) for protein design requires large protein fitness datasets generated by high-throughput experiments for training and benchmarking models. However, most models do not account for experimental noise inherent in these datasets, thereby harming model performance. Here, we develop fitness landscape inference generated by high-throughput experimental data (FLIGHTED), a Bayesian method of accounting for uncertainty by generating probabilistic fitness landscapes from noisy experiments. We demonstrate how FLIGHTED can improve model performance on two experiments: single-step selection assays, such as phage display, and a high-throughput assay that ties activity to base editing. We compare the performance of standard ML models on fitness landscapes with and without FLIGHTED. Accounting for noise statistically significantly improves model performance. Based on our new benchmarking with FLIGHTED, data size, not model scale, is limiting protein fitness model performance. Our results indicate that FLIGHTED can be applied to any high-throughput assay and any ML model, making it straightforward for protein designers to account for noise.",
+      "authors": [
+        "Sundar V",
+        "Tu B",
+        "Guan L",
+        "Esvelt K"
+      ],
+      "date": "2026-11-18",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42826717/",
+      "doi": "10.1016/j.cels.2026.101739",
+      "venue": "Cell systems",
+      "pmid": "42826717",
+      "id": "doi:10.1016/j.cels.2026.101739",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [
+          "benchmark",
+          "dataset",
+          "high-throughput"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De Novo Design Peptide Probe Enables Super-Resolution Imaging of MFGE8-Integrin Nanoscale Signaling Platforms in Triple-Negative Breast Cancer.",
+      "abstract": "Super-resolution imaging based on conventional antibody labeling can introduce linkage amplification effects, while the resulting antibody complexes may also cause substantial steric hindrance. Therefore, nanoscale imaging of ligand proteins on the cell membrane under low-perturbation conditions remains challenging. In this study, we developed a structure-guided and artificial intelligence-assisted strategy for the de novo design of MFGE8-targeting peptide probes. Electrostatic potential analysis identified an exposed pocket around residues 121-126 of MFGE8, followed by RFdiffusion-based backbone generation and ProteinMPNN-mediated sequence optimization. The binding capability of the designed peptides was validated by surface plasmon resonance. The optimized Cy5-labeled peptide probe exhibited a smaller molecular size and shorter labeling distance, making it suitable for dSTORM super-resolution imaging, while showing a high spatial correlation with antibody labeling. Using this probe, we found that MFGE8 membrane nanoclustering increased with the malignant progression of breast cancer cells and was markedly enriched in triple-negative breast cancer cells. Two-color dSTORM imaging further revealed spatial coupling between MFGE8 nanoclusters and integrin αV signaling platforms. Treatment with the cyclic peptide cyclo(RGDyK) reduced the colocalization between MFGE8 and integrins, attenuated MFGE8 clustering, and reversed epithelial-mesenchymal transition-associated molecular features; these findings were further validated by MFGE8 knockdown experiments. Collectively, this stud",
+      "authors": [
+        "Qiao S",
+        "Gao J",
+        "Wang H",
+        "Ma C",
+        "Xu H",
+        "Jiang Z"
+      ],
+      "date": "2026-11-17",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43046390/",
+      "doi": "10.1021/acs.analchem.6c03531",
+      "venue": "Analytical chemistry",
+      "pmid": "43046390",
+      "id": "doi:10.1021/acs.analchem.6c03531",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Expanding the Decision Space of Pretrained Models through Structured Re-Decoding",
+      "abstract": "Native decoders limit how pretrained models combine local predictions under new structural constraints. We introduce Structured Re-Decoding (SRD), a training-free framework that constructs local candidates from model scores, samples, or external specifications, jointly optimizes their selection, and verifies reconstructed outputs. We show that candidate recombination expands feasible support and can improve attainable reward under a fixed KL divergence budget. Across molecular generation, protein design, RNA structure prediction, and antibody modeling, SRD enables improved structured inference, including verified molecules absent from the original sample pool. External chemical templates further extend SRD to noncanonical amino acids, peptide cyclization, and grammar-guided molecular construction. Preliminary experiments on a physical coherent Ising machine demonstrate the feasibility of hardware-based optimization, suggesting broader opportunities for quantum and quantum-inspired approaches to structured inference and combinatorial optimization across scientific domains.",
+      "authors": [
+        "Tinglan Wang",
+        "Qun Su",
+        "Shihang Wang",
+        "Chi Wang",
+        "Lin Wang",
+        "Shaobo Chen"
+      ],
+      "date": "2026-11-11",
+      "url": "https://arxiv.org/abs/2611.15109v1",
+      "venue": "arXiv",
+      "arxivId": "2611.15109v1",
+      "id": "url:https://arxiv.org/abs/2611.15109v1",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "structure prediction"
+        ],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Tuned Fitness Landscapes for Benchmarking Model-Guided Protein Design.",
+      "abstract": "Machine learning-guided directed evolution (MLDE) is an emerging paradigm of protein design where ML models trained on experimental data are used to guide exploration of a protein fitness landscape. Building an MLDE pipeline involves many design choices across the design-build-test-learn loop ranging from data collection strategies to modeling. The cost of collecting experimental data makes benchmarking every component of these pipelines prohibitively difficult, necessitating the development of synthetic landscapes. In this work, we develop a framework called SLIP (\"Synthetic Landscape Inference for Proteins\") for constructing synthetic landscapes with tunable difficulty based on Potts models. This framework can be extended to any protein family for which there is a sequence alignment. We show that our tuning framework provides landscapes sufficiently challenging to benchmark MLDE pipelines. SLIP is open-source and is available at https://github.com/google-research/slip.",
+      "authors": [
+        "Thomas N",
+        "Agarwala A",
+        "Belanger D",
+        "Song YS",
+        "Colwell LJ"
+      ],
+      "date": "2026-11-14",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43031432/",
+      "doi": "10.1093/genetics/iyag313",
+      "venue": "Genetics",
+      "pmid": "43031432",
+      "id": "doi:10.1093/genetics/iyag313",
+      "tags": [],
+      "score": 9,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [
+          "benchmark",
+          "open-source"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Optical observation of ultrafast carrier separation in InGaN photocatalyst nanostructures",
+      "abstract": "Abstract Understanding carrier dynamics in semiconductor nanostructures is essential for optimizing their photocatalytic performance. We present direct optical evidence of ultrafast carrier separation in InGaN nanostructures used for water splitting. Two types of InGaN-based photocatalysts are studied: deepnano structures, which are a p-type InGaN micro-network, and nanowires incorporating an InGaN/GaN layered heterostructure. Here, we show that rapid lateral carrier separation in these nanostructures produces observable signatures in ultrafast spectroscopy. Using combined time-resolved photoluminescence and time-resolved differential reflectance spectroscopy, we observe photoluminescence exhibiting fast decay while differential reflection remains stable. This indicates rapid carrier separation. Studies of temperature and power-dependent photoluminescence confirm that carrier separation dominates over recombination-driven decay, and Mg doping studies reveal that stronger band bending enhances the carrier separation. The physical interpretation of the observations is supported by a numerical model including drift, diffusion, and thermal relaxation. The results provide critical insights into charge carrier dynamics in InGaN nanostructures, highlighting their potential for efficient photocatalysis.",
+      "authors": [
+        "Yifan Shen",
+        "Josey Hanish",
+        "Ishtiaque Ahmed Navid",
+        "Yuyang Pan",
+        "Zetian Mi",
+        "Theodore B. Norris"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79779-w",
+      "doi": "10.1038/s41467-026-79779-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79779-w",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Space-map: 3D single-cell atlas reconstruction from serial sections",
+      "abstract": "Abstract High-resolution three-dimensional (3D) tissue atlases promise to link cellular architecture to tissue function, but assembling them from serial sections containing millions of cells remains challenging. Here we present Space-map, an accurate and efficient method for reconstructing 3D tissue models from high-content spatial molecular profiles. Space-map combines multiscale feature matching with large deformation diffeomorphic metric mapping to automate global alignment across serial sections while preserving local microanatomy. We generate spatial transcriptomics (Xenium; ~2.7 million cells) and proteomics (CODEX; ~4.8 million cells) datasets from serial sections to build 3D models of a colon polyp and healthy intestinal tissues. These models reveal cell-type heterogeneity in the polyp and preserved crypt and glandular architecture and mucosal-cavity continuity in healthy intestines. Benchmarking on our own and publicly available datasets demonstrates that Space-map achieves substantially higher registration accuracy and up to a tenfold speedup over existing methods, supporting its use as a robust framework for constructing 3D human tissue atlases at single-cell resolution.",
+      "authors": [
+        "Rongduo Han",
+        "Cihan Ruan",
+        "Bingqing Zhao",
+        "Yuqi Tan",
+        "Emma Monte",
+        "Bei Wei"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1038/s41592-026-03310-8",
+      "doi": "10.1038/s41592-026-03310-8",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03310-8",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "benchmark",
+          "dataset"
+        ],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Augmenting the CATH database: a synthetic protein database for training biophysical-aware inverse folding models.",
+      "abstract": "The three-dimensional structure of proteins is a fundamental determinant of their functional roles; however, biophysical properties such as stability, flexibility, and solubility are also critical for the experimental applicability of designed proteins. The generation of protein sequences capable of folding into a desired three-dimensional structure is known as the protein inverse folding problem and represents one of the fundamental computational challenges in protein engineering because of the vast search space involved. Current deep learning-based inverse folding models effectively learn structure-sequence relationships; however, these models largely overlook biophysical properties such as solubility and stability. This is primarily because these models are predominantly trained on natural protein datasets, and although natural proteins are highly efficient in cellular processes, they may not necessarily represent suitable candidates for experimental applications. In this study, 21,668 protein sequences from the CATH 4.3 database that passed the quality-filtering criteria were subjected to multi-objective optimization for stability, solubility, and flexibility using the Heuristic Metropolis-Hastings Optimization (HMHO) approach, resulting in the construction of a biophysically enriched synthetic protein dataset. To evaluate the effect of the data-centric approach independently of model architecture, the PiFold architecture was kept unchanged, and the baseline model trained on natural CATH sequences (PiFold) was compared with the model retrained on the optimized training",
+      "authors": [
+        "Soyturk Patat A",
+        "Nalbantoglu OU",
+        "Uncu AT"
+      ],
+      "date": "2026-11-20",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43062557/",
+      "doi": "10.1007/s10822-026-00979-z",
+      "venue": "Journal of computer-aided molecular design",
+      "pmid": "43062557",
+      "id": "doi:10.1007/s10822-026-00979-z",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "tools",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "inverse folding"
+        ],
+        "context": [
+          "dataset",
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "CKAN-SDBPI: Single-Stranded and Double-Stranded DNA-Binding Protein Identifier Using Convolutional Kolmogorov-Arnold Network with Local and Global-Features Fusion.",
+      "abstract": "Single-stranded and double-stranded DNA-binding proteins play essential roles in DNA metabolism, regulation, and genome maintenance; however, accurate computational identification of these proteins remains challenging due to limited feature representation, complex sequence function relationships, and imbalanced classification distributions. Here, we propose CKAN-SDBPI, a multimodal deep learning framework that integrates global contextual protein representations with local structural-frequency descriptors for SSB/DSB protein identification. The proposed CKAN-SDBPI employs Ankh protein language model embeddings to capture global sequence information and RECM-DWT descriptors to characterize local structural-frequency patterns. These complementary representations are fused through a Convolutional Kolmogorov-Arnold Network (CKAN) to learn nonlinear interactions between heterogeneous feature spaces, while the SMOTETomek strategy is incorporated to improve balanced learning under class imbalance. CKAN-SDBPI was comprehensively evaluated using 5-fold cross-validation, an independent PDB401 test dataset, comparison with existing state-of-the-art predictors, and extensive ablation analyses. CKAN-SDBPI achieved robust predictive performance across validation experiments and demonstrated improved generalization capability on the independent test dataset. The independent evaluation showed that the proposed framework achieved an accuracy of 86.06%, MCC of 0.6238, AUC of 0.8911, and AUPRC of 0.9623. Moreover, ablation studies confirmed the contributions of SMOTETomek-based imbalance hand",
+      "authors": [
+        "Arshad K",
+        "Arif M",
+        "Yu DJ"
+      ],
+      "date": "2026-11-20",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43061981/",
+      "doi": "10.1021/acssynbio.6c00837",
+      "venue": "ACS synthetic biology",
+      "pmid": "43061981",
+      "id": "doi:10.1021/acssynbio.6c00837",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "language model"
+        ],
+        "context": [
+          "dataset",
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Sleuth finds ‘impossible proteins’ in hundreds of research papers",
+      "abstract": "",
+      "authors": [
+        "Holly Else"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03799-1",
+      "doi": "10.1038/d41586-026-03799-1",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03799-1",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Retraction Note: Detection of anisotropic cosmic structures on a gigaparsec scale",
+      "abstract": "",
+      "authors": [
+        "Francesco Sylos Labini",
+        "Marco Galoppo"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1038/s41586-026-11388-5",
+      "doi": "10.1038/s41586-026-11388-5",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11388-5",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Quiet within, chaos without: Turbulence shelters drive selective particle capture and release",
+      "abstract": "Turbulence is chaotic, yet its fluctuations follow a structured, nonequilibrium energy cascade unconstrained by the equilibrium theorems that limit passive energy extraction from molecular gases. Here, we introduce turbulence shelters: hollow shells with a single aperture that filter eddies by scale, sustaining gradients in fluctuation intensity that drive directional particle transport despite zero mean fluid flux. Across three orders of magnitude in size, shelters establish particle concentration contrasts between their interior and the surrounding flow, with selectivity controlled by particle geometry, inertia, thermal fluctuations, and electrostatic forces. At the microscale, shelters discriminate particles differing by tens of nanometers independently of material composition. These results establish a design principle for selective filtration: Geometry that compartmentalizes turbulent fluctuations can harness ambient eddies to direct particle transport.",
+      "authors": [
+        "Matteo Sabato",
+        "Sarah Chong",
+        "Yaocheng Li",
+        "Zhe Xu",
+        "Daqian Gao",
+        "Martin J. Falk"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1126/science.aee9889",
+      "doi": "10.1126/science.aee9889",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee9889",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "The fate of poised pre-mRNAs shapes mitochondrial activity and cellular differentiation",
+      "abstract": "Although RNA quality control tightly regulates gene expression, the scope of its regulatory functions in the nucleus remains unclear. In this study, we describe the quality control, on chromatin, of poised intron–containing polyadenylated RNAs (PIA-RNAs). Whether these precursor messenger RNAs (pre-mRNAs) constitute immature mRNAs whose splicing is pending or, alternatively, are degraded by the nuclear RNA exosome depends on whether they engage nuclear cap-binding protein 3 (NCBP3) or anillin, respectively. Many PIA-RNAs inversely controlled by NCBP3 and anillin encode mitochondrial factors. Thus, NCBP3 depletion in mouse as well as pathogenic mutations in the RNA exosome in humans result in reduced mitochondrial activity, muscle weakness, cerebellar hypomyelination, and diminished motor coordination. Our findings reveal a competition between pre-mRNA metabolic pathways whose balance controls mitochondrial function and, when perturbed, leads to neurological diseases.",
+      "authors": [
+        "Xavier Rambout",
+        "Rina Nagao",
+        "Victor Gu",
+        "Sophie Werner",
+        "Justin Youngyunpipatkul",
+        "Jadon Schlierf"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1126/science.aee8018",
+      "doi": "10.1126/science.aee8018",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee8018",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Balancing redox-mediated cytotoxicity and catalysis in natural product biosynthesis",
+      "abstract": "Redox-mediated chemistry is central to both the biosynthesis and cytotoxicity of many natural products, yet how microbes balance these processes remains poorly understood. Here, we uncover a conserved mechanism that coordinates three redox-mediated processes in secondary metabolite biosynthesis: self-protection, prevention of substrate degradation, and late-stage biosynthesis. Using the antitumor antibiotic doxorubicin as a model system, we show that the vicinal oxygen chelate (VOC) protein DnrV prevents reactive oxygen species formation and substrate degradation while promoting P450 catalysis. We expand this paradigm to a conserved family of VOC-fold proteins, redox-associated cytotoxin-binding proteins (REACT), found across bacteria, fungi, and plants. REACT represents a multifunctional protein class that balances antibiotic assembly, self-protection, and prevention of metabolite destruction, providing a foundational understanding of production of redox-active natural products.",
+      "authors": [
+        "Hannah A. Boesger",
+        "Emma Fang",
+        "Rongbin Wang",
+        "Ralph J. Harte",
+        "Arina Koroleva",
+        "Taylan Tunckanat"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1126/science.aee2641",
+      "doi": "10.1126/science.aee2641",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee2641",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A DNA Typewriter records the cell lineage history of a mouse, from zygote to late organogenesis",
+      "abstract": "Mammalian biology unfolds over time, within tissues and organs opaque to our eyes and instruments. We applied DNA Typewriter, a sequential molecular recorder, to record the cell lineage of a mouse over nearly 2 weeks of development. From one embryo, we reconstructed a time-calibrated, parsimony-supported, zygote-rooted phylogeny of 1.28 million transcriptionally profiled cells. A burst of editing unequivocally marks the daughters of the first cleavage, which serve as inline replicates. We quantified clonal dominance arising during gastrulation. Tree siblings share cell type far above chance; heterotypic siblings mark terminal differentiations. Temporal sweeps of clade co-occurrence recover a dated hierarchy of cell type couplings; imputed labels for internal nodes recapitulate known state paths. A lineage-anchored ontogeny of mammalian development, long out of reach, is coming into view.",
+      "authors": [
+        "Qi Yu",
+        "Haedong Kim",
+        "Sophie Seidel",
+        "James F. Acosta-Clark",
+        "Beth K. Martin",
+        "Kyle O’Connor"
+      ],
+      "date": "2026-11-19",
+      "url": "https://doi.org/10.1126/science.ael0508",
+      "doi": "10.1126/science.ael0508",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael0508",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De novo design of metallohydrolases.",
+      "abstract": "The de novo design of catalysts that mimic the affinity and specificity of natural enzymes remains one of the Holy Grails of chemistry. Despite decades of concerted effort we are still unable to design catalysts as efficient as enzymes a la carte. Here we discuss the recent exciting successes in hydrolytic metalloenzyme design. While the best designed examples are still lagging 2-3 orders of magnitude below their natural counterparts, new design approaches (both computational and minimalist) allow for rapid generation of highly active catalysts for subsequent optimization. Supramolecular self-assembly is a particularly effective approach to metalloenzyme design providing catalysts that rival enzymes in terms of specific activity.",
+      "authors": [
+        "Groth A",
+        "Marshall LR",
+        "Korendovych IV"
+      ],
+      "date": "2026-11-16",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43038855/",
+      "doi": "10.1016/j.cbpa.2026.102818",
+      "venue": "Current opinion in chemical biology",
+      "pmid": "43038855",
+      "id": "doi:10.1016/j.cbpa.2026.102818",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A CD7-targeted AAV variant enables efficient T and NK cell engineering in vivo",
+      "abstract": "Abstract Adeno-associated virus (AAV) vectors have been applied for precise genome engineering in human T cells but poor tropism restricts their efficiency and translational potential. Here, through directed evolution of the AAV6 capsid in primary human T cells, we identified a family of variants containing an APR motif at residues 455–457. The lead candidate, AAV.APR31, enabled robust transduction of primary T and NK cells at nearly 100–1,000-fold lower doses than AAV6 and outperformed the human T cell-tropic capsid AAV-hT7. CRISPR screening identified CD7 as a lineage-specific entry enhancer alongside the canonical AAVR pathway and structural analysis suggested that the APR motif facilitates CD7 engagement. Unlike existing delivery systems confined to one engineering mode, AAV.APR31 enabled transient transgene delivery, site-specific knock-in and transposon integration in human T and NK cells, generating CAR-T cells functionally equivalent to lentiviral vector-manufactured products. Systemic administration of AAV.APR31-generated CAR-T cells in vivo resulted in potent tumor control in hematologic and solid tumor mouse models.",
+      "authors": [
+        "Lingjuan Hong",
+        "Gennong Chen",
+        "Yongjun Liu",
+        "Yuanfang Cao",
+        "Xueting Li",
+        "Weijie Li"
+      ],
+      "date": "2026-11-16",
+      "url": "https://doi.org/10.1038/s41587-026-03344-5",
+      "doi": "10.1038/s41587-026-03344-5",
+      "venue": "Nature Biotechnology",
+      "id": "doi:10.1038/s41587-026-03344-5",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature biotechnology (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "velotest: statistical assessment of RNA velocity embeddings reveals quality differences for reliable trajectory visualizations",
+      "abstract": "Abstract Contemporary single-cell RNA-sequencing studies typically use RNA velocity analyses to investigate cellular dynamics. Commonly, RNA velocities are assessed with two-dimensional projections. Although it is well established that nonlinear embeddings of gene expression data cannot comprehensively preserve the structure of the original high-dimensional data across scales, there is no tool that systematically assesses and quantifies the faithfulness of velocity embeddings. This situation potentially leads to misleading velocity visualizations and putative cell state transitions. To this end, we introduce velotest, a cell-level statistical test that quantifies the faithfulness of a velocity embedding with respect to its high-dimensional counterpart. Applying velotest across multiple datasets and embedding methods, we find strong differences in the embedding qualities between embedding methods, datasets, and regions in individual datasets. velotest thus provides an essential validation step and enables researchers to select a suitable visualization of high-dimensional velocities, ensuring that hypotheses drawn from velocity projections are grounded in accurately represented dynamics.",
+      "authors": [
+        "Sebastian Bischoff",
+        "Pavlin G. Poličar",
+        "Soham Mukherjee",
+        "Jakob H. Macke",
+        "Manfred Claassen",
+        "Cornelius Schröder"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-78669-5",
+      "doi": "10.1038/s41467-026-78669-5",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78669-5",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "dataset"
+        ],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Transforming molecular evolutionary analyses with protein foundation models",
+      "abstract": "",
+      "authors": [
+        "Sudhir Kumar",
+        "Rohan Alibutud",
+        "John B. Allard",
+        "Mohammad E. Mowlaei",
+        "Xinghua Shi"
+      ],
+      "date": "2026-11-18",
+      "url": "https://doi.org/10.1038/s41592-026-03304-6",
+      "doi": "10.1038/s41592-026-03304-6",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03304-6",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A protein repeat interruption rule governs Nebulin stability and explains in-frame NEB mutations",
+      "abstract": "Abstract Nemaline myopathy is a rare congenital muscle disease associated with thin filament disruption that is currently without treatment. Biallelic mutations in Nebulin are the most common cause of nemaline myopathy. Nebulin encodes a giant protein with a primary function of establishing thin filament length. Nebulin protein has a large central region composed of a series of thin filament binding super repeats. Many Nebulin mutations are small in-frame deletions within individual super repeats. Why these deletions cause disease remains unclear. To study this, we generated a series of zebrafish lines, including ones carrying in-frame partial super repeat deletions and ones harboring complete/intact super repeat deletions. Partial super repeat deletions destabilize and reduce Nebulin protein, resulting in severe phenotypes and early death. Conversely, complete super repeat deletions preserve Nebulin stability and expression, and induce no overt phenotypes. Our work provides mechanistic insights and informs future therapeutic approaches for Nebulin-related Nemaline myopathy.",
+      "authors": [
+        "Lacramioara Fabian",
+        "Tasneem Y. Al Mudarris",
+        "Sylvia J. P. Bogaards",
+        "Senthuri Viththiyapaskaran",
+        "Esmat Karimi",
+        "Gerrie P. Farman"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79648-6",
+      "doi": "10.1038/s41467-026-79648-6",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79648-6",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Double-membrane-spanning RNA export pores are a conserved feature in nidovirus replication organelles",
+      "abstract": "Abstract Upon infection, arteriviruses, coronaviruses, and other nidoviruses transform endoplasmic reticulum membranes into viral replication organelles. These include large numbers of double-membrane vesicles (DMVs) whose interior is considered the primary site of viral RNA synthesis. Early studies characterized nidovirus DMVs as sealed compartments, leaving it unclear how newly synthesized viral RNA could be exported to the cytosol. The discovery of DMV-spanning pore complexes in coronavirus-infected cells provided a plausible solution for this topological challenge. However, their structural organization, functional features, and evolutionary conservation across the nidovirus order, have remained unclear. Here, we investigate the macromolecular architecture of DMVs induced by two prototypic arteriviruses using cellular cryo-electron tomography. Despite the substantial evolutionary distance separating arteriviruses and coronaviruses, we observe DMV-spanning pore complexes with striking structural similarities to those previously described in coronaviruses. These pores may facilitate both export and encapsidation of viral RNA. In the absence of viral RNA synthesis, ectopic expression of the arterivirus transmembrane nonstructural proteins nsp2 and nsp3 suffices to induce the formation of pore-containing DMVs. Together, our findings reveal the conservation of key structural features of DMV pores across two distantly related nidovirus families and support a central role for these pores in nidovirus replication.",
+      "authors": [
+        "Stanley Fronik",
+        "Georg Wolff",
+        "Ronald W.A.L. Limpens",
+        "Anja W. M. de Jong",
+        "Shawn Zheng",
+        "David A. Agard"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-78986-9",
+      "doi": "10.1038/s41467-026-78986-9",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78986-9",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Pathway-dependent chiral toroid self-assembly and topological transformations based on large π-conjugated dipeptides",
+      "abstract": "",
+      "authors": [
+        "Zhuoer Wang",
+        "Jiahui Lu",
+        "Aiyou Hao",
+        "Pengyao Xing"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79527-0",
+      "doi": "10.1038/s41467-026-79527-0",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79527-0",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "σ-complex stabilization shapes enzymatic C-glycosylation and restricts the scope of natural C-glycosides",
+      "abstract": "Abstract C -glycosides are valuable compounds containing hydrolytically stable C-C bonds, yet their scarcity in nature and synthetic complexity limit their availability. Enzymes offer a sustainable route to C -glycosides, but few are known to display C -glycosylation activity and their mechanism remains unclear. Here, we study the intricacies of the maize C -glycosyltransferase Zm UGT708A6 using X-ray crystallography, biochemical assays, and atomistic simulations. Structural and dynamical analyses reveal two flexible gates that control substrate access and reactive conformations. Combined Quantum Mechanics/Molecular Mechanics simulations and mutational data support a stepwise S E Ar mechanism for C -glycosylation of neutral phloretin, mediated by the catalytic His-Asp dyad and involving a high-energy σ-complex that stabilizes through a water-mediated proton transfer. Complementary pH- and substrate-activity experiments, together with Quantum Mechanics calculations, indicate that substrate hydroxylation patterns, protonation states, and σ-complex energetics restrict the scope of C -glycosides. Our results provide a coherent mechanistic framework that reconciles experimental observations across diverse conditions and advances our understanding of enzymatic C -glycosylation.",
+      "authors": [
+        "Lluís Raich",
+        "David Teze",
+        "Gonzalo Bidart",
+        "Folmer Fredslund",
+        "Mandy Hobusch",
+        "Sonja Kunstmann"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79637-9",
+      "doi": "10.1038/s41467-026-79637-9",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79637-9",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "ER-associated biogenesis of PINK1 preprotein for neuronal mitophagy",
+      "abstract": "Abstract Given the large size of neurons, local maintenance of mitochondria is crucial to counteract insults to this organelle in axons and dendrites. The Parkinson-related mitochondrial kinase PINK1 plays a central role in mitochondrial quality control, which in neurons requires the transport of Pink1 mRNA by mitochondrial hitch-hiking. However, how and where PINK1 is locally translated and processed has remained unclear. Using live-cell imaging, we trace local PINK1 translation sites and preprotein dynamics, revealing a concerted interplay between mitochondria and the ER, with endolysosomes frequently localized adjacent to the site of translation. Upon metabolically regulated untethering from mitochondria, Pink1 mRNA relocates to ribosomes in proximity to the ER and endolysosomes for translation of the PINK1 preprotein. The ER chaperone DNAJB6 shields the PINK1 preprotein in transit to mitochondria, following the post-translational ER-SURF pathway. Consequently, loss of DNAJB6 leads to persistent ER/endolysosome-associated PINK1 precursor stores and failure of mitophagy upon mitochondrial damage. Our findings reveal that neuronal PINK1 protein translation switches between mitochondrially anchored co-translational and ER-associated post-translational import states, with functional implications for mitochondrial quality control.",
+      "authors": [
+        "J. Tabitha Hees",
+        "Inmaculada Segura",
+        "Andrea Schneider",
+        "Martina Schifferer",
+        "Sultan Bekbayev",
+        "Jana Lindner"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79754-5",
+      "doi": "10.1038/s41467-026-79754-5",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79754-5",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A spectral framework for revealing the hidden low-dimensional structure in stochastic reaction networks",
+      "abstract": "Abstract Stochastic reaction networks govern noise-driven dynamics in systems ranging from gene regulation to cellular signalling and population processes. Yet their high dimensionality and sensitivity to initial states obscure transient mechanisms and limit reliable inference from experimental data. Here, we show that stochastic reaction networks in biological systems often exhibit dominant low-dimensional spectral structure that shapes their dynamics. We develop a spectral framework based on the stochastic Koopman operator that identifies these dominant dynamical modes directly from simulated trajectories, yielding reduced representations with computable error bounds. This reduction enables accurate analytical descriptions of the time evolution of moments, parameter sensitivities, and cross-spectral densities, while achieving order-of-magnitude computational gains relative to standard simulation-based methods. Applied to synthetic gene circuits, our framework reveals the spectral organisation of stochastic oscillators, enables systematic comparison of competing intracellular controllers, and facilitates inference of initial-state distributions from single-cell snapshot population data collected over time. Together, these results establish a principled spectral description of stochastic reaction dynamics and provide a foundation for analysing and inferring high-dimensional noise-driven biological systems.",
+      "authors": [
+        "Ankit Gupta",
+        "Mustafa Khammash"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79229-7",
+      "doi": "10.1038/s41467-026-79229-7",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79229-7",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Viscoelasticity of synthetic antigen presenting cells reprograms T cell metabolism for TCR-T cell manufacturing and therapy",
+      "abstract": "Abstract Adoptive T cell receptor (TCR)–based immunotherapy offers a powerful strategy to target solid tumors. However, how the physical properties of the antigen-presenting interface regulate T cell metabolic programming remains poorly defined. Here we develop synthetic viscoelastic activating cells (SynVAC), artificial antigen-presenting cells whose stress-relaxation kinetics are chemically tuned independently of stiffness and of peptide–MHC (pMHC) and co-stimulatory ligand density. SynVAC-pMHC provides a defined, scalable platform that outperforms monocyte-derived dendritic cells to enrich antigen-specific CD8 + T cells. Fast-relaxing SynVAC-pMHC amplifies TCR signaling and mTOR activity, drives metabolic changes, and programs antigen-specific T cells toward an energetically favorable state with improved memory-like features after expansion. TCR-T cells expanded using fast-relaxing SynVAC-pMHC exhibit superior persistence and durable antitumor activity in melanoma and ovarian cancer models. These results establish cell-mimetic viscoelasticity as a key biophysical cue governing T cell metabolism and differentiation and offer a fully synthetic strategy for manufacturing potent TCR-T cells.",
+      "authors": [
+        "Youcheng Yang",
+        "Yan-Ruide Li",
+        "Zeyang Liu",
+        "Hao Zhou",
+        "Yichen Zhu",
+        "Xinyuan Shen"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-78131-6",
+      "doi": "10.1038/s41467-026-78131-6",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78131-6",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "AlphaInterp: Revealing how AlphaFold 3 processes structure, confidence, and evolutionary information.",
+      "abstract": "How does evolutionary information become structural knowledge? AlphaFold 3 predicts protein structures and biomolecular assemblies with remarkable accuracy, yet how it transforms comparative sequence information into three-dimensional structure remains poorly understood. Here, we use mechanistic interpretability to follow this transformation through AlphaFold 3 and identify a computational principle underlying its structural inference. By extracting single- and pair-representations across the model's forward pass and combining representational-geometry analysis, linear probing, activation patching, and perturbation of the multiple-sequence alignment (MSA) and its phylogenetic diversity, we show that AlphaFold 3 does not simply infer structure from raw sequence nor from MSA depth. Instead, a small number of sufficiently divergent homologues provides enough comparative information to largely recover the structure predicted using the full MSA. The pairformer transforms this evolutionary signal into a compact latent space in which residue-pair distances, contacts, fold similarity, and structural confidence become progressively decodable. Removing the MSA disrupts these latent geometries. Replacing it with evolutionarily similar homologues provides substantially less information, while evolutionarily unrelated sequences fail to rescue prediction despite preserving the formal alignment input. In contrast, phylogenetically diverse MSA subsampling largely restores both prediction accuracy and representational coherence. These results suggest that AlphaFold 3 has learned to infer st",
+      "authors": [
+        "Feldman J",
+        "Skolnick J"
+      ],
+      "date": "2026-11-19",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43056392/",
+      "doi": "10.1371/journal.pcbi.1014981",
+      "venue": "PLoS computational biology",
+      "pmid": "43056392",
+      "id": "doi:10.1371/journal.pcbi.1014981",
+      "tags": [],
+      "score": 2,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Digital doubles and the modern crisis of identity",
+      "abstract": "Science, Volume 394, Issue 6826, Page 842-843, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.ael6252?af=R",
+      "doi": "10.1126/science.ael6252?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael6252?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A thalamo-amygdalar circuit drives female vulnerability to chronic pain after early-life stress",
+      "abstract": "Science, Volume 394, Issue 6826, Page 864-869, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adx5757?af=R",
+      "doi": "10.1126/science.adx5757?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adx5757?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The fate of poised pre-mRNAs shapes mitochondrial activity and cellular differentiation",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee8018?af=R",
+      "doi": "10.1126/science.aee8018?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee8018?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Quiet within, chaos without: Turbulence shelters drive selective particle capture and release",
+      "abstract": "Science, Volume 394, Issue 6826, Page 884-889, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee9889?af=R",
+      "doi": "10.1126/science.aee9889?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee9889?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A neural code for generative speech production in human Wernicke’s area",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef8963?af=R",
+      "doi": "10.1126/science.aef8963?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef8963?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Interpenetrating bottlebrush elastomer for low-loss soft ultrasonic interfaces",
+      "abstract": "Science, Volume 394, Issue 6826, Page 895-900, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef9553?af=R",
+      "doi": "10.1126/science.aef9553?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef9553?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Angular momentum transfer from an optical vortex to an atomic rotor",
+      "abstract": "Science, Volume 394, Issue 6826, Page 890-894, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeh0182?af=R",
+      "doi": "10.1126/science.aeh0182?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh0182?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Elastic-field reorganization stabilizes soft-lattice perovskites for durable solar cells",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeh3114?af=R",
+      "doi": "10.1126/science.aeh3114?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh3114?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Divergent activation of the RXFP1 relaxin receptor by protein and small-molecule agonists",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei0135?af=R",
+      "doi": "10.1126/science.aei0135?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei0135?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": [
+          "small-molecule"
+        ]
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Meso–microporous zeolitic materials with thin walls containing ordered 10-ring channels",
+      "abstract": "Science, Volume 394, Issue 6826, Page 907-912, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei6161?af=R",
+      "doi": "10.1126/science.aei6161?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei6161?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Molecular adhesion for durable metal halide perovskite modules",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aej5001?af=R",
+      "doi": "10.1126/science.aej5001?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aej5001?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Quantum-classical separation in bounded-resource tasks arising from measurement contextuality",
+      "abstract": "Science, Volume 394, Issue 6826, Page 870-874, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aec3042?af=R",
+      "doi": "10.1126/science.aec3042?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aec3042?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Balancing redox-mediated cytotoxicity and catalysis in natural product biosynthesis",
+      "abstract": "Science, Volume 394, Issue 6826, Page 859-863, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee2641?af=R",
+      "doi": "10.1126/science.aee2641?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee2641?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Telemetric calorimetry for wireless continuous reaction profiling",
+      "abstract": "Science, Volume 394, Issue 6826, Page 875-883, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei7840?af=R",
+      "doi": "10.1126/science.aei7840?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei7840?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Atmospheric organic nitrogen is a major nutrient source to global oceans",
+      "abstract": "Science, Volume 394, Issue 6826, Page 901-906, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeg4265?af=R",
+      "doi": "10.1126/science.aeg4265?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeg4265?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A DNA Typewriter records the cell lineage history of a mouse, from zygote to late organogenesis",
+      "abstract": "Science, Volume 394, Issue 6826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.ael0508?af=R",
+      "doi": "10.1126/science.ael0508?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael0508?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The power of feedback",
+      "abstract": "Science, Volume 394, Issue 6826, Page 914-914, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2220?af=R",
+      "doi": "10.1126/science.aeo2220?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2220?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "In Other Journals",
+      "abstract": "Science, Volume 394, Issue 6826, Page 852-852, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2219?af=R",
+      "doi": "10.1126/science.aeo2219?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2219?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A quantum paradox at work",
+      "abstract": "Science, Volume 394, Issue 6826, Page 839-840, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem4000?af=R",
+      "doi": "10.1126/science.aem4000?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem4000?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Mammalian development, recorded and decoded",
+      "abstract": "Science, Volume 394, Issue 6826, Page 837-839, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem7343?af=R",
+      "doi": "10.1126/science.aem7343?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem7343?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Pinpointing planned speech",
+      "abstract": "Science, Volume 394, Issue 6826, Page 841-841, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem7976?af=R",
+      "doi": "10.1126/science.aem7976?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem7976?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Bumble bee cognition",
+      "abstract": "Science, Volume 394, Issue 6826, Page 835-837, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aek1724?af=R",
+      "doi": "10.1126/science.aek1724?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aek1724?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Disclose trade-offs in US emissions rule change",
+      "abstract": "Science, Volume 394, Issue 6826, Page 845-845, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem5489?af=R",
+      "doi": "10.1126/science.aem5489?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem5489?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Save scientific terminology from executive orders",
+      "abstract": "Science, Volume 394, Issue 6826, Page 845-845, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen0458?af=R",
+      "doi": "10.1126/science.aen0458?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen0458?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Beyond containment in insect farming",
+      "abstract": "Science, Volume 394, Issue 6826, Page 844-845, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem5274?af=R",
+      "doi": "10.1126/science.aem5274?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem5274?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Ghost chemicals",
+      "abstract": "Science, Volume 394, Issue 6826, Page 830-834, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2671?af=R",
+      "doi": "10.1126/science.aeo2671?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2671?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Measles comeback in U.S. adds to global resurgence",
+      "abstract": "Science, Volume 394, Issue 6826, Page 822-823, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2672?af=R",
+      "doi": "10.1126/science.aeo2672?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2672?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "AI rivals take on one of physics’ hardest math problems",
+      "abstract": "Science, Volume 394, Issue 6826, Page 824-825, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2673?af=R",
+      "doi": "10.1126/science.aeo2673?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2673?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "DOE to delay atom smasher and speed AI, quantum, and fusion projects",
+      "abstract": "Science, Volume 394, Issue 6826, Page 825-826, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2674?af=R",
+      "doi": "10.1126/science.aeo2674?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2674?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Killing more sea lions won’t help endangered salmon recover, model suggests",
+      "abstract": "Science, Volume 394, Issue 6826, Page 827-828, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo2675?af=R",
+      "doi": "10.1126/science.aeo2675?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo2675?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Plankton ecological complexity amplifies climate-driven weakening of the ocean biological pump",
+      "abstract": "",
+      "authors": [
+        "Fanyu Lin",
+        "Chengfeng Le",
+        "Yihui Chen",
+        "Gabriela Negrete-García",
+        "Jessica Y. Luo",
+        "Stephanie Henson"
+      ],
+      "date": "2026-11-21",
+      "url": "https://doi.org/10.1038/s41467-026-79817-7",
+      "doi": "10.1038/s41467-026-79817-7",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79817-7",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "US science academy urges journals to fix errors more quickly",
+      "abstract": "",
+      "authors": [
+        "Richard Van Noorden"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03787-5",
+      "doi": "10.1038/d41586-026-03787-5",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03787-5",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Author Correction: SARS-CoV-2 mRNA vaccines sensitize tumours to immune checkpoint blockade",
+      "abstract": "",
+      "authors": [
+        "Adam J. Grippin",
+        "Christiano Marconi",
+        "Sage Copling",
+        "Nan Li",
+        "Chen Braun",
+        "Cole Woody"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41586-026-10974-x",
+      "doi": "10.1038/s41586-026-10974-x",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-10974-x",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Mathematician says he and AI solved Riemann hypothesis — the field’s biggest outstanding challenge",
+      "abstract": "",
+      "authors": [
+        "Davide Castelvecchi"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03812-7",
+      "doi": "10.1038/d41586-026-03812-7",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03812-7",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "These gaps in weather data affect forecasts everywhere: plugging them is not charity",
+      "abstract": "",
+      "authors": [
+        "Markus Repnik"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03811-8",
+      "doi": "10.1038/d41586-026-03811-8",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03811-8",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Lifting weights reduces muscle loss from obesity drugs",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03751-3",
+      "doi": "10.1038/d41586-026-03751-3",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03751-3",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "How to turn impostor syndrome into a superpower",
+      "abstract": "",
+      "authors": [
+        "Gemma Conroy"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03465-6",
+      "doi": "10.1038/d41586-026-03465-6",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03465-6",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Ruminations on a last movement",
+      "abstract": "",
+      "authors": [
+        "João Guilherme Bochnia Küster"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03519-9",
+      "doi": "10.1038/d41586-026-03519-9",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03519-9",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "How AI is affecting science careers",
+      "abstract": "",
+      "authors": [
+        "David Payne"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03680-1",
+      "doi": "10.1038/d41586-026-03680-1",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03680-1",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "‘Incredibly frustrating’: prestigious fellowship applications close in just 21 hours",
+      "abstract": "",
+      "authors": [
+        "Mohana Basu"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03805-6",
+      "doi": "10.1038/d41586-026-03805-6",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03805-6",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Fraud helps little fire ants to survive and conquer",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03776-8",
+      "doi": "10.1038/d41586-026-03776-8",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03776-8",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Claude, find me a planet: amateur astronomers are using AI with mixed results",
+      "abstract": "",
+      "authors": [
+        "Kaia Glickman"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03790-w",
+      "doi": "10.1038/d41586-026-03790-w",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03790-w",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Briefing Chat: Voyager 1 is now one ‘light day’ from Earth — setting a cosmic record",
+      "abstract": "",
+      "authors": [
+        "Benjamin Thompson",
+        "Elizabeth Gibney"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03806-5",
+      "doi": "10.1038/d41586-026-03806-5",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03806-5",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "‘I had felt overconfident’: senior scientists reveal mistakes that aided discovery",
+      "abstract": "",
+      "authors": [
+        "Meghie Rodrigues"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/d41586-026-03590-2",
+      "doi": "10.1038/d41586-026-03590-2",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03590-2",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A two-platform blueprint for modeling human brain development",
+      "abstract": "",
+      "authors": [
+        "Alejandro De Los Angeles",
+        "Chuanxin Chen",
+        "Timothy Theodore Ka Ki Tam",
+        "Shao Xu",
+        "Hongkui Deng",
+        "Chen-Yu Huang"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41592-026-03327-z",
+      "doi": "10.1038/s41592-026-03327-z",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03327-z",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Computational methods for cell–cell communication via single cells",
+      "abstract": "",
+      "authors": [
+        "Haochen Li",
+        "Xiaoxiang Zhou",
+        "Xiaoqiang Sun",
+        "Qing Nie",
+        "Yibo Gao",
+        "Jie He"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41592-026-03287-4",
+      "doi": "10.1038/s41592-026-03287-4",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03287-4",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Combinatorial mutagenesis of N-terminal sequences reveals expanded stability determinants of the Escherichia coli N-degron pathway",
+      "abstract": "",
+      "authors": [
+        "Sabyasachi Sen",
+        "Jessica Rubira Gamba",
+        "Nastassja Corrado",
+        "Alexander R. Tiso",
+        "Khai Khee Kho",
+        "Aditya M. Kunjapur"
+      ],
+      "date": "2026-11-20",
+      "url": "https://doi.org/10.1038/s41467-026-79349-0",
+      "doi": "10.1038/s41467-026-79349-0",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79349-0",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    }
+  ]
+}
