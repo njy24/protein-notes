@@ -1,0 +1,2565 @@
+{
+  "date": "2026-11-28",
+  "generatedAt": "2026-11-28T03:00:19.893Z",
+  "threshold": 8,
+  "counts": {
+    "total": 132,
+    "passed": 21,
+    "byCategory": {
+      "experiments": 13,
+      "design": 3,
+      "commentary": 1,
+      "methods": 3,
+      "tools": 1
+    }
+  },
+  "ingest": {
+    "arxiv": 2,
+    "pubmed": 19,
+    "crossref": 83,
+    "rss:Nature": 1,
+    "rss:Nature Biotechnology": 0,
+    "rss:Nature Methods": 0,
+    "rss:Nature Communications": 0,
+    "rss:Science": 30,
+    "rss:bioRxiv · Biochemistry": 0,
+    "rss:bioRxiv · Bioinformatics": 0
+  },
+  "errors": [],
+  "items": [
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Design of mini-protein binders targeting CD46 to enhance complement-dependent cytotoxicity.",
+      "abstract": "The complement system exhibits a typical dual regulatory role. Aberrant activation of the complement system contributes to the development of autoimmune diseases, whereas excessive suppression of complement facilitates tumor progression. Cancer cells evade complement-mediated killing by overexpressing three key complement regulatory proteins, CD46, CD55, and CD59. Among them, CD46 has attracted substantial research attention owing to its marked overexpression in a range of hematological malignancies and solid tumors. By overexpressing CD46, cancer cells promote the degradation of C3b and C4b, thereby escaping complement-dependent cytotoxicity (CDC). CD46 ectodomain consists of four small complement control protein (CCP) domains, which provide a limited interfacial area for molecular interaction, posing certain challenges for binder design. In this study, we integrated deep learning-based backbone generation, sequence design, and complex structure prediction to design and screen a panel of mini-protein binders targeting the complement-binding domain of CD46. We further optimized the binding affinity of the lead mini-protein binder via the partial diffusion strategy, achieving a final affinity of 287.5 pM. CDC assays showed that the monomeric mini-protein binder and the trimeric affinity-optimized viral ligand Ad35K++ exhibit similar potency for enhancing rituximab (RTX)-mediated CDC effect. Biochemical experiments confirmed that the engineered mini-protein binder exhibits high binding specificity for CD46 and good thermal stability. In conclusion, these newly designed mini-p",
+      "authors": [
+        "Wei G",
+        "Wang N",
+        "Xiao W",
+        "Jian Z",
+        "Li M",
+        "Fu X"
+      ],
+      "date": "2026-11-23",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43072333/",
+      "doi": "10.1016/j.ijbiomac.2026.155397",
+      "venue": "International journal of biological macromolecules",
+      "pmid": "43072333",
+      "id": "doi:10.1016/j.ijbiomac.2026.155397",
+      "tags": [],
+      "score": 27,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "protein binder"
+        ],
+        "method": [
+          "diffusion",
+          "structure prediction",
+          "sequence design"
+        ],
+        "context": [
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "GABIF: An Adaptive Guided Graph Denoising Framework for Antibody Conditional Inverse Folding",
+      "abstract": "Antibodies play a central role in the human immune system, and their design is critical for vaccine development, therapeutic intervention, and improving human longevity. However, the vast combinatorial search space of antibodies poses a fundamental challenge for de novo discovery. Recent advances in deep learning, particularly denoising diffusion models, have demonstrated strong potential in protein inverse folding. Nevertheless, existing approaches are largely constrained to learning from natural antibody repertoires, thereby generating sequences that closely resemble natural antibodies. Such similarity, however, does not necessarily translate into improved functional performance in downstream applications. In this work, we develop a novel generative protein design model that enables the generation and optimization of antibody sequences tailored to specific downstream tasks and target metrics. Besides training on given an antibody dataset, we guide the generative model by an antibody-antigen binding affinity predictor for conditional discrete diffusion. The model is pre-trained on a given antibody dataset. Meanwhile, an antibody-antigen binding affinity predictor is incorporated as a conditional signal in a discrete diffusion framework, where a regressor serves as the conditional probability to guide the learning of the amino acid probability distribution of sequences under the objective of affinity optimization. In silico experiments demonstrate that our antibody design model achieves performance comparable to state-of-the-art approaches, while the proposed regressor effe",
+      "authors": [
+        "Mingwei Liu",
+        "Xiao Liu",
+        "Kai Yi",
+        "Feng Tan",
+        "Yu Guang Wang"
+      ],
+      "date": "2026-11-23",
+      "url": "https://arxiv.org/abs/2611.29935v1",
+      "venue": "arXiv",
+      "arxivId": "2611.29935v1",
+      "id": "url:https://arxiv.org/abs/2611.29935v1",
+      "tags": [],
+      "score": 23,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "antibody design"
+        ],
+        "method": [
+          "diffusion",
+          "generative model",
+          "inverse folding"
+        ],
+        "context": [
+          "dataset",
+          "deep learning"
+        ],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "De novo design of high-potency dual-target therapeutic peptides with ORIDTP.",
+      "abstract": "Peptides capable of modulating two therapeutic targets offer opportunities for treating complex diseases 1,2 . However, the development of such peptides at both targets is challenging, limited primarily by low design success rates and weak bioactivity. Here we present ORIDTP, an artificial intelligence platform that integrates single-target knowledge transfer and dual-target reinforcement to enable the rational design of high-potency peptides. ORIDTP successfully designed dual-target co-agonists for the GLP-1R and glucagon receptor (GCGR, also known as GLR), six of which surpassed the strongest natural binders of each receptor in bioactivity. Notably, the lead peptide GA-Dual.R5.S3 induced substantial weight loss and glycaemic improvement in diet-induced obese mice, and exhibited pronounced antidiabetic effects in db/db mice, without inducing nausea or aversion. Furthermore, ORIDTP demonstrated generalizability through successful zero-shot design of dual-target co-inhibitors for structurally and mechanistically distinct immune checkpoints, PD-1 and CTLA-4. Out of 15 designed peptides, 8 blocked both checkpoint interactions and 3 further exhibited in vivo antitumour efficacy in human checkpoint knock-in tumour-bearing mice. The lead peptide IC-Dual.P3 achieved the strongest tumour growth suppression, reducing tumour volume by 94.2% relative to controls. Together, these findings establish ORIDTP as a powerful and generalizable platform for de novo dual-target peptide discovery.",
+      "authors": [
+        "Lv T",
+        "He B",
+        "Guan L",
+        "Chen Y",
+        "Pu Y",
+        "Qin C"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43086428/",
+      "doi": "10.1038/s41586-026-11338-1",
+      "venue": "Nature",
+      "pmid": "43086428",
+      "id": "doi:10.1038/s41586-026-11338-1",
+      "tags": [],
+      "score": 22,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Design of High-Affinity Mini-Protein Drug Conjugates Targeting TROP2.",
+      "abstract": "Accurate and effective treatment of solid tumors has long been a core issue in cancer therapy. Antibody-drug conjugates (ADCs) represent a crucial breakthrough in precision oncology. Traditional ADCs rely on monoclonal antibodies generated through animal immunization, followed by screening, sequencing, and recombinant expressiona process that is experimentally complex and costly. In this study, we employed deep learning-based computational design methods to design mini-protein binders targeting the tumor-associated antigen TROP2. The designed TROP2 mini-protein binder exhibited high specificity and thermal stability. The binding affinity was optimized from 40.4 nM to 628 pM through partial diffusion. On this basis, we engineered the mini-protein binder by conjugating it with the microtubule inhibitor VcMMAE, thereby constructing mini-protein drug conjugates (MPDCs) that can specifically target and kill TROP2-positive tumor cells. A comprehensive assessment of the anti-tumor efficacy of these MPDCs was performed using cancer cell lines, organoid models, and mouse xenograft models.",
+      "authors": [
+        "Xue T",
+        "Li N",
+        "Yang Z",
+        "Tang J",
+        "Ding Y",
+        "Pan J"
+      ],
+      "date": "2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43095987/",
+      "doi": "10.1021/acs.jmedchem.6c02191",
+      "venue": "Journal of medicinal chemistry",
+      "pmid": "43095987",
+      "id": "doi:10.1021/acs.jmedchem.6c02191",
+      "tags": [],
+      "score": 21,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "protein binder"
+        ],
+        "method": [
+          "diffusion"
+        ],
+        "context": [
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Selective suppression and biasing of chemokine receptors CCR9 and ACKR4 through targeting CCL25 with de novo miniproteins.",
+      "abstract": "Chemokines and their receptors mediate cell migration and coordinate immune responses, while dysregulation can lead to inflammation. Therapeutic modulation of the chemokine signaling axis has proven difficult. Most drug discovery efforts target the receptors, whereas natural regulatory mechanisms modulate immune responses by directly binding to or modifying the chemokine ligands. Despite this insight, development of effective chemokine-directed modulators has remained elusive. Recent advances in de novo protein design offer an unprecedented opportunity to produce high-affinity binders that efficiently block protein-protein interactions. We implemented a computational workflow leveraging the BindCraft platform to generate miniprotein binders against CCL25, the chemokine ligand for the receptors CCR9 and ACKR4, and implicated in inflammatory bowel diseases. The unbiased development results in several miniproteins designed to block the receptor N-terminus from wrapping the chemokine and preventing productive engagement. Thus, these proteins suppress CCL25-mediated effector coupling and halt MOLT-4 lymphoblast migration. Another class of miniprotein, represented by VUP25111, is predicted to bind CCL25 along the chemokine β1 strand and retained receptor binding. This complex inhibited arrestin recruitment to CCR9, but not to ACKR4, indicating receptor specificity. Additionally, G protein recruitment to CCR9 was unimpeded by VUP25111, suggesting that the miniprotein biased the native agonist towards G proteins. These results demonstrate the effectiveness of differentially targeti",
+      "authors": [
+        "de Boer B",
+        "Lamme TD",
+        "Verdwaald K",
+        "Santamaria Medina S",
+        "N&#xe9;meth CG",
+        "Elfrink EM"
+      ],
+      "date": "2026-11-24",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43076896/",
+      "doi": "10.7554/elife.111190",
+      "venue": "eLife",
+      "pmid": "43076896",
+      "id": "doi:10.7554/elife.111190",
+      "tags": [],
+      "score": 17,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders",
+          "miniprotein",
+          "miniproteins",
+          "protein design",
+          "de novo protein"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Artificial intelligence-guided open-source CRISPR tools for designer crops.",
+      "abstract": "AI-guided protein design enables rational optimization of clustered regularly interspaced short palindromic repeat (CRISPR) components. Das et al. harnessed the AI-designed OpenCRISPR-1 to create a suite of tools for plant gene editing. Their open-source platform, PlantOpenCRISPR-1, targets academic and translational use and could offer a more accessible option for researchers facing licensing barriers, highlighting open-source CRISPR's future potential.",
+      "authors": [
+        "Ali N",
+        "Garg R"
+      ],
+      "date": "2026-11-23",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43073151/",
+      "doi": "10.1016/j.tplants.2026.11.008",
+      "venue": "Trends in plant science",
+      "pmid": "43073151",
+      "id": "doi:10.1016/j.tplants.2026.11.008",
+      "tags": [],
+      "score": 13,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [
+          "open-source"
+        ],
+        "venue": "science (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "[Advances in ProteinMPNN-driven protein engineering].",
+      "abstract": "Biomanufacturing is a key pathway for promoting the green transformation of conventional production methods. Its core bottleneck lies in the difficulty of natural enzymes to meet the requirements of industrial applications, necessitating the customized modification of enzyme molecules through protein engineering. Conventional semi-rational design is limited by a narrow sequence search space, heavy reliance on known structural information, and high experimental screening costs, which make it difficult to achieve precise design of industrial-grade enzyme molecules. In recent years, artificial intelligence-based protein design technologies represented by ProteinMPNN have made breakthrough progress and are driving a profound paradigm shift in protein engineering. This article systematically describes the technical principles, workflow, and methodological advantages of ProteinMPNN, compares it with Rosetta and other protein design models, and reviews the research progress of this technology in industrial enzyme engineering and biomanufacturing. On this basis, this article discusses current research hotspots and challenges in industrial application, and provides an outlook on future development directions and prospects for industrial implementation. It is expected to serve as a reference for fundamental research and industrial translation in synthetic biology and protein engineering. 合成生物制造是推动传统生产方式绿色转型的关键路径，其核心瓶颈在于天然酶难以满足严苛的工业应用需求，亟需通过蛋白质工程对酶分子进行定制化改造。传统半理性设计受限于序列搜索范围小、高度依赖已知结构信息及实验筛选成本高昂，难以实现工业级酶分子的精准设计。近年来，以ProteinMPNN为代表的人工智能蛋白质设计技术取得了突破性进展，正推动蛋白质工程设计研究范式发生深刻变革。本文总结了ProteinMP",
+      "authors": [
+        "Qu Y",
+        "Shen X",
+        "Wang J",
+        "Sun X",
+        "Yuan Q"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43098905/",
+      "doi": "10.13345/j.cjb.260251",
+      "venue": "Sheng wu gong cheng xue bao = Chinese journal of biotechnology",
+      "pmid": "43098905",
+      "id": "doi:10.13345/j.cjb.260251",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "hotspot"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Porphyrin-Driven Redox Tuning in Structurally Defined De Novo Heme Proteins.",
+      "abstract": "Designing redox proteins with predictable and tunable electron transfer properties is a major goal in de novo bioenergetics. Here we show that replacing heme B with a series of structurally conservative non-natural metalloporphyrins enables broad modulation of redox potentials over 400 mV in the de novo designed monoheme m4D2 and diheme 4D2 T19D. The non-natural porphyrins bind with high affinity and do not compromise either the heme binding site or global protein structure, as evidenced by X-ray crystallography and NMR spectroscopy. We also report the native-like NMR structure of m4D2 loaded with the non-natural and symmetric iron 2,4-dimethyldeuteroporphyrin IX, confirming our modular approach to tetrahelical redox protein design. This work establishes a versatile platform for constructing tunable electron carriers for engineered bioenergetic pathways and bioelectronic applications.",
+      "authors": [
+        "Mellor C",
+        "Williams C",
+        "Bungay EL",
+        "Berrones-Reyes JC",
+        "Barringer R",
+        "Back CR"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43089504/",
+      "doi": "10.1021/jacs.6c11808",
+      "venue": "Journal of the American Chemical Society",
+      "pmid": "43089504",
+      "id": "doi:10.1021/jacs.6c11808",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Licensing mechanisms during RNA-guided DNA integration by type I-F3 CAST.",
+      "abstract": "Precise genomic integration of large DNA cargo remains a central challenge in genome engineering. CRISPR-associated transposases (CASTs) 1,2 offer a promising solution by coupling RNA-guided DNA recognition to transposon-mediated integration. Because of their exceptional targeting fidelity, type I-F3 CASTs have been a major research focus 1 , yet the structural basis of their RNA-guided DNA integration has remained unclear. Here, using cryo-electron microscopy, computational protein design and functional assays, we report the licensing mechanisms that control DNA integration activity of Vibrio cholerae CAST (VchCAST). Structural determination was enabled by zero-shot computational redesign of TnsA, which enhanced integration activity by nearly two orders of magnitude without compromising specificity. The structure of the holo integration complex reveals the conformational licensing events that govern activation of the integration machinery at the on-target site. Multiple components (Cascade-TniQ, TnsC and TnsA-TnsB) undergo conformational changes upon assembly into the holo integration complex, and the catalytically competent state is stabilized only within the full assembly. Comparison with existing CAST integration complex structures reveals conserved architectural features, suggesting a common molecular basis for RNA-guided transposition across CASTs. Our findings establish a general mechanistic framework for RNA-guided DNA integration and demonstrate that protein design is a powerful strategy for engineering highly active CAST systems.",
+      "authors": [
+        "Fatma S",
+        "Dubey S",
+        "Truong VH",
+        "Park SG",
+        "Wallace HM",
+        "Florez Ariza AJ"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43086436/",
+      "doi": "10.1038/s41586-026-11287-9",
+      "venue": "Nature",
+      "pmid": "43086436",
+      "id": "doi:10.1038/s41586-026-11287-9",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Redesigning photoprotection: nature-inspired and synthetic biology strategies to enhance crop productivity.",
+      "abstract": "Photosynthesis captures solar energy and carbon dioxide to fuel life on Earth by providing food and oxygen. When light intensity exceeds photosynthetic capacity, resulting in the saturation of the electron transport chain, photosynthetic organisms protect themselves by activating photoprotective non-photochemical quenching (NPQ), which dissipates excess energy as heat. Despite the importance of NPQ in plant physiology, its slow activation and relaxation may cause substantial yield losses in field-grown crops. For this reason, qE, the fastest component of NPQ, has become a central biotechnological target for crop engineering. While pioneering approaches, such as the \"VPZ strategy\" involving the overexpression of both xanthophyll cycle and PSBS proteins, have successfully enhanced field productivity, their efficacy varies across species, highlighting current biotechnological bottlenecks. This review discusses the molecular bases and activation models of qE in different clades, describing the transition from LHCSR- to PSBS-dependent strategies and the central role of the xanthophyll cycle, while highlighting open debates and unresolved questions. Further, it outlines the future of NPQ engineering, exploring nature-inspired solutions, including the heterologous expression of LHCSR or alternative xanthophyll cycles in crops. Finally, this review discusses how CRISPR-Cas9-driven precision breeding and the application of Artificial Intelligence, and de novo protein design will guide future biotechnological intervention toward developing high-yielding, better resource-efficient cro",
+      "authors": [
+        "Guardini Z",
+        "Barera S",
+        "Pinnola A"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43036292/",
+      "doi": "10.1042/bst20260090",
+      "venue": "Biochemical Society transactions",
+      "pmid": "43036292",
+      "id": "doi:10.1042/bst20260090",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design",
+          "de novo protein"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Biparatopic affibody engineering enables high-affinity sortilin blockade and progranulin elevation.",
+      "abstract": "Loss-of-function mutations in the gene encoding progranulin (PGRN) are a common cause of frontotemporal dementia, leading to markedly decreased PGRN levels. A potential therapeutic strategy is therefore to increase extracellular PGRN by blocking sortilin-mediated PGRN clearance. Here, we describe the systematic design and optimization of small biparatopic sortilin-binding proteins based on the non-immunoglobulin affibody scaffold. Two anti-sortilin affibody molecules were genetically fused into a panel of heterodimeric constructs exploring multiple domain orientations, linker lengths, and helix truncations. In total, ten distinct dimer variants were generated and evaluated for binding and functional activity. Optimization of domain arrangement and truncations yielded constructs exhibiting subnanomolar sortilin affinities, corresponding to up to an approximately 45-fold improvement over the strongest monomeric affibody and pronounced avidity effects. In a PGRN clearance assay, the lead 18.6-kDa dimer efficiently increased extracellular PGRN levels with an EC 50 value of 0.32 nM and produced substantially greater PGRN fold changes than monomeric constructs. This PGRN elevation was accompanied by marked reductions in both cell surface and total sortilin levels, consistent with effective receptor blockade and modulation. Together, these results demonstrate how systematic combination and geometric optimization of two individually moderate-affinity binders can generate a highly potent biparatopic inhibitor, as well as illustrating the versatility of compact and modular affibody m",
+      "authors": [
+        "Ek M",
+        "Lindberg H",
+        "St&#xe5;hl S",
+        "L&#xf6;fblom J"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42457023/",
+      "doi": "10.1016/j.nbt.2026.07.002",
+      "venue": "New biotechnology",
+      "pmid": "42457023",
+      "id": "doi:10.1016/j.nbt.2026.07.002",
+      "tags": [],
+      "score": 12,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "binder",
+          "binders"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Modeling Protein Evolution with Generative Models: From Extant Sequence Data to Evolutionary Dynamics.",
+      "abstract": "Protein sequences carry a record of evolutionary history shaped by mutation, selection, drift, and epistasis. Recent generative models trained on homologous sequence families offer a new way to read this record: they define probabilistic landscapes that score sequences, generate viable variants, and capture constraints that are difficult to measure experimentally. In this review, we discuss how such landscapes can be used not only for protein design or mutation-effect prediction, but also for modeling evolutionary dynamics. We focus particularly on Direct Coupling Analysis as an interpretable and experimentally validated framework, while placing it in the broader context of generative sequence modeling. We first describe how generative sequence landscapes are inferred and assessed, then review how they can be coupled to population-genetic or substitution-model dynamics to simulate protein evolution across experimental and phylogenetic timescales. Applications include viral evolution, laboratory drift experiments, historical contingency, entrenchment, epistatic drift over time, and long-term sequence-space exploration. We conclude by discussing open challenges, including score-fitness calibration, phylogenetic structure, codon-level mutation biases, indels, and the integration of experimental data.",
+      "authors": [
+        "Bisardi M",
+        "Di Bari L",
+        "Rossi S",
+        "Buda K",
+        "Zamponi F",
+        "Weigt M"
+      ],
+      "date": "2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43097140/",
+      "doi": "10.1007/s00239-026-10369-6",
+      "venue": "Journal of molecular evolution",
+      "pmid": "43097140",
+      "id": "doi:10.1007/s00239-026-10369-6",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "commentary",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "generative model"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "From molecular dynamics to generative design: Engineering enzymes for predictive, programmable, and sustainable biocatalysis.",
+      "abstract": "Enzyme engineering is evolving from empirical mutation-screening toward predictive, AI-enabled biocatalyst design, offering new opportunities to overcome the interdependent tradeoffs governing catalytic efficiency, thermostability, substrate specificity, and process tolerance. This review critically examines advances in structure-guided redesign, active-site and loop engineering, conformational dynamics, allosteric-network modulation, and computational thermostabilization. It integrates insights from X-ray crystallography, cryo-electron microscopy, molecular dynamics, and quantum mechanics/molecular mechanics simulations to elucidate the structural and dynamic determinants of enzyme function. Particular attention is given to machine-learning-guided mutation prediction, protein language models, and generative protein design, highlighting their complementary roles in navigating sequence space and identifying functionally optimized variants. A central contribution is the integration of generative design with ensemble-based molecular dynamics as a conformational validation strategy, illustrated through an engineered cytochrome P450 case study. Industrial translation is critically assessed across pharmaceutical synthesis, CO 2 valorization, biomass conversion, and biofuel production, distinguishing molecular-level performance gains from process-level sustainability, including enzyme manufacture, cofactor requirements, and downstream processing. Persistent barriers involving data quality, epistasis, model generalizability, experimental reproducibility, and scale-up are evaluated.",
+      "authors": [
+        "Subbiah G",
+        "David R",
+        "Molvi I",
+        "Mariswamy M",
+        "Nayak PP",
+        "Faujdar M"
+      ],
+      "date": "2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43095769/",
+      "doi": "10.1080/10826068.2026.2766985",
+      "venue": "Preparative biochemistry & biotechnology",
+      "pmid": "43095769",
+      "id": "doi:10.1080/10826068.2026.2766985",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "methods",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "language model"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Atomic functional site scaffolding in biopolymers with RFdiffusion3",
+      "abstract": "The catalytic and other sophisticated functions of biomolecules arise from the placement of many atoms in three-dimensional space. We describe a generative artificial intelligence method for biopolymers, RFdiffusion3 (RFD3), which uses free-atom diffusion to satisfy complex sets of atomic constraints more rapidly and accurately than previous methods across several challenges, from enzyme design to RNA structure design. We demonstrate experimentally the power of the RFD3 pipeline for enzyme design by designing de novo phosphotriesterases with a complex active-site architecture that incorporates a carbamylated lysine coordinating two metal ions and zinc proteases specific for the transthyretin protein involved in amyloid diseases; in both cases, we obtained active catalysts in zero-shot 96 construct design campaigns.",
+      "authors": [
+        "Jasper Butcher",
+        "Rohith Krishna",
+        "Raktim Mitra",
+        "Seth M. Woodbury",
+        "Donghyo Kim",
+        "Rafael I. Brent"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.aeh2982",
+      "doi": "10.1126/science.aeh2982",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh2982",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "tools",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "arxiv",
+      "sourceLabel": "arXiv",
+      "type": "preprint",
+      "title": "Beyond Hard Tokens: Predictive Memory for Multimodal Protein Generation",
+      "abstract": "Multimodal protein language models unify sequence and discrete structural tokens via iterative masked decoding, offering a promising paradigm for joint protein design. However, standard decoders rely on a memoryless mask reset at each iteration: only a sparse subset of newly committed hard tokens is carried forward, while all remaining unresolved sites are reset to an identical [MASK] embedding. In open-ended co-generation where neither modality provides a fixed external anchor, this stateless transition limits single-step refinement depth and deprives both tracks of stable cross-step soft anchors, leading to slow convergence or degenerative repetitive collapse. Observing that uncommitted predictions evolve with pronounced temporal coherence rather than erratic noise, we introduce Predictive Memory (PredMem), a training-free self-conditioning recurrence that carries these soft beliefs across steps. At each step, PredMem summarizes raw logits into a probability-weighted Top-$k$ expectation embedding at every residue and affinely interpolates it into eligible masked inputs on the next step at zero extra denoiser cost. Across DPLM-2, DPLM-2.1, and ESM3, PredMem raises unconditional sequence-structure co-generation success by 3.6, 17.7, and 48.7 percentage points, respectively, while improving the quality-diversity trade-off and suppressing repetitive mode collapse. Controlled diagnostics show that these gains stem primarily from early trajectory stabilization in unanchored cross-modal co-evolution rather than extra compute or simple entropy reduction, establishing PredMem as a",
+      "authors": [
+        "Xiaoliang Shi",
+        "Zichen Wang",
+        "Zhijian Wei",
+        "Zhanpeng Shi",
+        "Zhenghong Zhou",
+        "Yunpeng Wang"
+      ],
+      "date": "2026-11-24",
+      "url": "https://arxiv.org/abs/2611.32347v1",
+      "venue": "arXiv",
+      "arxivId": "2611.32347v1",
+      "id": "url:https://arxiv.org/abs/2611.32347v1",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "language model"
+        ],
+        "context": [],
+        "venue": "arxiv (+1)",
+        "source": "arxiv (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Artificial Intelligence-Aided Design of Peptides with Custom Secondary Structure Motifs and Reduced Amino Acid Alphabets.",
+      "abstract": "Proteins are highly diverse functional polymers where the specific sequence of amino acids, selected from a standard genetically encoded alphabet of 20 (C20), determines the structure and ultimately the function of the resulting folded protein. This standard alphabet has been identified to be nonrandomly distributed in physicochemical properties crucial to both structure formation and function, often referred to as coverage theory. While machine learning models have drastically improved protein structure prediction, success of protein design models lags structure prediction, particularly for custom secondary structure motifs and amino acid alphabets. Here, we therefore bridge contemporary biological theory with recent advancements in artificial intelligence (AI) to develop and evaluate a generative AI protein design model, trained on hundreds of thousands of proteins within the RCSB PDB, for custom secondary structure motifs using reduced amino acid alphabets (RAAs). Results indicate an overall success in designing novel proteins with desired secondary structure motifs for a broad range of amino acid alphabets and complexity of designs. Interestingly, for a substantial fraction of designs, ESMFold predicts a fold close to that of the target structure despite training only on physicochemical sequence space and secondary structure information. The development of this model advances research across multiple disciplines, from general scientific AI architecture development to protein design for biotechnology, astrobiology, and early-Earth evolutionary biology.",
+      "authors": [
+        "Brown SM",
+        "Cohen AB",
+        "Dean SN"
+      ],
+      "date": "2026-11-23",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43070950/",
+      "doi": "10.1021/acs.jcim.6c03837",
+      "venue": "Journal of chemical information and modeling",
+      "pmid": "43070950",
+      "id": "doi:10.1021/acs.jcim.6c03837",
+      "tags": [],
+      "score": 10,
+      "pass": true,
+      "category": "methods",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [
+          "structure prediction"
+        ],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Atomic functional site scaffolding in biopolymers with RFdiffusion3",
+      "abstract": "Science, Volume 394, Issue 6827, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeh2982?af=R",
+      "doi": "10.1126/science.aeh2982?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh2982?af=r",
+      "tags": [],
+      "score": 9,
+      "pass": true,
+      "category": "design",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "EvoSeq: A Eukaryotic Sequence-Function Profiling Platform for AI-Guided Engineering of Genome-Editing Enzymes.",
+      "abstract": "Artificial intelligence is reshaping protein engineering, yet progress remains constrained by the limited availability of scalable, normalized sequence-activity datasets and experimental benchmarks. Reported here is Evolution by Sequencing (EvoSeq), a sequencing-based profiling platform for genome-editing enzymes that links each variant to a reporter sequence change, enabling activity and variant sequence to be quantified together by next-generation sequencing. Representative sequencing-assisted workflows either require separate functional assays or were performed in bacteria. EvoSeq performs sequence-activity profiling in eukaryotic yeast system with reduced background by up to 95-fold compared to bacterial system, positioning EvoSeq as a pooled eukaryotic alternative to workflows that require separate functional assays and to approaches demonstrated primarily in bacteria. Application to adenine base editor evolution identifies variants with 1.4-fold higher on-target activity at a HBG gene target and threefold lower off-target editing at PCSK9 after mRNA-lipid nanoparticle validation in HepG2 cells. An intron-embedded homologous-recombination recording strategy further enables direct evolution of the large Cas12i nuclease CasY7 and supports active learning, increasing the hit rate of model-nominated mutational windows compared with manual selection. EvoSeq therefore provides an experimental benchmarking method for AI-guided protein-design algorithms and AI-compatible sequence-activity profiling platform for engineering genome editors in eukaryotic cells.",
+      "authors": [
+        "Shen J",
+        "Sun Y",
+        "Han P",
+        "Zhu T",
+        "Gu M",
+        "Lu Y"
+      ],
+      "date": "2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43098935/",
+      "doi": "10.1002/advs.78685",
+      "venue": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pmid": "43098935",
+      "id": "doi:10.1002/advs.78685",
+      "tags": [],
+      "score": 9,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "benchmark",
+          "dataset"
+        ],
+        "venue": "science (+5)",
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "AdaptivePy: A Unified Python Framework for Adaptive Sampling in Molecular Dynamics.",
+      "abstract": "Adaptive sampling accelerates the exploration of conformational space in molecular dynamics (MD) simulations by repeatedly analyzing the accumulated trajectories and seeding a new round of simulations from informative configurations. A growing collection of adaptive sampling policies has been proposed, each built around a particular notion of what makes a configuration informative, yet these methods are scattered across separate and often incompatible implementations, which complicates their systematic comparison and their combined use in meta-adaptive sampling schemes. Here, we present AdaptivePy, a compact and extensible Python framework that implements nine seed-selection policies behind a single configuration-driven interface, spanning simple population-based baselines, several established machine-learning and geometry-based methods, and two ensemble or meta-sampling policies introduced in this work. We show that the shared implementation reproduces the characteristic selection behavior of each policy on a series of analytic benchmark landscapes. We also introduce a new adaptive sampling scheme that employs TS-DAR, a deep learning framework originally designed to identify transition states, as an acquisition criterion that drives the discovery of an entire multibasin landscape starting from a single basin. We further demonstrate that the common interface enables meta-adaptive sampling policies, which aggregate the rankings of several policies into a single set of seeds. We apply all nine policies to explicit-solvent simulations of alanine dipeptide and the miniprotein c",
+      "authors": [
+        "Nadeem H",
+        "Kleiman DE",
+        "Shukla D"
+      ],
+      "date": "2026-11-24",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43076238/",
+      "doi": "10.1021/acs.jctc.6c01596",
+      "venue": "Journal of chemical theory and computation",
+      "pmid": "43076238",
+      "id": "doi:10.1021/acs.jctc.6c01596",
+      "tags": [],
+      "score": 9,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "miniprotein"
+        ],
+        "method": [],
+        "context": [
+          "benchmark",
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Deep Learning and Domain Expertise for Fabricating High-Performance Biosensors.",
+      "abstract": "Transcription factor-based biosensors are essential for the scalable bioproduction of plant natural products. However, a major bottleneck in developing high-performance biosensors is the engineering of responsive promoters due to the vast sequence space and poorly understood sequence-function relationships. Here, we extend our previously published DeepSEED framework into an artificial intelligence-driven pipeline for efficient and extensible biosensor-responsive promoter optimization. This strategy integrates deep learning with domain-specific biological expertise. By fixing core promoter elements, varying the number and position of transcription factor binding sites (TFBSs) to define promoter backbones, and subsequently optimizing the flanking sequences, we enable the de novo design of promoters. We systematically apply this strategy to optimize a panel of biosensors across different transcription factors and regulatory modes, including four metabolite-responsive biosensors and a quorum-sensing-based environmental sensor. The resulting biosensors exhibit diverse dynamic behaviors with markedly improved sensitivity, expanded dynamic range, and increased maximum output. For instance, the optimized naringenin biosensor demonstrates a 32-fold broader dynamic range and a 27-fold higher maximum output compared to its parent. To illustrate its utility in metabolic engineering, we employed a DeepSEED-designed promoter to dynamically regulate a p-coumaric acid biosynthesis pathway, boosting production by 117.0%. Our work extends the previously published DeepSEED framework into a po",
+      "authors": [
+        "Xiao ML",
+        "Zhang P",
+        "Li Z",
+        "Lin NQ",
+        "Wang X",
+        "Liu JZ"
+      ],
+      "date": "2026-11-27",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42881146/",
+      "doi": "10.1021/acssensors.6c01075",
+      "venue": "ACS sensors",
+      "pmid": "42881146",
+      "id": "doi:10.1021/acssensors.6c01075",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [
+          "deep learning"
+        ],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Room-temperature continuous-wave mid-infrared microdisk laser on InP enabled by InAs quantum dots",
+      "abstract": "Abstract Mid-infrared photonics is important for gas monitoring, non-invasive medical diagnostics, and free-space optical links. Realizing high-density photonic integrated circuits in the short-wave mid-infrared (SW-MIR, 2–3 μm) requires compact, efficient microscale lasers that can be integrated on standard platforms. Conventional quantum-well microcavity lasers cannot sustain efficient operation as cavities shrink because lateral carrier diffusion and surface recombination impose a fundamental limit on the threshold, while Auger recombination and thermal carrier leakage losses severely compromise thermal stability in the SW-MIR window. Here, we demonstrate that the strong carrier localization in self-assembled InAs quantum-dot (QD) gain medium circumvents these limitations. A five-stack InAs/InP QD active region achieves room-temperature continuous-wave single-mode lasing in a suspended 5.5 µm microdisk at 2.064 µm. The device also sustains lasing up to 110 °C under pulsed excitation. Temperature-dependent spectra and electronic structure analysis reveal ground-to-excited state dynamics and suppression of thermal carrier leakage. These results demonstrate the potential of QD gain media for compact SW-MIR light sources on InP and Si photonic platforms.",
+      "authors": [
+        "Haotian Zeng",
+        "Yangqian Wang",
+        "Hui Jia",
+        "Jae-Seong Park",
+        "Igor P. Marko",
+        "Dominic A. Duffy"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79654-8",
+      "doi": "10.1038/s41467-026-79654-8",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79654-8",
+      "tags": [],
+      "score": 8,
+      "pass": true,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [
+          "diffusion"
+        ],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Corrigendum to \"Controlling cell architecture with protein design\" [Curr Opin Cell Biol, 96 (2025): 102569].",
+      "abstract": "",
+      "authors": [
+        "Cross J",
+        "Woolfson DN",
+        "Dodding MP"
+      ],
+      "date": "2026-11-26",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43098126/",
+      "doi": "10.1016/j.ceb.2026.102703",
+      "venue": "Current opinion in cell biology",
+      "pmid": "43098126",
+      "id": "doi:10.1016/j.ceb.2026.102703",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "protein design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Moving beyond hyperscale ambitions for AI infrastructure in Africa",
+      "abstract": "",
+      "authors": [
+        "Chinasa T. Okolo"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.aen1227",
+      "doi": "10.1126/science.aen1227",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen1227",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Nutritional interventions’ impacts on human milk: Three trials in low-resource settings",
+      "abstract": "Human milk (HM) composition is variable to support changing infant needs and is influenced by maternal diet and health. We harmonized HM data from three randomized trials in Burkina Faso (MISAME-III), Pakistan (Mumta-LW), and Tanzania (ELICIT) within the International Milk Composition (IMiC) Consortium to test how maternal nutrition affects HM composition. Balanced energy-protein (BEP) supplements or nicotinamide given to lactating mothers increased milk B vitamins, whereas macronutrients, oligosaccharides, bioactive proteins, and microbiome composition were physiologically buffered. Metabolomic and proteomic analyses revealed shifts in vitamin-related metabolites, triglyceride profiles, and intracellular protein representation. In a MISAME-III subset, maternal and infant blood showed concordant changes. Postnatal BEP improved infant growth only in the more undernourished cohort. Improved milk micronutrient quality across settings supports extending maternal supplementation into lactation.",
+      "authors": [
+        "Trenton Dailey-Chwalibóg",
+        "Andrew Mertens",
+        "Kelsey Fehr",
+        "Chi-Hung Shu",
+        "April Jauhal",
+        "Melissa B. Manus"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.aee9284",
+      "doi": "10.1126/science.aee9284",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee9284",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Mechanisms of nucleosome disruption shape epigenetic inheritance pathway choice",
+      "abstract": "Maintaining cell identity requires duplicating the genome and epigenome during S phase. As DNA is copied, histones extracted from parental nucleosomes are transferred to nascent strands, which preserves the position of epigenetic marks. How the replisome coordinates these processes is unclear. Using reconstitution with purified yeast proteins, kinetic measurements, structural biology, mass spectrometry and genomics, we examined nucleosome-replisome encounter and histone transfer. Parental nucleosomes can be unwrapped ahead of the fork by the MCM helicase, aided by FACT and Ctf4, or by Tof1. Nucleosomal DNA unwrapping by MCM creates a FACT binding site, helping strip histones off DNA. Ctf4 enhances FACT-stimulated histone extraction, retains parental histones and hands them to Tof1, en route to lagging-strand redeposition. Thus, extraction via Ctf4 commits histones to lagging-strand transfer.",
+      "authors": [
+        "Oliver Willhoft",
+        "Milos A. Cvetkovic",
+        "Fernando R. Rosas Bringas",
+        "Dolores Jurado-Santiago",
+        "Robert Ciaran Mackenzie Frater",
+        "Kimberly Quililan"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.aek0813",
+      "doi": "10.1126/science.aek0813",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aek0813",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Priming of AGO2 by type I interferons balances inflammation and antiviral immunity",
+      "abstract": "Argonaute-2 (AGO2)–mediated RNA silencing contributes to antiviral defenses in plants and insects and may contribute to mammalian immunity, too. However, it is unknown whether AGO2 is modified upon infection or inflammation in mammals. We identified that the ubiquitin ligase RING-finger protein 126 (RNF126) interacts with and ubiquitinates AGO2 to enhance its small interfering RNA or microRNA loading. Using data from cells in vitro and mouse tissues, we propose that RNF126 is induced by type I interferon (IFN-I) signaling and promotes the ability of AGO2 to silence proinflammatory genes and inhibit viral replication. Lipid nanoparticle delivery of RNF126 mRNA to mice inhibited inflammation and viral replication. These findings identify cross-talk of IFN-based immune signaling and AGO2-mediated RNA silencing and suggest that the RNF126-AGO2 axis helps to balance inflammatory and antiviral immune protection.",
+      "authors": [
+        "Yujie Ren",
+        "Xiao-Xu Zhu",
+        "Yaxin Wang",
+        "An Wang",
+        "Bowen Zhang",
+        "Jing Lou"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.adx9551",
+      "doi": "10.1126/science.adx9551",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adx9551",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "A tryptophan cation radical determines radical transfer kinetics and catalytic rate in a ribonucleotide reductase",
+      "abstract": "Ribonucleotide reductase (RNR) is the sole enzyme responsible for de novo deoxynucleotide synthesis for DNA replication and repair. In the Escherichia coli class Ia RNR, a radical must traverse 32 angstroms along a pathway composed of amino acids spanning β and α subunits to complete each turnover. By incorporating unnatural amino acids to alter reduction potentials of pathway tyrosine residues, we (i) perturb the rates of radical transfer and show that they match the rates of deoxynucleotide production and (ii) directly observe a tryptophan cation radical (W 48 + •) as a kinetically competent pathway intermediate. Together, these results establish that radical transfer through W 48 in α 2 β 2 is the rate-limiting process, which controls the enzymatic activity of E. coli RNR.",
+      "authors": [
+        "Nejc Nagelj",
+        "Chang Cui",
+        "Kenichi Yokoyama",
+        "JoAnne Stubbe",
+        "Daniel G. Nocera"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1126/science.aei8950",
+      "doi": "10.1126/science.aei8950",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei8950",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2",
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Mitigating preferred orientation in cryo-EM with ultrasonic excitation during vitrification",
+      "abstract": "Abstract Preferred particle orientation remains a frequently encountered problem in cryo-electron microscopy that arises when proteins adsorb to the air–water interface in only a limited number of orientations. This issue can considerably increase the data acquisition time required to reach a desired resolution or even make it impossible to obtain a reconstruction altogether. Here we show that preferred orientation can be mitigated by continuously exciting the sample with ultrasonic waves during vitrification. Our experiments suggest that mechanical oscillations induced in the sample support continuously shake proteins loose from the air–water interface, thereby scrambling their orientations. The simple, physical nature of this mechanism should make it applicable to a wide range of proteins and implementable using existing vitrification devices.",
+      "authors": [
+        "Harry M. Williams",
+        "Wyatt A. Curtis",
+        "Michal Haubner",
+        "Jakub Wenz",
+        "Marcel Drabbels",
+        "Ulrich J. Lorenz"
+      ],
+      "date": "2026-11-26",
+      "url": "https://doi.org/10.1038/s41592-026-03382-6",
+      "doi": "10.1038/s41592-026-03382-6",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03382-6",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "cryo-em"
+        ],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Revisiting earlier protease inhibitor studies using modern AI structure modeling tools.",
+      "abstract": "Crystallographic studies of proteases and inhibitors by Wolfram Bode and colleagues in the late twentieth century relied on simple graphical modeling, force-field energy functions, and human intuition. These systems now provide interesting tests of modern AI methods. We examine three classes of protease inhibitors and their complexes. For cystatin, originally modeled with papain by manual fitting of protein surfaces, AI methods recover both the inhibitor fold and binding geometry to differing extents, with some approaches favoring a single binding mode and others generating broader ensembles that may explore alternative geometries. De novo design against papain reveals a similar contrast between conservative and exploratory modes of prediction. For the two-headed serine protease inhibitor from mung bean, prediction of its symmetric ternary complex with two trypsin molecules depends strongly on recovery of the small disulfide-rich inhibitor fold. Finally, modeling α1-antitrypsin tests whether AI methods can distinguish known uncleaved and cleaved conformations of a structurally more plastic inhibitor. Local restructuring of the central β-sheet is central to mechanism, while the overall fold remains conserved. These applications show diverse uses of AI modeling tools, from reproducing known structures to exploring assemblies and generating novel interactions, while exposing limitations in flexibility and sampling.",
+      "authors": [
+        "Czech MR",
+        "Engh RA"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42925217/",
+      "doi": "10.1515/hsz-2026-0137",
+      "venue": "Biological chemistry",
+      "pmid": "42925217",
+      "id": "doi:10.1515/hsz-2026-0137",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P2"
+      ],
+      "reasons": {
+        "core": [
+          "de novo design"
+        ],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Structural basis of RNA-guided DNA integration by type I CAST systems",
+      "abstract": "Abstract CRISPR-associated transposases (CASTs) achieve site-specific DNA integration by combining the RNA-guided targeting action of a nuclease-deficient CRISPR–Cas system with the assembly of a Tn7-like transpososome complex 1,2 . Understanding the detailed mechanisms of this elaborate process is paramount to engineering CAST systems into programmable genetic tools 3–6 . Type I-F Pseudoalteromonas CAST ( Pse CAST) shows the highest activity in mammalian cells so far 7 and has been adapted extensively through directed evolution 8 . However, its continued rational engineering requires addressing critical gaps in our understanding of transpososome assembly and activation 9 . Here we perform structural analyses using cryogenic electron microscopy, validated by DNA transposition assays, to visualize the Pse CAST system in a series of functional states that define the stepwise mechanism of RNA-guided DNA integration. The structures of the Pse CAST targeting and transposase recruitment complexes revealed that conformational changes in the Cascade–TniQ module, induced by R-loop formation, are associated with target-DNA stabilization and TnsC heptamerization. This, in turn, results in the recruitment of the TnsAB transposase by conserved interactions with the carboxy-terminal tail of TnsB. Finally, the structure of the 1.2 MDa Pse CAST transpososome holocomplex revealed allosteric coupling of TnsC–TnsB and TnsB–target-DNA interactions to the conformational remodelling of the TnsB catalytic site, activating donor-DNA integration. Together, these findings establish a unified mechani",
+      "authors": [
+        "Giada Finocchio",
+        "Seraina Oberli",
+        "George D. Lampe",
+        "Michael Schmitz",
+        "Samuel H. Sternberg",
+        "Martin Jinek"
+      ],
+      "date": "2026-11-25",
+      "url": "https://doi.org/10.1038/s41586-026-11196-x",
+      "doi": "10.1038/s41586-026-11196-x",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11196-x",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Modular mRNA-encoded helper proteins enhance DNA delivery",
+      "abstract": "Abstract DNA delivery is limited by inefficient nuclear translocation and restrictive intracellular environments. Here we present mRNA-enhanced DNA delivery (MEND), a system that codelivers mRNA-encoded helper proteins to actively prime cells for enhanced DNA processing. We demonstrate three classes of MEND proteins: DNA translocators, host modulators and immune dampeners. MEND’s modular framework boosts transgene expression across various delivery vehicles and DNA formats in vitro and in vivo with LNP delivery.",
+      "authors": [
+        "Manthan N. Patel",
+        "Heewon Park",
+        "Nicolas Marzolini",
+        "Conor Dickson",
+        "Sarah O’Neill",
+        "Saw Yunn Nwe"
+      ],
+      "date": "2026-11-24",
+      "url": "https://doi.org/10.1038/s41587-026-03351-6",
+      "doi": "10.1038/s41587-026-03351-6",
+      "venue": "Nature Biotechnology",
+      "id": "doi:10.1038/s41587-026-03351-6",
+      "tags": [],
+      "score": 7,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature biotechnology (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Expanding antimicrobial chemical space by engineering drug safety",
+      "abstract": "Abstract Antimicrobial-resistant (AMR) infections are a major health threat. Although advances in high-throughput screening, genome mining, and machine learning have accelerated antimicrobial discovery, insufficient separation between antibacterial efficacy and host toxicity remains a bottleneck to the clinical development of new antimicrobial compounds. Here, we establish a generalizable, two-component strategy to engineer drug safety and mobilize otherwise inaccessible chemical space for antimicrobial therapy, using calicheamicin, a potent cytotoxin with unacceptable host toxicity, as a proof of concept. First, we engineer a conditionally active drug conjugate that limits calicheamicin activity to infected tissue, thereby reducing systemic toxicity. Second, we engineer a self-resistance enzyme from Micromonospora echinospora , the natural producer of calicheamicin, as a long-circulating antidote to neutralize calicheamicin outside infected tissue, further reducing off-target toxicity. The conjugate exhibits activity against Gram-positive and Gram-negative pathogens upon exposure to a protease present within the infected microenvironment. When delivered with the antidote, antibacterial efficacy is maintained while off-target toxicity is reduced in mouse models of Gram-positive and Gram-negative bacterial pneumonia. We anticipate that our dual strategy, which engineers drug safety rather than selecting for it, provides a generalizable framework for mobilizing promising but toxic compounds as antimicrobials.",
+      "authors": [
+        "Tahoura Samad",
+        "Chayanon Ngambenjawong",
+        "Henry Ko",
+        "Savan Patel",
+        "Cristiana DeAgazio",
+        "Heather E. Fleming"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-78959-y",
+      "doi": "10.1038/s41467-026-78959-y",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78959-y",
+      "tags": [],
+      "score": 6,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "high-throughput"
+        ],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Molecular basis for thermoresponsive protein condensation in plants",
+      "abstract": "",
+      "authors": [
+        "Sunita Pathak",
+        "Ananya Chakravarti",
+        "Carissa Bersche",
+        "David A. Korasick",
+        "Yuren Cao",
+        "Jerelle A. Joseph"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79660-w",
+      "doi": "10.1038/s41467-026-79660-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79660-w",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Crystal structures of tetraketide synthase reveal the mechanistic basis for partitioning products in cannabinoid biosynthesis",
+      "abstract": "Abstract Tetraketide synthase (TKS), a plant type III polyketide synthase, catalyzes the iterative condensation of hexanoyl-CoA and three malonyl-CoAs to generate a linear tetraketide-CoA that is cyclized to olivetolic acid (OA), an essential intermediate in cannabinoid biosynthesis. TKS also produces abundant tri- and tetraketide lactones that divert flux from OA. Here, we report crystal structures of TKS in complex with mono-, di-, tri-, and tetraketide intermediates that reflect relevant catalytic states in substrate loading, chain elongation, and cyclization. Met187 acts as a dynamic steric gate governing substrate tolerance and elongation, while adjacent residues maintain intermediates in an extended, linear conformation. Ser332-mediated interactions promote lactonization through C5-O-C1 ring closure, implicating lactonization as an enzyme-controlled process. Recapture-versus-release of the tetraketide intermediate determines whether linear or cyclized products are formed. These findings establish a framework for engineering TKS variants with improved OA production and advance chemoenzymatic methods for producing cannabinoids and structurally diverse polyketides.",
+      "authors": [
+        "Kristofer R. Gonzalez-DeWhitt",
+        "Cameron W. Flowers",
+        "Natalia Ermolova",
+        "Anthony N. Farina",
+        "Jeff Abramson"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79495-5",
+      "doi": "10.1038/s41467-026-79495-5",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79495-5",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Evolution tunes functional sub-state interconversion to boost enzyme function",
+      "abstract": "Abstract Enzymes do not operate as static structures, but continuously sample an ensemble of conformational sub-states with distinct catalytic activities. Yet whether evolution can exploit the transitions between sub-states to improve activity remains largely unexplored. Here, we dissect an evolutionary trajectory of β-lactamase OXA-48 toward enhanced ceftazidime hydrolysis. OXA-48 is well suited for studying sub-state evolution, as equilibria between sub-states can be directly interrogated through substrate-induced inactivation and binding kinetics. Steady-state and pre-steady-state kinetic analyses reveal that evolution perturbed the conformational equilibrium and gradually shifted the rate-limiting step from substrate binding through sub-state interconversion to the chemical step. Kinetics with the native substrate meropenem, confirmed coexisting sub-states with markedly different reactivity to ceftazidime, demonstrating that remodeling the conformational landscape introduced a catalytic trade-off rooted in an incompatibility between the native and evolved sub-state populations. Hydrogen/deuterium exchange mass spectrometry independently corroborated these coexisting sub-states, while molecular dynamics simulations traced the activity trade-off to increased active-site flexibility around the catalytic base. Together, our findings establish sub-state interconversion as a direct target of evolutionary selection, shaping functional divergence and offering distinct strategies for enzyme engineering and drug design.",
+      "authors": [
+        "Daniel Salamonsen",
+        "Andrea Pierangelini",
+        "Karol Buda",
+        "Daojiong Wang",
+        "Felix Schwab",
+        "Marc W. van der Kamp"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-78841-x",
+      "doi": "10.1038/s41467-026-78841-x",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78841-x",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Dual-comb photoacoustic Brillouin spectroscopy of optomechanical dynamics in gas-filled microstructured hollow-core fibers",
+      "abstract": "",
+      "authors": [
+        "Zihang Peng",
+        "Hanyu Liao",
+        "Haihong Bao",
+        "Feifan Chen",
+        "Ziqi Yin",
+        "Hoi Lut Ho"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79825-7",
+      "doi": "10.1038/s41467-026-79825-7",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79825-7",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Changing mercury exposure in the Yukon Watershed linked to traditional diet shifts and permafrost thaw",
+      "abstract": "Abstract Rapid Arctic warming is disrupting ecosystems and traditional subsistence resources, and simultaneously may release toxic mercury into aquatic ecosystems. Together, these changes threaten food security and public health. In the Yukon River Basin of Alaska, many Indigenous communities that traditionally rely on subsistence fishing are facing precipitous declines in salmon populations. Alternative protein sources can contain up to eight times more mercury, with burbot, northern pike, and beluga being major dietary mercury contributors. More reliance on these proteins could increase mercury exposure, while permafrost thaw is projected to increase mercury concentrations in fish by 21–175% by 2100. Here, we combine diet surveys and subsistence harvest data to develop a hypothetical dietary mercury model. Dietary shifts and permafrost-driven increases in fish mercury could increase mercury intake up to 486%, potentially exceeding public health guidelines and highlighting the vulnerability of Arctic food systems to interacting environmental and ecological change.",
+      "authors": [
+        "M. Isabel Smith",
+        "Emily A. Seelen",
+        "Edda A. Mutter",
+        "Anna R. Godduhn",
+        "Marie E. Lowe",
+        "John S. Magyar"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79288-w",
+      "doi": "10.1038/s41467-026-79288-w",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79288-w",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Identification and functional characterization of bacterial bilirubin vinyl reductase across vertebrate gut microbiomes",
+      "abstract": "Abstract Gut bacteria reduce bilirubin to urobilinogen, allowing it to be excreted through feces and urine, but studies have long noted a heterogeneous mixture of partially reduced bilirubin-derived intermediates, suggesting that multiple enzymes are involved. Here we identify bilirubin vinyl reductase (BilV), an Old Yellow Enzyme family reductase encoded in the genomic neighborhood of the known bilirubin reductase ( bilR ). Using heterologous expression and LC–MS/MS, we show that BilR acts on the methine bridges in the bilirubin reduction pathway; co-expression with BilV enables vinyl-group reduction and complete conversion to urobilinogen. In bacterial genomes, bilV co-occurs primarily with the bilR -insertion subtype and is largely absent alongside bilR -short. Analysis of 1,197 gut metagenomes across 14 vertebrate species reveals that this differential co-occurrence shapes pathway availability across hosts: carnivores and omnivores carry balanced bilR and bilV , whereas avian microbiomes, dominated by bilR -short, are depleted for bilV . These findings establish that bilirubin reduction to urobilinogen involves two enzymes with complementary regioselectivity, revising the previous model, and that their distribution across vertebrate gut microbiomes varies in relation to host bile pigment chemistry.",
+      "authors": [
+        "Angela K. Jiang",
+        "Maggie R. Grant",
+        "Gabriela Arp",
+        "Keith Dufault-Thompson",
+        "Alexandra M. Clarke",
+        "Yue Li"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79675-3",
+      "doi": "10.1038/s41467-026-79675-3",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79675-3",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Identification of fibril-forming antimicrobial peptides reveals structural plasticity and diverse amyloid architectures",
+      "abstract": "Abstract Amyloid formation, in which peptides and proteins self-assemble into ordered fibrils, is increasingly recognized as a functional property of antimicrobial and virulence-associated peptides. However, how widespread these assemblies are and how their structures relate to biological activity remain unclear. Here we show that computationally selected antimicrobial and virulence-associated peptides frequently form fibrils and can access multiple, environmentally regulated structural states. Many peptides switched between α-helical and β-rich conformations in response to changes in their environment. High-resolution cryogenic electron microscopy of aurein 1.2 and brevinin-1OKc revealed polymorphic cross-β amyloid structures, including kinked peptide chains and a radially symmetric six-chain architecture. Native mass spectrometry further revealed distinct assembly pathways: aurein 1.2 accumulated soluble oligomeric intermediates, whereas brevinin-1OKc remained predominantly monomeric before fibril formation. Together, these findings expand the known structural repertoire of antimicrobial amyloids and suggest that structural plasticity and alternative assembly pathways enable antimicrobial peptides to respond dynamically to their biological environment.",
+      "authors": [
+        "Peleg Ragonis-Bachar",
+        "Fabio Strati",
+        "Emil Gustavsson",
+        "Alexander Khokhlov",
+        "Janine-Denise Kopicki",
+        "Sambhasan Banerjee"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79584-5",
+      "doi": "10.1038/s41467-026-79584-5",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79584-5",
+      "tags": [],
+      "score": 5,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "pubmed",
+      "sourceLabel": "PubMed",
+      "type": "paper",
+      "title": "Structural Determinants of Thermostability in Sweet Proteins and Rational Engineering of Heat-Stable Monellin Variants.",
+      "abstract": "Sweet proteins are promising natural low-calorie sweeteners, but limited thermostability restricts their food-processing applications. Fifteen computational predictors were evaluated against experimental mutation data across five sweet proteins: brazzein, curculin, monellin, mabinlin, and thaumatin. Structure-based methods outperformed sequence-based approaches, with ensemble-averaged ΔΔG providing the strongest discrimination. Guided by these predictions, 17 single-chain monellin variants were characterized by differential scanning fluorimetry, revealing predominantly neutral or stabilizing effects. Methionine substitutions showed greater stabilization potential than isoleucine or leucine at structurally constrained positions, potentially reflecting the flexibility of its unbranched thioether side chain. Double-mutant analysis revealed positive epistasis between positions 4 and 23 (ε = +4.11 °C), increasing the melting temperature to approximately 74 °C. Analysis of 13262 substitutions further identified polar and charged residues as major sources of predicted destabilization, while hydrophobic substitutions, particularly methionine, favored stabilization. Residue burial modulated stabilization magnitude and reliability, informing thermostability engineering of sweet proteins.",
+      "authors": [
+        "Shu X",
+        "Li Y",
+        "Cheng Y",
+        "Tang N"
+      ],
+      "date": "2026-11-25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43082120/",
+      "doi": "10.1021/acs.jafc.6c13849",
+      "venue": "Journal of agricultural and food chemistry",
+      "pmid": "43082120",
+      "id": "doi:10.1021/acs.jafc.6c13849",
+      "tags": [],
+      "score": 2,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": null,
+        "source": "pubmed (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The absent-minded physicist who bested them all",
+      "abstract": "Science, Volume 394, Issue 6827, Page 945-945, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem8414?af=R",
+      "doi": "10.1126/science.aem8414?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem8414?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "The original researchers would like a word",
+      "abstract": "Science, Volume 394, Issue 6827, Page 946-946, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aej2312?af=R",
+      "doi": "10.1126/science.aej2312?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aej2312?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Priming of AGO2 by type I interferons balances inflammation and antiviral immunity",
+      "abstract": "Science, Volume 394, Issue 6827, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adx9551?af=R",
+      "doi": "10.1126/science.adx9551?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adx9551?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Mitochondrial profiling links tumor genotype to metabolic and immune vulnerabilities in liver cancer",
+      "abstract": "Science, Volume 394, Issue 6827, Page 972-981, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeb7608?af=R",
+      "doi": "10.1126/science.aeb7608?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeb7608?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Shared patterns of human milk composition link mammary gland function to infant growth",
+      "abstract": "Science, Volume 394, Issue 6827, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee7240?af=R",
+      "doi": "10.1126/science.aee7240?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee7240?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Magic state cultivation on a superconducting quantum processor",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1007-1012, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee7961?af=R",
+      "doi": "10.1126/science.aee7961?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee7961?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Nutritional interventions’ impacts on human milk: Three trials in low-resource settings",
+      "abstract": "Science, Volume 394, Issue 6827, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aee9284?af=R",
+      "doi": "10.1126/science.aee9284?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aee9284?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Counter-ion confinement reverses ion selectivity in subnanometer channels",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1013-1019, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef1323?af=R",
+      "doi": "10.1126/science.aef1323?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef1323?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Rough fracture zone as a gateway to the 2025 Mw 8.8 Kamchatka earthquake",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1002-1006, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aef2089?af=R",
+      "doi": "10.1126/science.aef2089?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aef2089?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "An engineered cohesion system reduces errors in aged mammalian eggs",
+      "abstract": "Science, Volume 394, Issue 6827, Page 982-989, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei5852?af=R",
+      "doi": "10.1126/science.aei5852?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei5852?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A tryptophan cation radical determines radical transfer kinetics and catalytic rate in a ribonucleotide reductase",
+      "abstract": "Science, Volume 394, Issue 6827, Page 967-971, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei8950?af=R",
+      "doi": "10.1126/science.aei8950?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei8950?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Millisecond-scale imaging of fragmented earthquake rupture by near-source fiber-optic sensing",
+      "abstract": "Science, Volume 394, Issue 6827, Page 996-1001, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei0507?af=R",
+      "doi": "10.1126/science.aei0507?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei0507?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Abrupt surface water decline during 2023–2024 record warming",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1027-1032, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aei2575?af=R",
+      "doi": "10.1126/science.aei2575?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aei2575?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A fast radio burst at redshift 2, three billion years after the Big Bang",
+      "abstract": "Science, Volume 394, Issue 6827, Page 990-995, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adz2675?af=R",
+      "doi": "10.1126/science.adz2675?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adz2675?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Stereodivergent telomerization of linear functionalized dienes with amines",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1020-1026, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeh7895?af=R",
+      "doi": "10.1126/science.aeh7895?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeh7895?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Integrating established and emerging tools to assess wildlife condition from the ground, up",
+      "abstract": "Science, Volume 394, Issue 6827, Page 950-959, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aed3374?af=R",
+      "doi": "10.1126/science.aed3374?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aed3374?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "In Other Journals",
+      "abstract": "Science, Volume 394, Issue 6827, Page 961-962, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3371?af=R",
+      "doi": "10.1126/science.aeo3371?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3371?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "A new growth curve",
+      "abstract": "Science, Volume 394, Issue 6827, Page 1034-1034, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3372?af=R",
+      "doi": "10.1126/science.aeo3372?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3372?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Deception in motion",
+      "abstract": "Science, Volume 394, Issue 6827, Page 935-937, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aek0041?af=R",
+      "doi": "10.1126/science.aek0041?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aek0041?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Growing magic for quantum computers",
+      "abstract": "Science, Volume 394, Issue 6827, Page 939-940, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aen1265?af=R",
+      "doi": "10.1126/science.aen1265?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aen1265?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Genetic differences shape the metabolic fates of tumors",
+      "abstract": "Science, Volume 394, Issue 6827, Page 937-938, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem8439?af=R",
+      "doi": "10.1126/science.aem8439?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem8439?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Repairing a sisterly bond",
+      "abstract": "Science, Volume 394, Issue 6827, Page 940-941, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem7163?af=R",
+      "doi": "10.1126/science.aem7163?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem7163?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Science and the arts: Partners in crime",
+      "abstract": "Science, Volume 394, Issue 6827, Page 948-948, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.adz4986?af=R",
+      "doi": "10.1126/science.adz4986?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.adz4986?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Genomic data need a stronger equity framework",
+      "abstract": "Science, Volume 394, Issue 6827, Page 949-949, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.ael9361?af=R",
+      "doi": "10.1126/science.ael9361?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.ael9361?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Senate-led persecution of Brazilian scientists",
+      "abstract": "Science, Volume 394, Issue 6827, Page 947-948, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aem4452?af=R",
+      "doi": "10.1126/science.aem4452?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aem4452?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Flight of the bug bots",
+      "abstract": "Science, Volume 394, Issue 6827, Page 930-934, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3699?af=R",
+      "doi": "10.1126/science.aeo3699?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3699?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "China has been quietly importing thousands of research monkeys",
+      "abstract": "Science, Volume 394, Issue 6827, Page 922-923, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3726?af=R",
+      "doi": "10.1126/science.aeo3726?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3726?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "At both poles, warm water is eating away sea ice from below",
+      "abstract": "Science, Volume 394, Issue 6827, Page 924-924, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3727?af=R",
+      "doi": "10.1126/science.aeo3727?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3727?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "rss",
+      "sourceLabel": "Science",
+      "type": "paper",
+      "title": "Are T cell engagers the next big thing in autoimmune disease treatment?",
+      "abstract": "Science, Volume 394, Issue 6827, Page 925-926, November 2026.",
+      "authors": [],
+      "date": null,
+      "url": "https://www.science.org/doi/abs/10.1126/science.aeo3728?af=R",
+      "doi": "10.1126/science.aeo3728?af=r",
+      "venue": "Science",
+      "id": "doi:10.1126/science.aeo3728?af=r",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "science (+5)",
+        "source": "rss (+1)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "The haunting loveliness of boglands: Books in brief",
+      "abstract": "",
+      "authors": [
+        "Andrew Robinson"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03885-4",
+      "doi": "10.1038/d41586-026-03885-4",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03885-4",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Want your research cited in patents? Publishing open access increases your chances",
+      "abstract": "",
+      "authors": [
+        "James Mitchell Crow"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03754-0",
+      "doi": "10.1038/d41586-026-03754-0",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03754-0",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "experiments",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Why the incoming US Congress should ban the development of self-improving AI",
+      "abstract": "",
+      "authors": [
+        "Alex Bores"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03849-8",
+      "doi": "10.1038/d41586-026-03849-8",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03849-8",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Life-saving cancer drug pumped out by a plant",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03801-w",
+      "doi": "10.1038/d41586-026-03801-w",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03801-w",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Author Correction: Artificial intelligence-enabled clinical phenotyping of human brown fat",
+      "abstract": "",
+      "authors": [
+        "Nicolás Gómez-Banoy",
+        "Jorge A. Barrero",
+        "Luiza Rachel Pinheiro de Carvalho",
+        "Caroline S. Jiang",
+        "Tara Doma Lama",
+        "Nakul Karandikar"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41586-026-11411-9",
+      "doi": "10.1038/s41586-026-11411-9",
+      "venue": "Nature",
+      "id": "doi:10.1038/s41586-026-11411-9",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "industry",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Audio long read: The world’s most precious brain samples — and what they teach us about being human",
+      "abstract": "",
+      "authors": [
+        "Rachel Fieldhouse",
+        "Benjamin Thompson"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03900-8",
+      "doi": "10.1038/d41586-026-03900-8",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03900-8",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Postcards from your graves",
+      "abstract": "",
+      "authors": [
+        "Wendy Nikel"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03523-z",
+      "doi": "10.1038/d41586-026-03523-z",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03523-z",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Brain area’s mysterious role in speech decoded at last",
+      "abstract": "",
+      "authors": [],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/d41586-026-03800-x",
+      "doi": "10.1038/d41586-026-03800-x",
+      "venue": "Nature",
+      "id": "doi:10.1038/d41586-026-03800-x",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature (+5)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Mechanism-grounded RNA velocity: from kinetic models to deep learning and foundation models",
+      "abstract": "",
+      "authors": [
+        "Yawei Li",
+        "Xin Wu",
+        "Yuan Luo"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41592-026-03387-1",
+      "doi": "10.1038/s41592-026-03387-1",
+      "venue": "Nature Methods",
+      "id": "doi:10.1038/s41592-026-03387-1",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [
+          "deep learning"
+        ],
+        "venue": "nature methods (+4)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Transcriptional nodes governing diversity and effector rewiring of a plastic liver invariant natural killer T cell ecosystem",
+      "abstract": "",
+      "authors": [
+        "Jun Yamanouchi",
+        "Josep Garnica",
+        "Enric Canut",
+        "Shari Thiessen",
+        "Thomas Papp-Simon",
+        "Joel Moro"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-78497-7",
+      "doi": "10.1038/s41467-026-78497-7",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-78497-7",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [
+        "P1"
+      ],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    },
+    {
+      "source": "crossref",
+      "sourceLabel": "Crossref",
+      "type": "paper",
+      "title": "Rigidity-driven molecular assembly for high-efficiency flexible perovskite/CIGS tandems",
+      "abstract": "",
+      "authors": [
+        "Libing Yao",
+        "Enbing Bi",
+        "Qingqing Liu",
+        "Ke Zhao",
+        "Caner Değer",
+        "Ilhan Yavuz"
+      ],
+      "date": "2026-11-27",
+      "url": "https://doi.org/10.1038/s41467-026-79826-6",
+      "doi": "10.1038/s41467-026-79826-6",
+      "venue": "Nature Communications",
+      "id": "doi:10.1038/s41467-026-79826-6",
+      "tags": [],
+      "score": 0,
+      "pass": false,
+      "category": "methods",
+      "projectsSuggested": [],
+      "reasons": {
+        "core": [],
+        "method": [],
+        "context": [],
+        "venue": "nature communications (+3)",
+        "source": "crossref (+2)",
+        "excluded": []
+      }
+    }
+  ]
+}
